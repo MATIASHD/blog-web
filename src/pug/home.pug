@@ -1,0 +1,53 @@
+extends ./layouts/base.pug 
+block content
+    .container
+        .row.mb-3
+            .col-md-12
+                section.py-5.border-bottom.bg-dark.bg-gradient.rounded-3 
+                    .container 
+                        .row.justify-content-center.text-center 
+                            .col-lg-8 
+                                h1.display-4.fw-semibold.mb-3.text-white Tecnologia con impactor real 
+                                h2.lead.text-secondary.mb-4 Guias, analisis y noticias para entender como la tecnologia afecta tu dia a dia
+                                a(href='#last-post' class='btn btn-dark btn-lg') Ultimo articulo
+        if posts && posts.length
+            - const latestPost = posts[0];
+            .row.mb-3.border-bottom.pb-3#last-post
+                .col-md-12
+                    h2 Ultimo artículo
+                    .row
+                        .col-md-8
+                            h3
+                                a(href=`pages/article-${latestPost.slug}.html` class='text-decoration-none')= latestPost.title
+                            p.fs-6.text-body-tertiary
+                                | #{new Date(latestPost.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+                                if latestPost.tags && latestPost.tags.length
+                                    |  · Etiquetas: 
+                                    each tag in latestPost.tags
+                                        span.badge.bg-secondary.ms-1= tag
+                            p= latestPost.description
+                        .col-md-4
+                            //- Placeholder para imagen del post
+                            .bg-light.rounded.d-flex.align-items-center.justify-content-center(style='height: 200px;')
+                                span.text-muted Imagen del post
+            .row.mb-3
+                .col-md-12
+                    h2 Todos los artículos
+            .row
+                each post in posts
+                    .col-md-3.mb-3
+                        .card.h-100
+                            .card-body
+                                h5.card-title
+                                    a(href=`pages/article-${post.slug}.html` class='text-decoration-none')= post.title
+                                p.card-text.fs-6
+                                    small.text-body-tertiary
+                                        | #{new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
+                                if post.tags && post.tags.length
+                                    .mb-2
+                                        each tag in post.tags
+                                            span.badge.bg-secondary.me-1= tag
+                                p.card-text.text-truncate= post.description
+        else
+            .col-md-12
+                p No hay posts disponibles.

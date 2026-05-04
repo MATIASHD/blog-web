@@ -1,0 +1,19 @@
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    //border: none;
+    //box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, .15);
+    }
+
+    .card-img-top {
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+.card-width-18{
+    width: 18rem;
+}

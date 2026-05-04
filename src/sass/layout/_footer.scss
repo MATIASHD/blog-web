@@ -1,0 +1,10 @@
+footer{
+    border-top: 1px solid #dee2e6;
+    margin-top: 5rem;
+    a {
+        transition: color 0.3s;
+        &:hover {
+            color: #80bdff !important;
+        }
+    }
+}

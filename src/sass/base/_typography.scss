@@ -1,0 +1,56 @@
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-headings;
+    line-height: $lh-heading;
+    font-weight: 600;
+    color: $text-primary;
+}
+.fs-main-title {
+    font-size: $fs-main-title;
+    line-height: 1.2;
+    font-weight: 700;
+    color: $text-primary;
+}
+.fs-card-title, .fs-card-content{
+    font-family: $font-inter-light;
+}
+
+.fs-card-title {
+    font-size: $fs-h3;
+    color: $text-primary;
+}
+.fs-card-content {
+    font-size: $fs-code;
+    line-height: $lh-body;
+    color: $text-secondary;
+}
+
+a{
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+p{
+    color: $text-secondary;
+    margin-bottom: 1.3rem;
+}
+pre, code {
+    font-family: $font-mono;
+    font-size: $fs-code;
+}
+pre {
+    background: $code-bg;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    line-height: 1.5;
+}
+.figure-caption{
+    font-family: $font-inter-light;     
+}
+
+.detail{
+    font-size: 0.9rem;
+}

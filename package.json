@@ -1,0 +1,40 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Blog de desarrollo",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run process-posts && npm run sass && npm run js && npm run fonts",
+    "process-posts": "node src/js/process-posts.js",
+    "pug": "pug src/pug -o dist --basedir src/pug",
+    "sass": "sass --quiet src/sass/main.scss:dist/css/style.css",
+    "js": "cat src/js/main.js > dist/js/main.js",
+    "fonts": "cpx \"src/assets/fonts/**/*\" dist/assets/fonts",
+    "watch": "npm run build && concurrently \"nodemon --watch src/content --watch src/pug --exec \\\"npm run process-posts\\\"\" \"sass --quiet --watch src/sass:dist/css\" \"nodemon --watch src/js --exec \\\"npm run js\\\"\" \"live-server dist\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matias Arevalo",
+  "license": "ISC",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.0.3",
+    "sanitize-html": "^2.17.3",
+    "webpack": "^5.106.2"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "concurrently": "^9.2.1",
+    "cpx": "^1.5.0",
+    "gulp": "^5.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.14",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.99.0"
+  }
+}

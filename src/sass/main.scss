@@ -1,0 +1,20 @@
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'base/reboot';
+
+
+@import 'config/variables';
+// Base styles
+@import 'base/reset';
+@import 'base/typography';
+
+// Pages
+@import 'pages/home'; 
+
+// Layout
+@import 'layout/header';
+@import 'layout/footer';
+
+// Components
+@import 'components/buttons';
+@import 'components/cards';
+

@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: $font-family-base;
+    font-size: $fs-body;
+    line-height: $lh-body;
+    color: $text-primary;
+    background: #fff;
+}
