@@ -18,7 +18,8 @@ const pugOutputDir = path.join(outputDir, 'pug');
 const sanitizeOptions = {
   allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'code', 'blockquote', 'p', 'hr', 'br', 'strong', 'em', 'ul', 'ol', 'li', 'a', 'table', 'thead', 'tbody', 'tr', 'th', 'td']),
   allowedAttributes: {
-    'a': ['href', 'title', 'target'],
+    '*': ['class'],
+    'a': ['href', 'title', 'target', 'rel'],
     'img': ['src', 'alt', 'title', 'width', 'height']
   }
 };
@@ -42,6 +43,48 @@ function copyDir(src, dest) {
 async function processPosts() {
   // Importar marked dinámicamente (ES Module)
   const { marked } = await import('marked');
+
+  const renderer = {
+    image(token) {
+      //const titleAttr = token.tit ? ` title="${token.title}"` : '';
+      return `
+        <figure class="figure">
+          <img src="${token.href}" class="figure-img img-fluid rounded" alt="${token.text || ''}">
+          <figcaption class="figure-caption text-body-tertiary">${token.text || ''}</figcaption>
+        </figure>
+        `;
+    },
+    codespan(token) {
+      return `<code class="card p-3">${token.text}</code>`;
+    },
+    /*paragraph(token) {
+      return `<p class="article-paragraph">${token.text}</p>\n`;
+    },
+    heading(token) {
+      return `<h${token.depth} class="article-heading article-h${token.depth}">${token.text}</h${token.depth}>\n`;
+    },
+    strong(token) {
+      return `<strong class="article-strong">${token.text}</strong>`;
+    },
+    em(token) {
+      return `<em class="article-em">${token.text}</em>`;
+    },
+    
+    code(token) {
+      const langClass = token.lang ? ` class="article-code-block language-${token.lang}"` : ' class="article-code-block"';
+      return `<pre><code${langClass}>${token.text}</code></pre>\n`;
+    },
+    link(token) {
+      const titleAttr = token.title ? ` title="${token.title}"` : '';
+      return `<a href="${token.href}"${titleAttr} target="_blank" rel="noreferrer" class="article-link">${token.text}</a>`;
+    },
+    list(token) {
+      const tag = token.ordered ? 'ol' : 'ul';
+      return `<${tag} class="article-list">${token.items.map(item => `<li class="article-list-item">${item.text}</li>\n`).join('')}</${tag}>\n`;
+    }*/
+  };
+
+  marked.use({ renderer });
   marked.setOptions({
     breaks: true,
     gfm: true
@@ -74,6 +117,7 @@ async function processPosts() {
     return {
       slug: file.replace('.md', ''),
       title: data.title || 'Sin título',
+      author: data.author || 'Anónimo',
       description: data.description || '',
       date: data.date || new Date().toISOString(),
       tags: data.tags || [],

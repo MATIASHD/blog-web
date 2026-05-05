@@ -5,6 +5,7 @@ date: "2026-05-03"
 author: "Matias Arevalo"
 tags: ["desarrollo", "javascript", "web"]
 ---
+![The San Juan Mountains are beautiful](/assets/images/1.png "San Juan Mountains")
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac nunc vel arcu molestie feugiat non facilisis dolor. Duis feugiat, dui non tincidunt tempus, metus est aliquet ex, nec egestas massa dolor a tellus. Donec rhoncus nisl vel magna ultricies, ut volutpat risus egestas. Ut et dignissim ipsum. Nulla et iaculis urna, id mollis lacus. Phasellus at turpis sed augue sodales tempus. Aenean ac libero sit amet felis porttitor volutpat.
 
 Cras egestas lectus tempus feugiat sodales. Vestibulum augue tortor, egestas lacinia nisi ut, consectetur hendrerit nisi. Nullam ut neque id est vulputate condimentum volutpat sit amet ipsum. In nec nisi sed sapien porta aliquam vel sit amet odio. In hac habitasse platea dictumst. Vivamus odio sem, rutrum a consequat sed, rhoncus non lorem. Aliquam sollicitudin posuere pharetra. Sed finibus tincidunt eros, porttitor placerat eros pharetra ac. Donec fringilla augue quam, eu blandit velit elementum quis. Curabitur dapibus, nisl euismod mattis pretium, leo nunc ornare nibh, tempus pellentesque ipsum nisl eget magna. Nullam non mi egestas, molestie arcu non, consectetur libero. Suspendisse laoreet tempor ullamcorper.
@@ -12,6 +13,16 @@ Cras egestas lectus tempus feugiat sodales. Vestibulum augue tortor, egestas lac
 Aenean pretium est interdum convallis laoreet. Sed facilisis nibh sed leo dignissim, sed fringilla tellus ornare. Quisque lacus sem, interdum eu metus ut, aliquet lobortis lorem. Donec pulvinar orci eu mauris feugiat, id cursus orci faucibus. Morbi tincidunt sed odio at maximus. Donec ex neque, convallis in venenatis in, rutrum eu mi. In a metus ut dui egestas aliquet sed id dui. Praesent felis sapien, blandit at posuere in, tempor sit amet mi. Vestibulum ut lacinia augue, ut fringilla ligula. Sed pellentesque ornare ex. Curabitur mollis, neque quis eleifend efficitur, mi ante consectetur massa, vitae fringilla quam odio ut enim. Praesent ut efficitur ligula. Sed hendrerit diam at nisi commodo egestas. In euismod consequat nisi, ac vestibulum lectus congue nec. Morbi volutpat, nunc id congue blandit, erat est iaculis nulla, nec aliquet mauris lacus a felis. Fusce eu velit eu enim tempor convallis.
 
 Aenean odio quam, feugiat in turpis a, ornare vehicula eros. Pellentesque volutpat eget tellus lobortis pellentesque. Nullam et mauris purus. Curabitur sapien magna, accumsan eu eleifend vulputate, rutrum condimentum urna. Etiam tempor tortor arcu, sit amet accumsan diam pellentesque facilisis. Proin pulvinar odio nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+`
+body {
+    font-family: $font-family-base;
+    font-size: $fs-body;
+    line-height: $lh-body;
+    color: $text-primary;
+    background: #fff;
+}
+`
 
 Praesent pharetra, nisl ac ultricies viverra, odio risus scelerisque arcu, at scelerisque odio libero feugiat justo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer leo felis, porta eget sem sed, convallis mollis tortor. Nam posuere nibh pulvinar euismod venenatis. Phasellus egestas feugiat neque, ac pretium metus lobortis in. Praesent commodo pellentesque nisi a euismod. Mauris maximus sed augue et facilisis. Fusce ornare nibh in rutrum bibendum. Vestibulum cursus accumsan neque, sit amet tempus eros molestie et.
 

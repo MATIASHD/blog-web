@@ -16,6 +16,7 @@
   "author": "Matias Arevalo",
   "license": "ISC",
   "dependencies": {
+    "express": "^5.2.1",
     "gray-matter": "^4.0.3",
     "marked": "^18.0.3",
     "sanitize-html": "^2.17.3",
