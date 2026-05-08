@@ -6,12 +6,15 @@ block content
                 section.py-5.border-bottom.bg-dark.bg-gradient.rounded-3 
                     .container 
                         .row.justify-content-center.text-center 
-                            .col-lg-8 
+                            .col-lg-8.col-md-12
                                 h1.display-4.fw-semibold.mb-3.text-white Tecnologia con impactor real 
                                 h2.lead.text-secondary.mb-4 Guias, analisis y noticias para entender como la tecnologia afecta tu dia a dia
                                 a(href='#last-post' class='btn btn-dark btn-lg') Ultimo articulo
         if posts && posts.length
-            - const latestPost = posts[0];
+         else
+            .col-md-12
+                p No hay posts disponibles.
+ //           - const latestPost = posts[0];
             .row.mb-3.border-bottom.pb-3#last-post
                 .col-md-12
                     h2 Ultimo artículo
@@ -35,7 +38,7 @@ block content
                     h2 Todos los artículos
             .row
                 each post in posts
-                    .col-md-3.mb-3
+                    .col-md-4.mb-3
                         .card.h-100
                             .card-body
                                 h5.card-title
@@ -48,6 +51,4 @@ block content
                                         each tag in post.tags
                                             span.badge.bg-secondary.me-1= tag
                                 p.card-text.text-truncate= post.description
-        else
-            .col-md-12
-                p No hay posts disponibles.
+       

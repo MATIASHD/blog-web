@@ -1,1 +1,0 @@
-var app = module.exports = require('./app');

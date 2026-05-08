@@ -11,7 +11,8 @@
     "js": "cat src/js/main.js > dist/js/main.js",
     "fonts": "cpx \"src/assets/fonts/**/*\" dist/assets/fonts",
     "watch": "npm run build && concurrently \"nodemon --watch src/content --watch src/pug --exec \\\"npm run process-posts\\\"\" \"sass --quiet --watch src/sass:dist/css\" \"nodemon --watch src/js --exec \\\"npm run js\\\"\" \"live-server dist\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "Matias Arevalo",
   "license": "ISC",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "bootstrap": "^5.3.8",
     "concurrently": "^9.2.1",
+    "connect-livereload": "^0.6.1",
     "cpx": "^1.5.0",
     "gulp": "^5.0.1",
     "gulp-concat": "^2.6.1",
@@ -34,6 +36,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "live-server": "^1.2.2",
+    "livereload": "^0.10.3",
     "nodemon": "^3.1.14",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.99.0"
