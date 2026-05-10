@@ -1,0 +1,25 @@
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: #111827;
+    color: white;
+    padding: 2rem;
+    overflow-y: auto;
+}
+.sidebar-nav ul{
+    list-style: none;
+}
+.sidebar-nav a {
+    display: block;
+    padding: 1rem;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-nav a:hover {
+    background: rgba(255,255,255,.1);
+}

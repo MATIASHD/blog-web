@@ -1,0 +1,17 @@
+aside 
+    .offcanvas.offcanvas-start.show(tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel")
+        .offcanvas-header 
+            h5.offcanvas.title(id="offcanvasLabel") Offcanvas 
+            button.btn-close(type="button" data-bs-dismiss="offcanvas" aria-label="Close")
+        .offcanvas-body 
+            .accordion#accordionExample 
+                .accordion-item
+                    h2.accordion-header 
+                        button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne") Usuario 
+                    #collapseOne.accordion-collapse.collapse.show(data-bs-parent="#accordionExample")
+                        ul
+                            li.item-link items 
+                            li.item-link items 
+                            li.item-link items 
+                            li.item-link items 
+                            li.item-link items 

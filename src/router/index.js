@@ -5,6 +5,7 @@ const postservice = require('../services/post.service');
 
 router.get('/', (req, res) => {
     const posts = postservice.obtenerTodosLosPost();
+    console.log(posts);
     res.render('pages/index', {
         title: 'Home',
         posts
@@ -14,6 +15,18 @@ router.get('/', (req, res) => {
 router.get('/about', (req, res) => {
     res.render('pages/about', {
         title: 'About'
+    });
+});
+
+router.get('/login', (req, res) => {
+    res.render('pages/login', {
+        title: 'login'
+    });
+});
+
+router.get('/dashboard', (req, res) => {
+    res.render('pages/dashboard', {
+        title: 'dashboard'
     });
 });
 

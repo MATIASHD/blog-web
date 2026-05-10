@@ -1,0 +1,28 @@
+extends ../layouts/admin-layout
+block content
+    .container-fluid 
+        .row.g-4.mb-4 
+            .col-xl-3.col-md-6 
+                .card.p-3 
+                    h3 120
+                    p post
+            .col-xl-3.col-md-6 
+                .card.p-3 
+                    h3 3.2k
+                    p visitas
+            .col-xl-3.col-md-6 
+                .card.p-3 
+                    h3 48
+                    p Usuarios
+            .col-xl-3.col-md-6 
+                .card.p-3 
+                    h3 98%
+                    p Update 
+        .row.g-4 
+            .col-lg-8 
+                .chart-card 
+                    h4 Trafico 
+                    canvas#trafficChart 
+            .col-lg-4 
+                .popular-posts 
+                    h4 Posts populares
