@@ -1,0 +1,24 @@
+extends ../layouts/base.pug 
+block content
+    .container
+        .row.mb-3
+            .col-md-12
+                if posts && posts.length
+                    .card 
+                        .card-body
+                            .figure.mb-3 
+                                img(src=posts[0].imagenes, alt='Hero Image' class='img-fluid rounded')
+                                .figcaption
+                                    p.d-none Bienvenido a nuestro blog de tecnologia
+                            a(href=`/blog/${posts[0].link}`)        
+                                h1.fw-semibold.mb-3= posts[0].titulo
+                                p= posts[0].descripcion
+
+        .row
+            each post in posts
+                .col-sm-12.col-md-12.col-lg-7.mb-3         
+                    .card 
+                        .card-body
+                            a(href=`/blog/${post.link}`) 
+                                h1= post.titulo
+                            p= post.descripcion

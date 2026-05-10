@@ -1,11 +1,13 @@
 ---
+link: "model-article"
 title: "Articulo modelo"
 description: "Aprendiendo sobre tecnologías web modernas"
 date: "2026-05-03"
+image: "/images/1.png"
 author: "Matias Arevalo"
 tags: ["desarrollo", "javascript", "web"]
 ---
-![The San Juan Mountains are beautiful](/assets/images/1.png "San Juan Mountains")
+![The San Juan Mountains are beautiful](/images/1.png "San Juan Mountains")
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac nunc vel arcu molestie feugiat non facilisis dolor. Duis feugiat, dui non tincidunt tempus, metus est aliquet ex, nec egestas massa dolor a tellus. Donec rhoncus nisl vel magna ultricies, ut volutpat risus egestas. Ut et dignissim ipsum. Nulla et iaculis urna, id mollis lacus. Phasellus at turpis sed augue sodales tempus. Aenean ac libero sit amet felis porttitor volutpat.
 
 Cras egestas lectus tempus feugiat sodales. Vestibulum augue tortor, egestas lacinia nisi ut, consectetur hendrerit nisi. Nullam ut neque id est vulputate condimentum volutpat sit amet ipsum. In nec nisi sed sapien porta aliquam vel sit amet odio. In hac habitasse platea dictumst. Vivamus odio sem, rutrum a consequat sed, rhoncus non lorem. Aliquam sollicitudin posuere pharetra. Sed finibus tincidunt eros, porttitor placerat eros pharetra ac. Donec fringilla augue quam, eu blandit velit elementum quis. Curabitur dapibus, nisl euismod mattis pretium, leo nunc ornare nibh, tempus pellentesque ipsum nisl eget magna. Nullam non mi egestas, molestie arcu non, consectetur libero. Suspendisse laoreet tempor ullamcorper.

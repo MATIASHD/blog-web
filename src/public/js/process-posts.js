@@ -1,4 +1,4 @@
-const fs = require('fs');
+/*const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const sanitizeHtml = require('sanitize-html');
@@ -81,7 +81,7 @@ async function processPosts() {
     list(token) {
       const tag = token.ordered ? 'ol' : 'ul';
       return `<${tag} class="article-list">${token.items.map(item => `<li class="article-list-item">${item.text}</li>\n`).join('')}</${tag}>\n`;
-    }*/
+    }
   };
 
   marked.use({ renderer });
@@ -175,4 +175,4 @@ async function processPosts() {
 processPosts().catch(err => {
   console.error('Error procesando posts:', err);
   process.exit(1);
-});
+});*/

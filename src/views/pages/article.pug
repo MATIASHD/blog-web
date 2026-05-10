@@ -1,0 +1,30 @@
+extends ../layouts/base.pug 
+block content
+    .container
+        .row.justify-content-md-center
+            article.col-lg-7.col-md-12.col-sm-12
+                if post
+                    h1.fs-main-title= post.titulo
+                    h2.lead.fs-5.mb-4= post.descripcion
+                    p.detail.figure-caption.text-body-tertiary
+                        | #{new Date(post.fecha).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        | por 
+                        | #{post.autor}
+                    .text-body-tertiary.mb-4
+                        hr
+                if post
+                    != post.htmlContent
+                    
+                if post.slug && post.slug.length
+                    | Etiquetas: 
+                    each tag in post.slug
+                        span.badge.bg-secondary.ms-1= tag                        
+                else
+                    h1 Artículo no encontrado
+                    p No se pudo encontrar el artículo solicitado.
+                    .col-lg-7.col-md-12 
+                        .card.p-3
+                            h6.fs-card-title.mb-3 Cras id pellentesque nunc. Nunc vel consectetur ex. Fusce sodales commodo ipsum, nec posuere ex consequat ut. Vivamus maximus
+                            p.fs-card-content risus enim sodales orci, sed lobortis elit massa non lacus. Sed id vestibulum mauris. Duis libero nisl, volutpat posuere quam ac, finibus tincidunt ante. Aliquam sit amet tincidunt justo. Aliquam diam eros, ullamcorper vel augue id, dictum feugiat dui. Quisque ultrices sodales accumsan. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi cursus dui sed diam luctus, vel mollis nibh venenatis.
+
+                

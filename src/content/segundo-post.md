@@ -1,7 +1,10 @@
 ---
+link: "segundo-post"
 title: "Segundo post: Sobre desarrollo web"
 description: "Aprendiendo sobre tecnologías web modernas"
 date: "2026-05-03"
+image: "/images/1.png"
+author: "Matias Arevalo"
 tags: ["desarrollo", "javascript", "web"]
 ---
 

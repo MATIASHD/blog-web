@@ -2,18 +2,12 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "Blog de desarrollo",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "build": "npm run process-posts && npm run sass && npm run js && npm run fonts",
-    "process-posts": "node src/js/process-posts.js",
-    "pug": "pug src/pug -o dist --basedir src/pug",
-    "sass": "sass --quiet src/sass/main.scss:dist/css/style.css",
-    "js": "cat src/js/main.js > dist/js/main.js",
-    "fonts": "cpx \"src/assets/fonts/**/*\" dist/assets/fonts",
-    "watch": "npm run build && concurrently \"nodemon --watch src/content --watch src/pug --exec \\\"npm run process-posts\\\"\" \"sass --quiet --watch src/sass:dist/css\" \"nodemon --watch src/js --exec \\\"npm run js\\\"\" \"live-server dist\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
+    "sass": "sass src/sass/main.scss:src/public/css/main.css",
+    "sass:watch": "sass --watch --quiet src/sass/main.scss:src/public/css/main.css",
+    "start": "concurrently \"npm run sass:watch\" \"nodemon\""
+  }, 
   "author": "Matias Arevalo",
   "license": "ISC",
   "dependencies": {

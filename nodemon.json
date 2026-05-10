@@ -1,0 +1,20 @@
+{
+    "watch":[
+        "src"
+    ],
+    "ext": "js,json,scss,md",
+    "ignore":[
+        "src/public",
+        "node_modules",
+        "uploads/*"
+    ],
+    "delay": "300",
+    "exec":"node server.js",
+    "restartable": "rs",
+    "events":{
+        "restart": "clear"
+    },
+    "env": {
+        "NODE_ENV": "development"
+    }
+}
