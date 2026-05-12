@@ -1,8 +1,14 @@
+const env = require('dotenv').config({
+  override:true
+});
 const express = require('express');
 const app = express();
 const path = require('path');
+const helmet = require('helmet');
+const morgan = require('morgan');
 
-
+app.use(helmet());
+app.use(morgan('dev'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
