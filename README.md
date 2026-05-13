@@ -282,7 +282,13 @@ Crear arquitectura sólida.
 2. Configurar Sass modular
 Ya empezaste bien.
 Necesitás:
-abstracts/base/components/layout/pages/themes/vendors/
+abstracts/
+[x] base/
+[x] components/
+[x] layout/
+[x] pages/
+themes/
+vendors/
 
 3. Crear layout base
 Necesitás:
