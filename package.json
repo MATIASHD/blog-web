@@ -4,13 +4,14 @@
   "description": "Blog de desarrollo",
   "main": "server.js",
   "scripts": {
-    "sass": "sass src/sass/main.scss:src/public/css/main.css",
+    "sass": "sass src/sass/main.scss:src/public/css/main.css && cpx \"node_modules/bootstrap-icons/font/fonts/*\" src/public/fonts/",
     "sass:watch": "sass --watch --quiet src/sass/main.scss:src/public/css/main.css",
     "start": "concurrently \"npm run sass:watch\" \"nodemon\""
   },
   "author": "Matias Arevalo",
   "license": "ISC",
   "dependencies": {
+    "bootstrap-icons": "^1.13.1",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "gray-matter": "^4.0.3",

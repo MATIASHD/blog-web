@@ -5,7 +5,6 @@ const postservice = require('../services/post.service');
 
 router.get('/', (req, res) => {
     const posts = postservice.obtenerTodosLosPost();
-    console.log(posts);
     res.render('pages/index', {
         title: 'Home',
         posts
@@ -43,6 +42,30 @@ router.get('/blog/:slug', (req, res) => {
             title: 'Post no encontrado'
         });
     }
+});
+
+router.get('/categoria/:slug', (req, res) => { 
+   res.send('Categoria');
+});
+
+router.get('/tags/:slug', (req, res) => { 
+   res.send('tags')
+});
+
+router.get('/search/', (req, res) => { 
+   res.send('tags')
+});
+
+router.get('/contacto/', (req, res) => { 
+   res.send('contacto')
+});
+
+router.get('/newsletter/', (req, res) => { 
+   res.send('newsletter') //captacion de email
+});
+
+router.get('/error/', (req, res) => { 
+   res.send('error 404') 
 });
 
 module.exports = router;

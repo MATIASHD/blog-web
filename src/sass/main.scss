@@ -7,6 +7,9 @@
 @import 'base/reset';
 @import 'base/typography';
 
+//Import icons
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
 // Pages
 @import 'pages/home'; 
 @import 'pages/article';
