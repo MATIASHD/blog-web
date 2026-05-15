@@ -23,9 +23,61 @@ router.get('/login', (req, res) => {
     });
 });
 
-router.get('/dashboard', (req, res) => {
+router.get('/admin', (req, res) => {
     res.render('pages/dashboard', {
         title: 'dashboard'
+    });
+});
+
+router.get('/admin/posts', (req, res) => {
+    res.render('pages/dashboard', {
+        title: 'dashboard'
+    });
+});
+router.get('/admin/posts/new', (req, res) => {
+    res.render('pages/dashboard', {
+        title: 'dashboard'
+    });
+});
+router.get('/admin/posts/:id/edit', (req, res) => {
+    res.render('pages/posts', {
+        title: 'dashboard'
+    });
+});
+
+router.get('/admin/media', (req, res) => {
+    res.render('pages/media', {
+        title: 'media'
+    });
+});
+
+router.get('/admin/categories', (req, res) => {
+    res.render('pages/categories', {
+        title: 'media'
+    });
+});
+
+router.get('/admin/tags', (req, res) => {
+    res.render('pages/tags', {
+        title: 'media'
+    });
+});
+
+router.get('/admin/newsletter', (req, res) => {
+    res.render('pages/newsletter', {
+        title: 'media'
+    });
+});
+
+router.get('/admin/contacts', (req, res) => {
+    res.render('pages/contacts', {
+        title: 'media'
+    });
+});
+
+router.get('/admin/settings', (req, res) => {
+    res.render('pages/contacts', {
+        title: 'media'
     });
 });
 
@@ -45,27 +97,47 @@ router.get('/blog/:slug', (req, res) => {
 });
 
 router.get('/categoria/:slug', (req, res) => { 
-   res.send('Categoria');
+   res.render('pages/category',{
+    title: 'Categoria',
+    slug: req.params.slug
+   });
 });
 
 router.get('/tags/:slug', (req, res) => { 
-   res.send('tags')
+   res.render('pages/tags',{
+    title: 'Etiquetas',
+    slug: req.params.slug
+   });
 });
 
 router.get('/search/', (req, res) => { 
-   res.send('tags')
+   res.render('pages/search',{
+    title: 'busqueda'
+   });
 });
 
 router.get('/contacto/', (req, res) => { 
-   res.send('contacto')
+   res.render('pages/contacto',{
+    title: Contacto
+   });
 });
 
 router.get('/newsletter/', (req, res) => { 
-   res.send('newsletter') //captacion de email
+   res.render('pages/newsletter',{
+    title: 'Newsletter'
+   });
+});
+
+router.get('/forgot-password/:token', (req, res) => { 
+   res.render('pages/reset-password', {
+    token: req.params.token
+   });
 });
 
 router.get('/error/', (req, res) => { 
-   res.send('error 404') 
+   res.send('pages/404',{
+    title: 'Error 404'
+   });
 });
 
 module.exports = router;
