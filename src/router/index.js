@@ -1,49 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const postservice = require('../services/post.service');
+
+router.use('/', require('./public'));
+router.use('/', require('./auth'));
+router.use('/admin', require('./admin'));
+router.use('/', require('./seo'));
+router.use('/', require('./system'));
 
 
-router.get('/', (req, res) => {
-    const posts = postservice.obtenerTodosLosPost();
-    res.render('pages/index', {
-        title: 'Home',
-        posts
-    });
-});
 
-router.get('/about', (req, res) => {
-    res.render('pages/about', {
-        title: 'About'
-    });
-});
 
-router.get('/login', (req, res) => {
-    res.render('pages/login', {
-        title: 'login'
-    });
-});
 
-router.get('/admin', (req, res) => {
-    res.render('pages/dashboard', {
-        title: 'dashboard'
-    });
-});
 
-router.get('/admin/posts', (req, res) => {
-    res.render('pages/dashboard', {
-        title: 'dashboard'
-    });
-});
-router.get('/admin/posts/new', (req, res) => {
-    res.render('pages/dashboard', {
-        title: 'dashboard'
-    });
-});
-router.get('/admin/posts/:id/edit', (req, res) => {
-    res.render('pages/posts', {
-        title: 'dashboard'
-    });
-});
+/*const postservice = require('../services/post.service');
+
+
+
+
+
+
+
+
+
 
 router.get('/admin/media', (req, res) => {
     res.render('pages/media', {
@@ -151,6 +129,6 @@ router.get('/error/', (req, res) => {
     res.render('pages/error', {
         title: 'Error'
     });
-});
+});*/
 
 module.exports = router;
