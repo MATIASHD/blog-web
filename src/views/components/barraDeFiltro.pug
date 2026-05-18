@@ -1,0 +1,24 @@
+mixin barraDeFiltro(categorias, tags)
+  .d-flex.flex-wrap.gap-2.align-items-center.mb-4
+    .dropdown
+      button.btn.btn-outline-secondary.dropdown-toggle(type="button" data-bs-toggle="dropdown")
+        i.bi.bi-funnel.me-1
+        | Categorias
+      ul.dropdown-menu
+        li
+          a.dropdown-item(href="/blog") Todas
+        if categorias
+          each cat in categorias
+            li
+              a.dropdown-item(href=`/categoria/${cat.slug}`)= cat.nombre
+    .dropdown
+      button.btn.btn-outline-secondary.dropdown-toggle(type="button" data-bs-toggle="dropdown")
+        i.bi.bi-tags.me-1
+        | Tags
+      ul.dropdown-menu
+        if tags
+          each tag in tags
+            li
+              a.dropdown-item(href=`/tags/${tag.slug}`)= tag.nombre
+    .ms-auto
+      +barraDeBusqueda

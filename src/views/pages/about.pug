@@ -1,7 +1,47 @@
-extends ../layouts/base.pug 
+extends ../layouts/base.pug
 block content
-    .container
-        .row 
-            h1 En construccións
-
-//- bio, stack, experiencia, mision
+  .container
+    .row.justify-content-center
+      .col-lg-8
+        h1.mb-4 Acerca de mi
+        .card.shadow-sm.rounded-4.border-0.mb-5
+          .card-body.p-4
+            .text-center.mb-4
+              .bg-primary.rounded-circle.d-inline-flex.align-items-center.justify-content-center(style="width: 120px; height: 120px")
+                i.bi.bi-person.display-4.text-white
+            p.lead Soy un desarrollador apasionado por la tecnologia y la escritura. En este blog comparto mis conocimientos, experiencias y tutoriales sobre desarrollo web, programacion y tecnologia en general.
+        .row.g-4.mb-5
+          .col-md-6
+            .card.shadow-sm.rounded-4.border-0.h-100
+              .card-body.p-4
+                h5
+                  i.bi.bi-stack.me-2.text-primary
+                  | Stack tecnologico
+                ul.list-unstyled.mt-3
+                  li.mb-2
+                    span.badge.bg-primary.me-2 JS
+                    | JavaScript / Node.js
+                  li.mb-2
+                    span.badge.bg-success.me-2 PUG
+                    | Pug / HTML
+                  li.mb-2
+                    span.badge.bg-info.me-2 SASS
+                    | Sass / CSS
+                  li.mb-2
+                    span.badge.bg-warning.me-2 BS
+                    | Bootstrap
+          .col-md-6
+            .card.shadow-sm.rounded-4.border-0.h-100
+              .card-body.p-4
+                h5
+                  i.bi.bi-briefcase.me-2.text-primary
+                  | Experiencia
+                ul.list-unstyled.mt-3
+                  li.mb-2
+                    strong Desarrollador Web
+                    br
+                    small.text-secondary 2020 - Presente
+                  li.mb-2
+                    strong Freelancer
+                    br
+                    small.text-secondary 2018 - 2020

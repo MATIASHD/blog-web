@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: $text-primary;
 }
-.fs-card-title, .fs-card-content{
+.figure-caption, .fs-card-title, .fs-card-content{
     font-family: $font-inter-light;
 }
 
@@ -46,9 +46,6 @@ pre {
     border-radius: 8px;
     overflow-x: auto;
     line-height: 1.5;
-}
-.figure-caption{
-    font-family: $font-inter-light;     
 }
 
 .detail{

@@ -1,4 +1,4 @@
-extends ../layouts/base.pug 
+extends ../layouts/base.pug
 block content
     header
         section.blog-section
@@ -8,27 +8,17 @@ block content
                         h1 Últimas noticias
                 .row.g-4
                     .col-lg-6
-                        article.featured-card.card.h-100.rounded-5
-                            img.card-img-top.rounded-5.object-fit-cover(src=posts[0].imagenes, alt='Hero Image' class='img-fluid rounded')
-                            .card-body
-                                span.category.badge.bg-secondary.ms-1= posts[0].tags[0]
-                                h2.card-title 
-                                    a(href=`/blog/${posts[0].link}`)= posts[0].titulo
-                                p.card-text= posts[0].descripcion 
+                        include ../components/mainCard.pug 
+                        +mainCard(posts[0].imagenes, "Hero Image", posts[0].link, posts[0].tags[0], posts[0].titulo, posts[0].descripcion)
                     .col-lg-6
                         .d-flex.flex-column.gap-4.h-100 
-                            if posts && posts.length
-                                each post in posts
-                                    article.small-card.card.rounded-5 
-                                        .card-body 
-                                            each tag in post.tags 
-                                                span.category.badge.badge-btn-color.ms-1= tag
-                                            h3.card-title
-                                                a(href=`/blog/${post.link}`)= post.titulo
-                                            p.card-text 
-                                                = post.descripcion
-        .container-fluid.bg-primary
-            .container
-                .row.py-5 
+                            if posts && posts.length > 1
+                                each post in posts.slice(1, 4)
+                                    include ../components/postDescriptionCard.pug
+                                    +postDescriptionCard(post.tags, post.titulo, post.link, post.descripcion)
+        section
+            .container.py-5
+                .row 
                     .col-lg-12 
-                        h1 contenido
+                        include ../components/formularioDeNewsletter.pug 
+                        +formularioDeNewsletter("Seguimo para saber mas ", "Suscribime")

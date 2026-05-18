@@ -1,4 +1,7 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+//Import icons
+$bootstrap-icons-font-dir: "/fonts";
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.scss';
 @import 'base/reboot';
 
 
@@ -7,12 +10,11 @@
 @import 'base/reset';
 @import 'base/typography';
 
-//Import icons
-@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 
 // Pages
 @import 'pages/home'; 
 @import 'pages/article';
+@import 'pages/dashboard';
 
 // Layout
 @import 'layout/header';
@@ -22,4 +24,7 @@
 @import 'components/buttons';
 @import 'components/cards';
 @import 'components/navbar';
+@import 'components/navbar-dashboard';
+@import 'components/sidebar';
+@import 'components/widgets';
 @import 'components/buget';

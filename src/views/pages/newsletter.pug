@@ -1,0 +1,15 @@
+extends ../layouts/base.pug
+block content
+  .container
+    .row.justify-content-center
+      .col-lg-8
+        .card.shadow-sm.rounded-4.border-0
+          .card-body.p-5.text-center
+            i.bi.bi-envelope-open.display-1.text-primary
+            h2.mt-3 Suscribete al Newsletter
+            p.text-secondary.mb-4 Recibe las ultimas novedades, articulos y tutoriales directamente en tu correo.
+            if mensaje
+              .alert.alert-success= mensaje
+            include ../components/formularioDeNewsletter.pug
+            +formularioDeNewsletter("tu@email.com", "Suscribirse")
+            p.text-muted.small.mt-3 No compartiremos tu correo con terceros.

@@ -23,9 +23,8 @@ const mainRouter = require('./router/index');
 
 app.use('/', mainRouter);
 
-app.use((req, res, next) => {
-  res.send("Error 404: Page not found");
-  next();
+app.use((req, res) => {
+  res.status(404).render('pages/404', { title: 'Pagina no encontrada' });
 });
 
 module.exports = app;

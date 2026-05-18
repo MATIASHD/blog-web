@@ -1,0 +1,9 @@
+mixin grillaDePublicacion(posts, columnas)
+  .row.g-4
+    if posts && posts.length
+      each post in posts
+        .col-lg(class=columnas || '4')
+          +tarjetaDePublicacion(post)
+    else
+      .col-12.text-center.py-5
+        p.text-secondary No se encontraron publicaciones

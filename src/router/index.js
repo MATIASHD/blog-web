@@ -44,28 +44,61 @@ router.get('/blog/:slug', (req, res) => {
     }
 });
 
+router.get('/blog', (req, res) => { 
+    const posts = postservice.obtenerTodosLosPost();
+    res.render('pages/blog', {
+        title: 'Blog',
+        posts,
+        paginaActual: 1,
+        totalPaginas: 1
+    });
+});
+
 router.get('/categoria/:slug', (req, res) => { 
-   res.send('Categoria');
+    const posts = postservice.obtenerTodosLosPost();
+    res.render('pages/categoria', {
+        title: `Categoria: ${req.params.slug}`,
+        categoria: req.params.slug,
+        categoriaSlug: req.params.slug,
+        posts
+    });
 });
 
 router.get('/tags/:slug', (req, res) => { 
-   res.send('tags')
+    const posts = postservice.obtenerTodosLosPost();
+    res.render('pages/tags', {
+        title: `Tag: ${req.params.slug}`,
+        tag: req.params.slug,
+        tagSlug: req.params.slug,
+        posts
+    });
 });
 
 router.get('/search/', (req, res) => { 
-   res.send('tags')
+    const posts = postservice.obtenerTodosLosPost();
+    res.render('pages/search', {
+        title: 'Busqueda',
+        query: req.query.q || '',
+        posts
+    });
 });
 
 router.get('/contacto/', (req, res) => { 
-   res.send('contacto')
+    res.render('pages/contacto', {
+        title: 'Contacto'
+    });
 });
 
 router.get('/newsletter/', (req, res) => { 
-   res.send('newsletter') //captacion de email
+    res.render('pages/newsletter', {
+        title: 'Newsletter'
+    });
 });
 
 router.get('/error/', (req, res) => { 
-   res.send('error 404') 
+    res.render('pages/error', {
+        title: 'Error'
+    });
 });
 
 module.exports = router;

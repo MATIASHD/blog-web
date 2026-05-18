@@ -1,0 +1,26 @@
+mixin Paginacion(paginaActual, totalPaginas, baseUrl)
+  nav(aria-label="Navegacion de paginas")
+    ul.pagination.justify-content-center
+      li.page-item(class={disabled: paginaActual <= 1})
+        a.page-link(href=`${baseUrl}?page=${paginaActual - 1}` aria-label="Anterior")
+          span(aria-hidden="true") &laquo;
+      - var inicio = Math.max(1, paginaActual - 2)
+      - var fin = Math.min(totalPaginas, paginaActual + 2)
+      if inicio > 1
+        li.page-item
+          a.page-link(href=`${baseUrl}?page=1`) 1
+        if inicio > 2
+          li.page-item.disabled
+            span.page-link ...
+      for i in Array.from({length: fin - inicio + 1}, (_, idx) => inicio + idx)
+        li.page-item(class={active: i === paginaActual})
+          a.page-link(href=`${baseUrl}?page=${i}`)= i
+      if fin < totalPaginas
+        if fin < totalPaginas - 1
+          li.page-item.disabled
+            span.page-link ...
+        li.page-item
+          a.page-link(href=`${baseUrl}?page=${totalPaginas}`)= totalPaginas
+      li.page-item(class={disabled: paginaActual >= totalPaginas})
+        a.page-link(href=`${baseUrl}?page=${paginaActual + 1}` aria-label="Siguiente")
+          span(aria-hidden="true") &raquo;
