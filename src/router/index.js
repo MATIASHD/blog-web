@@ -96,48 +96,61 @@ router.get('/blog/:slug', (req, res) => {
     }
 });
 
+router.get('/blog', (req, res) => { 
+    const posts = postservice.obtenerTodosLosPost();
+    res.render('pages/blog', {
+        title: 'Blog',
+        posts,
+        paginaActual: 1,
+        totalPaginas: 1
+    });
+});
+
 router.get('/categoria/:slug', (req, res) => { 
-   res.render('pages/category',{
-    title: 'Categoria',
-    slug: req.params.slug
-   });
+    const posts = postservice.obtenerTodosLosPost();
+    res.render('pages/categoria', {
+        title: `Categoria: ${req.params.slug}`,
+        categoria: req.params.slug,
+        categoriaSlug: req.params.slug,
+        posts
+    });
 });
 
 router.get('/tags/:slug', (req, res) => { 
-   res.render('pages/tags',{
-    title: 'Etiquetas',
-    slug: req.params.slug
-   });
+    const posts = postservice.obtenerTodosLosPost();
+    res.render('pages/tags', {
+        title: `Tag: ${req.params.slug}`,
+        tag: req.params.slug,
+        tagSlug: req.params.slug,
+        posts
+    });
 });
 
 router.get('/search/', (req, res) => { 
-   res.render('pages/search',{
-    title: 'busqueda'
-   });
+    const posts = postservice.obtenerTodosLosPost();
+    res.render('pages/search', {
+        title: 'Busqueda',
+        query: req.query.q || '',
+        posts
+    });
 });
 
 router.get('/contacto/', (req, res) => { 
-   res.render('pages/contacto',{
-    title: Contacto
-   });
+    res.render('pages/contacto', {
+        title: 'Contacto'
+    });
 });
 
 router.get('/newsletter/', (req, res) => { 
-   res.render('pages/newsletter',{
-    title: 'Newsletter'
-   });
-});
-
-router.get('/forgot-password/:token', (req, res) => { 
-   res.render('pages/reset-password', {
-    token: req.params.token
-   });
+    res.render('pages/newsletter', {
+        title: 'Newsletter'
+    });
 });
 
 router.get('/error/', (req, res) => { 
-   res.send('pages/404',{
-    title: 'Error 404'
-   });
+    res.render('pages/error', {
+        title: 'Error'
+    });
 });
 
 module.exports = router;

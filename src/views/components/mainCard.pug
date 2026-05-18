@@ -1,0 +1,9 @@
+mixin mainCard(img, imgAlt, link, tags, title, description)
+    .featured-card.card.h-100.rounded-5 
+        img.card-img-top.rouded-5.object-fit-cover(src=img, alt=imgAlt, class='img-fluid rounded')
+        .card-body 
+            include ../components/badge.pug 
+            +badge(tags)
+            h2.card-title 
+                a(href=`/blog/${link}`)= title
+            p.card-text= description

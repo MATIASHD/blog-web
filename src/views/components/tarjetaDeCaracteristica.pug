@@ -1,0 +1,7 @@
+mixin tarjetaDeCaracteristica(icono, titulo, descripcion, color)
+  .card.border-0.shadow-sm.h-100.rounded-4.text-center.p-4
+    .card-body
+      .display-6.mb-3(class=color || 'text-white')
+        i.bi.bi-`${icono}`
+      h5.card-title= titulo
+      p.card-text.text-secondary.small= descripcion

@@ -1,0 +1,6 @@
+mixin barraDeBusqueda(placeholder, action)
+  form.d-flex(role="search" action=action || '/search' method="GET")
+    .input-group
+      input.form-control(type="search" name="q" placeholder=placeholder || "Buscar articulos..." aria-label="Buscar")
+      button.btn.btn-primary(type="submit")
+        i.bi.bi-search

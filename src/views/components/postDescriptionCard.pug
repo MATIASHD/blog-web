@@ -1,0 +1,9 @@
+mixin postDescriptionCard(tags, title, link, description)
+  article.small-card.card.rounded-5
+    .card-body
+      each tag in tags
+        include ../components/badge.pug 
+        +badge(tag)
+      h3.card-title
+        a(href=`/blog/${link}`)= title
+      p.card-text= description

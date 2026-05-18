@@ -1,0 +1,9 @@
+mixin listaDeCategoria(categorias)
+  ul.list-group.list-group-flush
+    if categorias && categorias.length
+      each cat in categorias
+        li.list-group-item.d-flex.justify-content-between.align-items-center
+          a.text-decoration-none(href=`/categoria/${cat.slug}`)= cat.nombre
+          span.badge.bg-secondary.rounded-pill= cat.count || 0
+    else
+      li.list-group-item.text-secondary.text-center Sin categorias
