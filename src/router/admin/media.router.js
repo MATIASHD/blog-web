@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/contacto/', (req, res) => { 
-    res.render('pages/contacto', {
-        title: 'Contacto'
+router.get('/admin/media', (req, res) => {
+    res.render('pages/media', {
+        title: 'media'
     });
 });
 

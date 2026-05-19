@@ -1,11 +1,14 @@
+
 const express = require('express');
 const router = express.Router();
 const postservice = require('../../services/post.service');
 
-router.get('/', (req, res) => {
+router.get('/tags/:slug', (req, res) => { 
     const posts = postservice.obtenerTodosLosPost();
-    res.render('pages/index', {
-        title: 'Home',
+    res.render('pages/tags', {
+        title: `Tag: ${req.params.slug}`,
+        tag: req.params.slug,
+        tagSlug: req.params.slug,
         posts
     });
 });

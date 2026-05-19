@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 const postservice = require('../../services/post.service');
 
-router.get('/', (req, res) => {
+router.get('/blog', (req, res) => { 
     const posts = postservice.obtenerTodosLosPost();
-    res.render('pages/index', {
-        title: 'Home',
-        posts
+    res.render('pages/blog', {
+        title: 'Blog',
+        posts,
+        paginaActual: 1,
+        totalPaginas: 1
     });
 });
 
