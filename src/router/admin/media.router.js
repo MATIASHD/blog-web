@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { mediaController } = require('../../controllers/admin/media.controller');
 
-router.get('/admin/media', (req, res) => {
-    res.render('pages/media', {
-        title: 'media'
-    });
-});
+router.get('/admin/media', mediaController);
 
 module.exports = router;

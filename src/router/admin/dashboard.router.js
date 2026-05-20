@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { dashboardController } = require('../../controllers/admin/dashboard.controller');
 
-router.get('/admin', (req, res) => {
-    res.render('pages/dashboard', {
-        title: 'dashboard'
-    });
-});
+router.get('/admin', dashboardController);
 
 module.exports = router;
