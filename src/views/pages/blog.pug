@@ -14,7 +14,8 @@ block content
       .col-lg-8
         if posts && posts.length
           include ../components/horizonCard.pug
-          +horizonCard(casa, casa, casa,casa,casa)
+          each post in posts
+            +horizonCard(post.title, post.image, post.title, post.description, post.author)
         
         else
           .text-center.py-5
@@ -26,9 +27,9 @@ block content
           .card-body
             h5 Categorias
             include ../components/listaDeCategoria.pug
-            +listaDeCategoria(todasLasCategorias)
+            +listaDeCategoria(todasLasCategorias || [])
         .card.shadow-sm.rounded-4
           .card-body
             h5 Tags
             include ../components/listaDeTags.pug
-            +listaDeTags(todosLosTags)
+            +listaDeTags(todosLosTags || [])

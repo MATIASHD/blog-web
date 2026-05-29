@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const postservice = require('../../services/post.service');
+const postService = require('../../services/post.service');
 
 router.get('/', (req, res) => {
-    const posts = postservice.obtenerTodosLosPost();
+    const posts = postService.getAllPosts();
     res.render('pages/index', {
         title: 'Home',
         posts

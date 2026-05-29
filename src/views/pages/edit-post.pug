@@ -1,0 +1,8 @@
+extends ../layouts/admin-layout
+
+block content
+  h1.mb-4 Editar post
+  if error
+    .alert.alert-danger= error
+  form(action=`/admin/posts/${post.slug}` method="POST")
+    include ../partials/post-form.pug

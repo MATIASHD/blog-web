@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { mediaController } = require('../../controllers/admin/media.controller');
+const mediaController = require('../../controllers/admin/media.controller');
 
-router.get('/admin/media', mediaController);
+router.get('/media', mediaController.getMediaList);
+router.post('/media/:filename/delete', mediaController.deleteMedia);
 
 module.exports = router;

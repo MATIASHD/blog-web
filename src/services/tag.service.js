@@ -11,7 +11,14 @@ class TagService {
           post.tags.forEach(tag => tags.add(tag));
         }
       });
-      return Array.from(tags).sort();
+      const stats = this.getTagStats();
+      return Array.from(tags)
+        .sort()
+        .map(tag => ({
+          nombre: tag,
+          slug: tag,
+          count: stats[tag] || 0
+        }));
     } catch (error) {
       Logger.error('Error getting tags', error);
       return [];

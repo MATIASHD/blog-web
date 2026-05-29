@@ -7,15 +7,19 @@ block content
                     .col-lg-12.mb-3 
                         h1 Últimas noticias
                 .row.g-4
-                    .col-lg-6
-                        include ../components/mainCard.pug 
-                        +mainCard(posts[0].imagenes, "Hero Image", posts[0].link, posts[0].tags[0], posts[0].titulo, posts[0].descripcion)
-                    .col-lg-6
-                        .d-flex.flex-column.gap-4.h-100 
-                            if posts && posts.length > 1
-                                each post in posts.slice(1, 4)
-                                    include ../components/postDescriptionCard.pug
-                                    +postDescriptionCard(post.tags, post.titulo, post.link, post.descripcion)
+                    if posts && posts.length
+                        .col-lg-6
+                            include ../components/mainCard.pug 
+                            +mainCard(posts[0].imagenes, "Hero Image", posts[0].link, posts[0].tags[0], posts[0].titulo, posts[0].descripcion)
+                        .col-lg-6
+                            .d-flex.flex-column.gap-4.h-100 
+                                if posts.length > 1
+                                    each post in posts.slice(1, 4)
+                                        include ../components/postDescriptionCard.pug
+                                        +postDescriptionCard(post.tags, post.titulo, post.link, post.descripcion)
+                    else
+                        .col-12
+                            p.text-secondary No hay publicaciones todavia.
         section
             .container.py-5
                 .row 

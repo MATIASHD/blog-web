@@ -5,11 +5,14 @@ class CategoryService {
   getAll() {
     try {
       const posts = postService.getAllPosts();
-      const categories = new Set(posts
-        .filter(p => p.category)
-        .map(p => p.category)
-      );
-      return Array.from(categories).sort();
+      const stats = this.getCategoryStats();
+      return Object.entries(stats)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([category, count]) => ({
+          nombre: category,
+          slug: category,
+          count
+        }));
     } catch (error) {
       Logger.error('Error getting categories', error);
       return [];

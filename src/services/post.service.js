@@ -4,6 +4,18 @@ const { slugify } = require('../utils/slugify');
 const Logger = require('../utils/logger');
 
 class PostService {
+  normalizeTags(tags) {
+    if (Array.isArray(tags)) {
+      return tags.map(tag => String(tag).trim()).filter(Boolean);
+    }
+
+    if (typeof tags === 'string') {
+      return tags.split(',').map(tag => tag.trim()).filter(Boolean);
+    }
+
+    return [];
+  }
+
   getAllPosts() {
     try {
       const posts = postRepository.getAll();
@@ -21,6 +33,7 @@ class PostService {
 
       return {
         ...this.formatPost(post),
+        content: post.content,
         htmlContent: markdownService.parseMarkdown(post.content)
       };
     } catch (error) {
@@ -85,7 +98,7 @@ class PostService {
         description: postData.description,
         image: postData.image || '',
         date: postData.date || new Date().toISOString(),
-        tags: postData.tags || [],
+        tags: this.normalizeTags(postData.tags),
         category: postData.category || '',
         slug: slug
       };
@@ -115,9 +128,10 @@ class PostService {
         author: postData.author || post.author,
         description: postData.description || post.description,
         image: postData.image || post.image,
-        tags: postData.tags || post.tags,
+        tags: postData.tags ? this.normalizeTags(postData.tags) : post.tags,
         category: postData.category || post.category,
-        date: postData.date || post.date
+        date: postData.date || post.date,
+        content: postData.content || post.content
       };
 
       postRepository.save(slug, updated);
@@ -142,15 +156,28 @@ class PostService {
   }
 
   formatPost(post) {
+    const title = post.title || post.titulo || '';
+    const description = post.description || post.descripcion || '';
+    const image = post.image || post.imagenes || '';
+    const date = post.date || post.fecha || '';
+    const author = post.author || post.autor || '';
+    const slug = post.slug || post.link || slugify(title);
+
     return {
-      title: post.title,
-      slug: post.slug,
-      author: post.author,
-      description: post.description,
-      image: post.image,
-      date: post.date,
+      title,
+      slug,
+      link: slug,
+      author,
+      description,
+      image,
+      date,
       tags: post.tags || [],
-      category: post.category || ''
+      category: post.category || post.categoria || '',
+      titulo: title,
+      descripcion: description,
+      imagenes: image,
+      fecha: date,
+      autor: author
     };
   }
 }

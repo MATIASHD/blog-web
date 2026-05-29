@@ -4,7 +4,6 @@
     ],
     "ext": "js,json,scss,md",
     "ignore":[
-        "src/public",
         "node_modules",
         "uploads/*"
     ],

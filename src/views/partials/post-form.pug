@@ -1,0 +1,22 @@
+.mb-3
+  label.form-label(for="title") Titulo
+  input.form-control#title(type="text" name="title" value=post ? post.title : '' required)
+.mb-3
+  label.form-label(for="author") Autor
+  input.form-control#author(type="text" name="author" value=post ? post.author : '')
+.mb-3
+  label.form-label(for="description") Descripcion
+  textarea.form-control#description(name="description" rows="2")= post ? post.description : ''
+.mb-3
+  label.form-label(for="image") Imagen
+  input.form-control#image(type="text" name="image" value=post ? post.image : '')
+.mb-3
+  label.form-label(for="category") Categoria
+  input.form-control#category(type="text" name="category" value=post ? post.category : '')
+.mb-3
+  label.form-label(for="tags") Tags separados por coma
+  input.form-control#tags(type="text" name="tags" value=post && post.tags ? post.tags.join(', ') : '')
+.mb-3
+  label.form-label(for="content") Contenido Markdown
+  textarea.form-control#content(name="content" rows="12" required)= post ? post.content : ''
+button.btn.btn-primary(type="submit") Guardar

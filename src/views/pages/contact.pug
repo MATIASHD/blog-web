@@ -1,4 +1,5 @@
 extends ../layouts/base.pug
+
 block content
   .container
     .row.justify-content-center
@@ -6,36 +7,20 @@ block content
         h1.mb-4 Contacto
         p.text-secondary.mb-5 Si tienes alguna pregunta, sugerencia o simplemente quieres saludar, completa el formulario.
         if mensaje
-          .alert.alert-success= mensaje          
+          .alert.alert-success= mensaje
         form(action="/contacto" method="POST")
-        .row.g-3
-          .col-md-6
-            label.form-label(for="nombre") Nombre
-            input.form-control#nombre(type="text" name="nombre" required)
-          .col-md-6
-            label.form-label(for="email") Email
-            input.form-control#email(type="email" name="email" required)
-          .col-12
-            label.form-label(for="asunto") Asunto
-            input.form-control#asunto(type="text" name="asunto" required)
-          .col-12
-            label.form-label(for="mensaje") Mensaje
-            textarea.form-control#mensaje(name="mensaje" rows="5" required)
-          .col-12
-            button.btn.btn-primary.px-5(type="submit") Enviar mensaje
-    .row.mt-5
-      .col-md-4
-        .text-center.p-4
-          i.bi.bi-envelope.display-6.text-primary
-          h5.mt-2 Email
-          p.text-secondary info@miblog.com
-      .col-md-4
-        .text-center.p-4
-          i.bi.bi-twitter-x.display-6.text-primary
-          h5.mt-2 Twitter
-          p.text-secondary @miblog
-      .col-md-4
-        .text-center.p-4
-          i.bi.bi-github.display-6.text-primary
-          h5.mt-2 GitHub
-          p.text-secondary github.com/miblog
+          .row.g-3
+            .col-md-6
+              label.form-label(for="nombre") Nombre
+              input.form-control#nombre(type="text" name="nombre" required)
+            .col-md-6
+              label.form-label(for="email") Email
+              input.form-control#email(type="email" name="email" required)
+            .col-12
+              label.form-label(for="asunto") Asunto
+              input.form-control#asunto(type="text" name="asunto" required)
+            .col-12
+              label.form-label(for="mensaje") Mensaje
+              textarea.form-control#mensaje(name="mensaje" rows="5" required)
+            .col-12
+              button.btn.btn-primary.px-5(type="submit") Enviar mensaje

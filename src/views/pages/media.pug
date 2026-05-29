@@ -1,0 +1,10 @@
+extends ../layouts/admin-layout
+
+block content
+  h1.mb-4 Media
+  if media && media.length
+    ul.list-group
+      each item in media
+        li.list-group-item= item.filename || item.name || item
+  else
+    p.text-secondary No hay archivos cargados.

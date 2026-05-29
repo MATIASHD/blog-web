@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { contactoController } = require('../../controllers/admin/contacto.controller');
+const contactsController = require('../../controllers/admin/contacts.controller');
 
-router.get('/admin/contacts', contactoController);
+router.get('/contacts', contactsController.getAllContacts);
+router.get('/contacts/:id', contactsController.getContactDetail);
+router.post('/contacts/:id/status', contactsController.updateContactStatus);
+router.post('/contacts/:id/delete', contactsController.deleteContact);
 
 module.exports = router;

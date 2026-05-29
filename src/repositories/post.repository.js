@@ -48,6 +48,7 @@ class PostRepository {
     try {
       const filePath = path.join(contentPath, `${slug}.md`);
       const frontmatter = Object.entries(data)
+        .filter(([key]) => key !== 'content' && key !== 'htmlContent')
         .map(([key, value]) => {
           if (Array.isArray(value)) {
             return `${key}:\n${value.map(v => `  - ${v}`).join('\n')}`;

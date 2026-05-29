@@ -1,0 +1,9 @@
+extends ../layouts/admin-layout
+
+block content
+  if contact
+    h1.mb-3= contact.subject || 'Mensaje'
+    p.text-secondary #{contact.name} - #{contact.email}
+    p= contact.message
+  else
+    p.text-secondary Contacto no encontrado.

@@ -1,4 +1,5 @@
 const { marked } = require('marked');
+const sanitizeHtml = require('sanitize-html');
 const renderer = new marked.Renderer();
 
 renderer.image = ({href, title, text}) => {
@@ -23,7 +24,16 @@ marked.setOptions({
 });
 
 const parseMarkdown = (content) => {
-    return marked.parse(content);
+    return sanitizeHtml(marked.parse(content || ''), {
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'figure', 'figcaption']),
+        allowedAttributes: {
+            ...sanitizeHtml.defaults.allowedAttributes,
+            a: ['href', 'name', 'target', 'rel'],
+            img: ['src', 'alt', 'title', 'class', 'loading'],
+            figure: ['class'],
+            code: ['class']
+        }
+    });
 };
 
 module.exports = {

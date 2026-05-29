@@ -7,10 +7,6 @@ const validatePostCreate = (data) => {
     errors.title = 'Title is required';
   }
 
-  if (!data.slug || !isNonEmpty(data.slug)) {
-    errors.slug = 'Slug is required';
-  }
-
   if (!data.content || !isNonEmpty(data.content)) {
     errors.content = 'Content is required';
   }

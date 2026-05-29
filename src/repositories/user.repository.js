@@ -31,17 +31,25 @@ class UserRepository {
       const users = this.getAll();
       const adminExists = users.some(u => u.role === 'admin');
       if (!adminExists) {
+        const adminEmail = process.env.ADMIN_EMAIL || 'admin@blog.com';
+        const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+
+        if (process.env.NODE_ENV === 'production' && !process.env.ADMIN_PASSWORD) {
+          Logger.info('Default admin was not created because ADMIN_PASSWORD is missing');
+          return;
+        }
+
         const defaultAdmin = {
           id: '1',
-          email: 'admin@blog.com',
-          password: hashPassword('admin123'),
+          email: adminEmail,
+          password: hashPassword(adminPassword),
           name: 'Admin',
           role: 'admin',
           status: 'active',
           createdAt: new Date().toISOString(),
         };
         fs.writeFileSync(usersFile, JSON.stringify([defaultAdmin], null, 2), 'utf-8');
-        Logger.info('Default admin user created: admin@blog.com / admin123');
+        Logger.info(`Default admin user created: ${adminEmail}`);
       }
     } catch (error) {
       Logger.error('Error creating default admin', error);

@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const postservice = require('../../services/post.service');
+const postService = require('../../services/post.service');
 
 router.get('/search/', (req, res) => { 
-    const posts = postservice.obtenerTodosLosPost();
+    const query = req.query.q || '';
+    const posts = query ? postService.searchPosts(query) : postService.getAllPosts();
     res.render('pages/search', {
         title: 'Busqueda',
-        query: req.query.q || '',
+        query,
         posts
     });
 });

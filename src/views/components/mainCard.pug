@@ -4,6 +4,6 @@ mixin mainCard(img, imgAlt, link, tags, title, description)
         .card-body 
             include ../components/badge.pug 
             +badge(tags)
-            h2.card-title 
-                a(href=`/blog/${link}`)= title
-            p.card-text= description
+            h2.fs-3.card-title 
+                a.text-dark(href=`/blog/${link}`)= title
+            p.figure-caption.text-body-tertiary.card-text= description

@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const settingsController = require('../../controllers/admin/settings.controller');
 
-router.get('/admin/settings', (req, res) => {
-    res.render('pages/settings', {
-        title: 'Settings'
-    });
-});
+router.get('/settings', settingsController.getSettings);
+router.post('/settings', settingsController.updateSettings);
+
 module.exports = router;
