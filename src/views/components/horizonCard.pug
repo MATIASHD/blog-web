@@ -1,12 +1,17 @@
-mixin horizonCard(titulo, img, imgDescription, description, author)
-    .card.mb-3
+mixin horizonCard(post)
+    .card.mb-4.border-0.shadow-sm.rounded-4
         .row.g-0
-            .col-md-4 
-                img.img-fluid.rounded-start(src=img alt=imgDescription)
-            .col-md-8 
-                .card-body 
-                    h5.card-title= titulo
-                    p.card-text= description 
-                    p.card-text 
-                        small.text-muted author 
-
+            if post.image
+                .col-md-4
+                    img.img-fluid.rounded-start.object-fit-cover.w-100(src=post.image alt=post.title style='min-height: 180px; max-height: 220px')
+            .col-md-8
+                .card-body
+                    if post.category
+                        span.badge.bg-light.text-dark.mb-2= post.category
+                    h5.card-title
+                        a.stretched-link.text-decoration-none.text-dark(href=post.url)= post.title
+                    p.card-text.text-secondary= post.description
+                    p.card-text
+                        small.text-muted
+                            | #{new Date(post.date).toLocaleDateString(post.lang === 'en' ? 'en-US' : 'es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+                            |  · #{post.author}

@@ -1,9 +1,11 @@
-mixin mainCard(img, imgAlt, link, tags, title, description)
-    .featured-card.card.h-100.rounded-5 
-        img.card-img-top.rouded-5.object-fit-cover(src=img, alt=imgAlt, class='img-fluid rounded')
-        .card-body 
-            include ../components/badge.pug 
-            +badge(tags)
-            h2.card-title 
-                a(href=`/blog/${link}`)= title
+mixin mainCard(img, imgAlt, postUrl, tags, title, description)
+    .featured-card.card.h-100.rounded-5
+        if img
+            img.card-img-top.rounded-5.object-fit-cover(src=img alt=imgAlt class='img-fluid rounded' style='max-height: 320px')
+        .card-body
+            if tags && tags.length
+                include ../components/badge.pug
+                +badge(tags[0])
+            h2.card-title
+                a.text-decoration-none.text-dark(href=postUrl)= title
             p.card-text= description

@@ -1,17 +1,17 @@
 mixin tarjetaDePublicacion(post)
-  article.card.h-100.border-0.shadow-sm.rounded-4
-    if post.imagenes
-      img.card-img-top.rounded-top-4.object-fit-cover(src=post.imagenes alt=post.titulo style="height: 200px")
-    .card-body.d-flex.flex-column
-      .mb-2
-        if post.tags
-          each tag in post.tags
-            span.badge.bg-secondary.me-1= tag
-      h5.card-title
-        a.text-dark.text-decoration-none(href=`/blog/${post.link}`)= post.titulo
-      p.card-text.text-secondary.small.flex-grow-1= post.descripcion
-      .d-flex.justify-content-between.align-items-center.mt-auto
-        small.text-muted
-          if post.fecha
-            | #{new Date(post.fecha).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
-        a.btn.btn-outline-primary.btn-sm(href=`/blog/${post.link}`) Leer mas
+    article.card.h-100.border-0.shadow-sm.rounded-4
+        if post.image
+            img.card-img-top.rounded-top-4.object-fit-cover(src=post.image alt=post.title style="height: 200px")
+        .card-body.d-flex.flex-column
+            .mb-2
+                if post.tags && post.tags.length
+                    each tag in post.tags
+                        span.badge.bg-secondary.me-1= tag
+            h5.card-title
+                a.text-dark.text-decoration-none(href=post.url)= post.title
+            p.card-text.text-secondary.small.flex-grow-1= post.description
+            .d-flex.justify-content-between.align-items-center.mt-auto
+                small.text-muted
+                    if post.date
+                        | #{new Date(post.date).toLocaleDateString(post.lang === 'en' ? 'en-US' : 'es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
+                a.btn.btn-outline-primary.btn-sm(href=post.url)= post.lang === 'en' ? 'Read more' : 'Leer más'

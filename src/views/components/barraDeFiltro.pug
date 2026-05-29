@@ -1,24 +1,24 @@
-mixin barraDeFiltro(categorias, tags)
-  .d-flex.flex-wrap.gap-2.align-items-center.mb-4
-    .dropdown
-      button.btn.btn-outline-secondary.dropdown-toggle(type="button" data-bs-toggle="dropdown")
-        i.bi.bi-funnel.me-1
-        | Categorias
-      ul.dropdown-menu
-        li
-          a.dropdown-item(href="/blog") Todas
-        if categorias
-          each cat in categorias
-            li
-              a.dropdown-item(href=`/categoria/${cat.slug}`)= cat.nombre
-    .dropdown
-      button.btn.btn-outline-secondary.dropdown-toggle(type="button" data-bs-toggle="dropdown")
-        i.bi.bi-tags.me-1
-        | Tags
-      ul.dropdown-menu
-        if tags
-          each tag in tags
-            li
-              a.dropdown-item(href=`/tags/${tag.slug}`)= tag.nombre
-    .ms-auto
-      +barraDeBusqueda
+mixin barraDeFiltro(categorias, tags, langPrefix)
+    .d-flex.flex-wrap.gap-2.align-items-center.mb-4
+        .dropdown
+            button.btn.btn-outline-secondary.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false")
+                i.bi.bi-funnel.me-1
+                | Categorías
+            ul.dropdown-menu
+                li
+                    a.dropdown-item(href=`${langPrefix}/blog`) Todas
+                if categorias && categorias.length
+                    each cat in categorias
+                        li
+                            a.dropdown-item(href=`${langPrefix}/categoria/${cat.slug}`)= cat.nombre
+        .dropdown
+            button.btn.btn-outline-secondary.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false")
+                i.bi.bi-tags.me-1
+                | Tags
+            ul.dropdown-menu
+                if tags && tags.length
+                    each tag in tags
+                        li
+                            a.dropdown-item(href=`${langPrefix}/tags/${tag.slug}`)= tag.nombre
+        .ms-auto
+            +barraDeBusqueda(undefined, `${langPrefix}/search`)

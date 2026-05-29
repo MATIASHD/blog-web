@@ -1,21 +1,29 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-white.border-bottom.shadow-sm
     .container-fluid
-        a.navbar-brand(href="/") Mi Blog
-        button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav")
+        a.navbar-brand(href=langPrefix || '/es') ArevDev
+        button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menú")
             span.navbar-toggler-icon
         #navbarNav.collapse.navbar-collapse
-            ul.navbar-nav.ms-auto
+            ul.navbar-nav.ms-auto.align-items-lg-center
                 li.nav-item
-                    a.nav-link(href="/") Inicio
+                    a.nav-link(href=langPrefix || '/es')= (lang === 'en' ? 'Home' : 'Inicio')
                 li.nav-item
-                    a.nav-link(href="/blog") Blog
+                    a.nav-link(href=`${langPrefix || '/es'}/blog`)= (lang === 'en' ? 'Blog' : 'Blog')
                 li.nav-item
-                    a.nav-link(href="/about") Acerca de
+                    a.nav-link(href="/about")= (lang === 'en' ? 'About' : 'Acerca de')
                 li.nav-item
-                    a.nav-link(href="/contacto") Contacto
+                    a.nav-link(href="/contacto")= (lang === 'en' ? 'Contact' : 'Contacto')
                 li.nav-item
                     a.nav-link(href="/newsletter") Newsletter
                 li.nav-item
                     a.nav-link(href="/login") Login
-                li.nav-item
-                    a.nav-link(href="/dashboard") Dashboard
+                li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")= (lang === 'en' ? 'Language' : 'Idioma')
+                    ul.dropdown-menu.dropdown-menu-end
+                        li
+                            a.dropdown-item(href=langPrefix class=(lang === 'es' ? 'active' : undefined)) Español
+                        li
+                            a.dropdown-item(href=otherLangPrefix class=(lang === 'en' ? 'active' : undefined)) English
+                if translation
+                    li.nav-item
+                        a.nav-link.text-primary(href=translation.url)= (lang === 'en' ? 'Ver en español' : 'Read in English')

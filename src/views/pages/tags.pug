@@ -1,40 +1,37 @@
 extends ../layouts/base.pug
 block content
-  .container
-    .row.mb-4
-      .col-12
-        nav(aria-label="breadcrumb")
-          ol.breadcrumb
-            li.breadcrumb-item
-              a(href="/") Inicio
-            li.breadcrumb-item
-              a(href="/blog") Blog
-            li.breadcrumb-item.active(aria-current="page")= tag || 'Tag'
-    .row
-      .col-lg-8
-        h1.mb-4
-          i.bi.bi-tag.me-2
-          | Tag: #{tag || 'Sin nombre'}
-        if posts && posts.length
-          include ../components/grillaDePublicacion.pug
-          include ../components/tarjetaDePublicacion.pug
-          +grillaDePublicacion(posts, '6')
-          include ../components/Paginacion.pug
-          +Paginacion(paginaActual || 1, totalPaginas || 1, `/tags/${tagSlug}`)
-        else
-          .text-center.py-5
-            i.bi.bi-inbox.display-1.text-secondary
-            h4.mt-3 No hay publicaciones con este tag
-            p.text-secondary Vuelve mas tarde o explora otros tags.
-            a.btn.btn-primary(href="/blog") Ver todas
-      .col-lg-4
-        .card.shadow-sm.rounded-4.mb-4
-          .card-body
-            h5 Categorias
-            include ../components/listaDeCategoria.pug
-            +listaDeCategoria(todasLasCategorias)
-        .card.shadow-sm.rounded-4
-          .card-body
-            h5 Tags
-            include ../components/listaDeTags.pug
-            +listaDeTags(todosLosTags)
+    .container
+        .row.mb-4
+            .col-12
+                nav(aria-label="breadcrumb")
+                    ol.breadcrumb
+                        li.breadcrumb-item
+                            a(href=langPrefix)= (lang === 'en' ? 'Home' : 'Inicio')
+                        li.breadcrumb-item
+                            a(href=`${langPrefix}/blog`) Blog
+                        li.breadcrumb-item.active(aria-current="page")= tag
+        .row
+            .col-lg-8
+                h1.mb-4
+                    i.bi.bi-tag.me-2(aria-hidden="true")
+                    | Tag: #{tag}
+                if posts && posts.length
+                    include ../components/grillaDePublicacion.pug
+                    include ../components/tarjetaDePublicacion.pug
+                    +grillaDePublicacion(posts, '6')
+                else
+                    .text-center.py-5
+                        i.bi.bi-inbox.display-1.text-secondary(aria-hidden="true")
+                        h4.mt-3= (lang === 'en' ? 'No posts with this tag' : 'No hay publicaciones con este tag')
+                        a.btn.btn-primary.mt-3(href=`${langPrefix}/blog`)= (lang === 'en' ? 'View all' : 'Ver todas')
+            .col-lg-4
+                .card.shadow-sm.rounded-4.mb-4
+                    .card-body
+                        h5= (lang === 'en' ? 'Categories' : 'Categorías')
+                        include ../components/listaDeCategoria.pug
+                        +listaDeCategoria(todasLasCategorias, langPrefix)
+                .card.shadow-sm.rounded-4
+                    .card-body
+                        h5 Tags
+                        include ../components/listaDeTags.pug
+                        +listaDeTags(todosLosTags, langPrefix)

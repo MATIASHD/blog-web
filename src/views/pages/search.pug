@@ -1,28 +1,28 @@
 extends ../layouts/base.pug
 block content
-  .container
-    .row.justify-content-center.mb-5
-      .col-lg-8
-        h1.mb-4 Resultados de busqueda
-        include ../components/barraDeBusqueda.pug
-        +barraDeBusqueda("Buscar articulos...", "/search")
-    .row
-      .col-12
-        if query
-          p.text-secondary.mb-4
-            | Mostrando resultados para:
-            strong.ms-1 "#{query}"
-        if posts && posts.length
-          p.text-muted.small Se encontraron #{posts.length} resultado(s)
-          include ../components/grillaDePublicacion.pug
-          include ../components/tarjetaDePublicacion.pug
-          +grillaDePublicacion(posts, '4')
-          include ../components/Paginacion.pug
-          +Paginacion(paginaActual || 1, totalPaginas || 1, '/search')
-        else
-          .text-center.py-5
-            i.bi.bi-search.display-1.text-secondary
-            h4.mt-3 No se encontraron resultados
-            p.text-secondary Intenta con otros terminos de busqueda.
-            if query
-              a.btn.btn-primary(href="/blog") Explorar el blog
+    .container
+        .row.justify-content-center.mb-5
+            .col-lg-8
+                h1.mb-4= (lang === 'en' ? 'Search results' : 'Resultados de búsqueda')
+                include ../components/barraDeBusqueda.pug
+                +barraDeBusqueda(
+                    lang === 'en' ? 'Search articles...' : 'Buscar artículos...',
+                    `${langPrefix}/search`
+                )
+        .row
+            .col-12
+                if query
+                    p.text-secondary.mb-4
+                        = (lang === 'en' ? 'Showing results for:' : 'Mostrando resultados para:')
+                        strong.ms-1 "#{query}"
+                if posts && posts.length
+                    p.text-muted.small= (lang === 'en' ? `${posts.length} result(s) found` : `Se encontraron ${posts.length} resultado(s)`)
+                    include ../components/grillaDePublicacion.pug
+                    include ../components/tarjetaDePublicacion.pug
+                    +grillaDePublicacion(posts, '4')
+                else
+                    .text-center.py-5
+                        i.bi.bi-search.display-1.text-secondary(aria-hidden="true")
+                        h4.mt-3= (lang === 'en' ? 'No results found' : 'No se encontraron resultados')
+                        if query
+                            a.btn.btn-primary.mt-3(href=`${langPrefix}/blog`)= (lang === 'en' ? 'Explore the blog' : 'Explorar el blog')
