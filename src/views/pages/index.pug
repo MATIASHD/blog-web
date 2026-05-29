@@ -4,25 +4,25 @@ block content
         section.blog-section
             .container.mb-5
                 .row
-                    .col-lg-12.mb-3
-                        h1= (lang === 'en' ? 'Latest articles' : 'Últimos artículos')
-                if posts && posts.length
-                    .row.g-4
+                    .col-lg-12.mb-3 
+                        h1 Últimas noticias
+                .row.g-4
+                    if posts && posts.length
                         .col-lg-6
-                            include ../components/mainCard.pug
-                            +mainCard(posts[0].image, posts[0].title, posts[0].url, posts[0].tags, posts[0].title, posts[0].description)
+                            include ../components/mainCard.pug 
+                            +mainCard(posts[0].imagenes, "Hero Image", posts[0].link, posts[0].tags[0], posts[0].titulo, posts[0].descripcion)
                         .col-lg-6
-                            .d-flex.flex-column.gap-4.h-100
+                            .d-flex.flex-column.gap-4.h-100 
                                 if posts.length > 1
                                     each post in posts.slice(1, 4)
                                         include ../components/postDescriptionCard.pug
-                                        +postDescriptionCard(post.tags, post.title, post.url, post.description)
-                else
-                    .alert.alert-light(role="status")
-                        = (lang === 'en' ? 'No published posts yet.' : 'Aún no hay publicaciones.')
+                                        +postDescriptionCard(post.tags, post.titulo, post.link, post.descripcion)
+                    else
+                        .col-12
+                            p.text-secondary No hay publicaciones todavia.
         section
             .container.py-5
-                .row
-                    .col-lg-12
-                        include ../components/formularioDeNewsletter.pug
-                        
+                .row 
+                    .col-lg-12 
+                        include ../components/formularioDeNewsletter.pug 
+                        +formularioDeNewsletter("Seguimo para saber mas ", "Suscribime")

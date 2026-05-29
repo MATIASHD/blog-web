@@ -80,6 +80,7 @@ const sanitizeOptions = {
 };
 
 const parseMarkdown = (content) => {
+<<<<<<< HEAD
   const rawHtml = marked.parse(content);
   return sanitizeHtml(rawHtml, sanitizeOptions);
 };
@@ -87,3 +88,20 @@ const parseMarkdown = (content) => {
 module.exports = {
   parseMarkdown,
 };
+=======
+    return sanitizeHtml(marked.parse(content || ''), {
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'figure', 'figcaption']),
+        allowedAttributes: {
+            ...sanitizeHtml.defaults.allowedAttributes,
+            a: ['href', 'name', 'target', 'rel'],
+            img: ['src', 'alt', 'title', 'class', 'loading'],
+            figure: ['class'],
+            code: ['class']
+        }
+    });
+};
+
+module.exports = {
+    parseMarkdown
+}
+>>>>>>> 6ad1e2580b63a3f18777c8a7a79bea31c9b7f466

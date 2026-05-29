@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+<<<<<<< HEAD
 const postService = require('../services/post.service');
 const localeMiddleware = require('../middleware/locale.middleware');
 const { DEFAULT_LANG } = require('../config/i18n');
@@ -175,5 +176,14 @@ router.get('/newsletter', (req, res) => {
 router.get('/error', (req, res) => {
   res.render('pages/error', { title: 'Error' });
 });
+=======
+
+router.use('/', require('./public'));
+router.use('/', require('./auth'));
+router.use('/admin', require('./admin'));
+router.use('/', require('./seo'));
+router.use('/', require('./system'));
+
+>>>>>>> 6ad1e2580b63a3f18777c8a7a79bea31c9b7f466
 
 module.exports = router;

@@ -1,0 +1,12 @@
+extends ../layouts/admin-layout
+
+block content
+  h1.mb-4 Contactos
+  if contacts && contacts.length
+    .list-group
+      each contact in contacts
+        a.list-group-item.list-group-item-action(href=`/admin/contacts/${contact.id}`)
+          strong= contact.name
+          span.ms-2.text-secondary= contact.email
+  else
+    p.text-secondary No hay contactos.

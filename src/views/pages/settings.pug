@@ -1,0 +1,12 @@
+extends ../layouts/admin-layout
+
+block content
+  h1.mb-4 Settings
+  form(action="/admin/settings" method="POST")
+    .mb-3
+      label.form-label(for="siteTitle") Titulo del sitio
+      input.form-control#siteTitle(type="text" name="siteTitle" value=settings ? settings.siteTitle : '')
+    .mb-3
+      label.form-label(for="siteDescription") Descripcion
+      textarea.form-control#siteDescription(name="siteDescription" rows="3")= settings ? settings.siteDescription : ''
+    button.btn.btn-primary(type="submit") Guardar

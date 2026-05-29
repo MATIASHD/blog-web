@@ -1,33 +1,35 @@
 extends ../layouts/base.pug
 block content
-    .container
-        .row.mb-4
-            .col-12
-                h1 Blog
-                p.text-secondary= (lang === 'en' ? 'Explore all articles' : 'Explorá todos los artículos')
-        .row.mb-4
-            .col-12
-                include ../components/barraDeFiltro.pug
-                +barraDeFiltro(todasLasCategorias, todosLosTags, langPrefix)
-        .row
-            .col-lg-8
-                if posts && posts.length
-                    include ../components/horizonCard.pug
-                    each post in posts
-                        +horizonCard(post)
-                else
-                    .text-center.py-5
-                        i.bi.bi-journal-text.display-1.text-secondary(aria-hidden="true")
-                        h4.mt-3= (lang === 'en' ? 'No posts yet' : 'No hay publicaciones aún')
-                        p.text-secondary= (lang === 'en' ? 'Check back soon for new articles.' : 'Volvé pronto para ver nuevos artículos.')
-            .col-lg-4
-                .card.shadow-sm.rounded-4.mb-4
-                    .card-body
-                        h5= (lang === 'en' ? 'Categories' : 'Categorías')
-                        include ../components/listaDeCategoria.pug
-                        +listaDeCategoria(todasLasCategorias, langPrefix)
-                .card.shadow-sm.rounded-4
-                    .card-body
-                        h5 Tags
-                        include ../components/listaDeTags.pug
-                        +listaDeTags(todosLosTags, langPrefix)
+  .container
+    .row.mb-4
+      .col-12
+        h1 Blog
+        p.text-secondary Explora todos los articulos
+    .row.mb-4
+      .col-12
+        include ../components/barraDeFiltro.pug
+        include ../components/barraDeBusqueda.pug
+        +barraDeFiltro(todasLasCategorias, todosLosTags)
+    .row
+      .col-lg-8
+        if posts && posts.length
+          include ../components/horizonCard.pug
+          each post in posts
+            +horizonCard(post.title, post.image, post.title, post.description, post.author)
+        
+        else
+          .text-center.py-5
+            i.bi.bi-journal-text.display-1.text-secondary
+            h4.mt-3 No hay publicaciones aun
+            p.text-secondary Vuelve pronto para ver nuevos articulos.
+      .col-lg-4
+        .card.shadow-sm.rounded-4.mb-4
+          .card-body
+            h5 Categorias
+            include ../components/listaDeCategoria.pug
+            +listaDeCategoria(todasLasCategorias || [])
+        .card.shadow-sm.rounded-4
+          .card-body
+            h5 Tags
+            include ../components/listaDeTags.pug
+            +listaDeTags(todosLosTags || [])

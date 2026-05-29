@@ -1,0 +1,26 @@
+extends ../layouts/base.pug
+
+block content
+  .container
+    .row.justify-content-center
+      .col-lg-8
+        h1.mb-4 Contacto
+        p.text-secondary.mb-5 Si tienes alguna pregunta, sugerencia o simplemente quieres saludar, completa el formulario.
+        if mensaje
+          .alert.alert-success= mensaje
+        form(action="/contacto" method="POST")
+          .row.g-3
+            .col-md-6
+              label.form-label(for="nombre") Nombre
+              input.form-control#nombre(type="text" name="nombre" required)
+            .col-md-6
+              label.form-label(for="email") Email
+              input.form-control#email(type="email" name="email" required)
+            .col-12
+              label.form-label(for="asunto") Asunto
+              input.form-control#asunto(type="text" name="asunto" required)
+            .col-12
+              label.form-label(for="mensaje") Mensaje
+              textarea.form-control#mensaje(name="mensaje" rows="5" required)
+            .col-12
+              button.btn.btn-primary.px-5(type="submit") Enviar mensaje
