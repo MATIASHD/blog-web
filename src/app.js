@@ -6,7 +6,6 @@ const morgan = require('morgan');
 const session = require('express-session');
 
 app.use(helmet());
-app.use(compression());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

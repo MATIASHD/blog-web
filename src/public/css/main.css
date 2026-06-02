@@ -20312,11 +20312,13 @@ pre {
 
 .navbar {
   font-family: "Inter", sans-serif;
+  min-height: 48px;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
 }
 
 footer {
   border-top: 1px solid #dee2e6;
-  margin-top: 5rem;
   font-family: "Inter-light", sans-serif;
 }
 footer a {
@@ -20324,6 +20326,10 @@ footer a {
 }
 footer a:hover {
   color: #80bdff !important;
+}
+
+.resetNav {
+  min-height: calc(100vh - 104px);
 }
 
 .btn {

@@ -1,0 +1,19 @@
+mixin loginCard(error)
+    .col-md-6.col-lg-5.col-sm-12
+        .figure-caption
+            if error
+                .alert.alert-danger= error
+            form(action="/login" method="post")
+                .mb-3
+                    h3.fs-1.text-center Iniciar sesion
+                .mb-3
+                    label.form-label(for="email") Email
+                    input.form-control#email(type="email" name="email" required)
+                .mb-3
+                    label.form-label(for="password") Password
+                    input.form-control#password(type="password" name="password" required)
+                    span.mb-3.d-block.text-end
+                        a(href="/password-reset") ¿No recordas la contraseña? 
+                .mb-3
+                    button.btn.btn-primary.w-100(type="submit") Iniciar sesion
+                

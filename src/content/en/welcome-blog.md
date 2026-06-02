@@ -7,7 +7,7 @@ title: "Welcome to the ArevDev blog"
 description: "First English article using the unified post model."
 author: "Matias Arevalo"
 date: "2026-05-24"
-image: "/images/placeholder.svg"
+image: "1.png"
 category: "General"
 tags:
   - intro

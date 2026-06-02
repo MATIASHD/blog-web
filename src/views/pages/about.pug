@@ -1,47 +1,36 @@
 extends ../layouts/base.pug
 block content
-  .container
-    .row.justify-content-center
-      .col-lg-8
-        h1.mb-4 Acerca de mi
-        .card.shadow-sm.rounded-4.border-0.mb-5
-          .card-body.p-4
-            .text-center.mb-4
-              .bg-primary.rounded-circle.d-inline-flex.align-items-center.justify-content-center(style="width: 120px; height: 120px")
-                i.bi.bi-person.display-4.text-white
-            p.lead Soy un desarrollador apasionado por la tecnologia y la escritura. En este blog comparto mis conocimientos, experiencias y tutoriales sobre desarrollo web, programacion y tecnologia en general.
-        .row.g-4.mb-5
-          .col-md-6
-            .card.shadow-sm.rounded-4.border-0.h-100
-              .card-body.p-4
-                h5
-                  i.bi.bi-stack.me-2.text-primary
-                  | Stack tecnologico
-                ul.list-unstyled.mt-3
-                  li.mb-2
-                    span.badge.bg-primary.me-2 JS
-                    | JavaScript / Node.js
-                  li.mb-2
-                    span.badge.bg-success.me-2 PUG
-                    | Pug / HTML
-                  li.mb-2
-                    span.badge.bg-info.me-2 SASS
-                    | Sass / CSS
-                  li.mb-2
-                    span.badge.bg-warning.me-2 BS
-                    | Bootstrap
-          .col-md-6
-            .card.shadow-sm.rounded-4.border-0.h-100
-              .card-body.p-4
-                h5
-                  i.bi.bi-briefcase.me-2.text-primary
-                  | Experiencia
-                ul.list-unstyled.mt-3
-                  li.mb-2
-                    strong Desarrollador Web
-                    br
-                    small.text-secondary 2020 - Presente
-                  li.mb-2
-                    strong Freelancer
-                    br
-                    small.text-secondary 2018 - 2020
+  .container.py-5
+    .row
+      .col-7
+        h1.mb-5 Building tools for the next era of product development
+    .row.mb-5
+      .col-md-12 
+        figure.figure 
+          img.figure-img.img-fluid.rounded-4(src="images/2.jpg" alt="Acerca de mi") 
+          figcaption.figure-caption.text-center.text-muted Acerca de mi
+    .row
+      .col-md-6.mb-5
+        h2 Mi historia
+      .col-md-6.figure-caption
+        h4.strong Software development is at an inflection point. Artificial intelligence is fundamentally reshaping how products are built.
+        p.text-muted AI increases what teams can create, but it also raises the bar for clarity and coordination. At Linear, we are building the tools for this new era of product development. A purpose-built system where teams and agents operate together in a shared, structured environment.
+        p.text-muted Founded in 2019, Linear has become the tool of choice for more than 33,000 companies (including OpenAI, Coinbase, and Ramp) to plan, build, and ship their products.
+        p.text-muted Our team is distributed across North America and Europe, and we’re continuing to grow internationally. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship.
+    .row
+      .col-md-12.my-4
+        hr
+    .row
+      .col-md-6.mb-5
+        h2 Mi historia
+      .col-md-6.figure-caption
+        h4.strong Software development is at an inflection point. Artificial intelligence is fundamentally reshaping how products are built.
+        p.text-muted AI increases what teams can create, but it also raises the bar for clarity and coordination. At Linear, we are building the tools for this new era of product development. A purpose-built system where teams and agents operate together in a shared, structured environment.
+        p.text-muted Founded in 2019, Linear has become the tool of choice for more than 33,000 companies (including OpenAI, Coinbase, and Ramp) to plan, build, and ship their products.
+        p.text-muted Our team is distributed across North America and Europe, and we’re continuing to grow internationally. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship.
+    .row 
+      .col-md-12.my-4
+        hr
+    .row
+      .col-md-12.mb-5
+        h2.fs-1.text-center Built for the future. Available today.

@@ -4,11 +4,12 @@ const matter = require('gray-matter');
 const { CONTENT_PATH } = require('../utils/constants');
 const Logger = require('../utils/logger');
 
-const contentPath = path.join(process.cwd(), CONTENT_PATH);
+const contentPath = path.join(process.cwd(), CONTENT_PATH, 'en');
 
 class PostRepository {
   getAll() {
     try {
+      console.log("Ruta: " + contentPath);
       if (!fs.existsSync(contentPath)) {
         return [];
       }

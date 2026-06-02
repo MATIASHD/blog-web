@@ -7,7 +7,7 @@ title: "Why the Webb telescope changed the way I look at the sky"
 description: "A short tour of modern astronomy, with a real deep-space photo and an embedded video to understand what we are observing."
 author: "Matias Arevalo"
 date: "2026-05-25"
-image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=630&fit=crop"
+image: "2.png"
 category: "Science"
 tags:
   - astronomy

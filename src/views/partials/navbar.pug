@@ -1,25 +1,21 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-white.border-bottom.shadow-sm
-    .container-fluid
+nav.navbar.navbar-expand-lg.navbar-light.bg-white.py-1
+    .container
         a.p-0.m-0.navbar-brand(href="/") 
-            i.fs-1.bi.bi-file-binary-fill
-        button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav")
+            i.fs-4.bi.bi-file-binary-fill
+        button.navbar-toggler.py-1(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav")
             span.navbar-toggler-icon
         #navbarNav.collapse.navbar-collapse
             ul.navbar-nav.ms-auto.align-items-lg-center
                 li.nav-item
-                    a.nav-link(href=langPrefix || '/es')= (lang === 'en' ? 'Home' : 'Inicio')
+                    a.nav-link.py-1.px-2(href="/about")= (lang === 'en' ? 'About' : 'Acerca de')
                 li.nav-item
-                    a.nav-link(href=`${langPrefix || '/es'}/blog`)= (lang === 'en' ? 'Blog' : 'Blog')
+                    a.nav-link.py-1.px-2(href="/contacto")= (lang === 'en' ? 'Contact' : 'Contacto')
                 li.nav-item
-                    a.nav-link(href="/about")= (lang === 'en' ? 'About' : 'Acerca de')
+                    a.nav-link.py-1.px-2(href="/newsletter") Newsletter
                 li.nav-item
-                    a.nav-link(href="/contacto")= (lang === 'en' ? 'Contact' : 'Contacto')
-                li.nav-item
-                    a.nav-link(href="/newsletter") Newsletter
-                li.nav-item
-                    a.nav-link(href="/login") Login
+                    a.nav-link.py-1.px-2(href="/login") Login
                 li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")= (lang === 'en' ? 'Language' : 'Idioma')
+                    a.nav-link.dropdown-toggle.py-1.px-2(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")= (lang === 'en' ? 'Language' : 'Idioma')
                     ul.dropdown-menu.dropdown-menu-end
                         li
                             a.dropdown-item(href=langPrefix class=(lang === 'es' ? 'active' : undefined)) Español
@@ -27,4 +23,4 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white.border-bottom.shadow-sm
                             a.dropdown-item(href=otherLangPrefix class=(lang === 'en' ? 'active' : undefined)) English
                 if translation
                     li.nav-item
-                        a.nav-link.text-primary(href=translation.url)= (lang === 'en' ? 'Ver en español' : 'Read in English')
+                        a.nav-link.text-primary.py-1.px-2(href=translation.url)= (lang === 'en' ? 'Ver en español' : 'Read in English')

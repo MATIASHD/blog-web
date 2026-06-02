@@ -1,10 +1,6 @@
 mixin postDescriptionCard(tags, title, postUrl, description)
     article.small-card.card.rounded-5
         .card-body
-            if tags && tags.length
-                each tag in tags
-                    include ../components/badge.pug
-                    +badge(tag)
             h3.card-title
-                a.text-decoration-none.text-dark(href=postUrl)= title
-            p.card-text= description
+                a.text-dark(href=`/blog/${postUrl}`)= title
+            p.figure-caption.text-body-tertiary.card-text.lh-sm= description

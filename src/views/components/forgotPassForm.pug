@@ -1,0 +1,18 @@
+mixin forgotPassForm(error)
+    .col-md-6.col-lg-5.col-sm-12.pt-5
+        .figure-caption
+            if error
+                .alert.alert-danger= error
+            form.row.g-3(action="/forgot-password" method="post")
+                .mb-3
+                    h3.fs-1.text-center Recupere la cuenta
+                .mb-3
+                    label.form-label.mb-0(for="email") Email
+                    .row.align-items-center
+                        
+                        .col
+                            input.form-control#email(type="email" name="email" required)
+                        .col-auto
+                            button.btn.btn-primary(type="submit") Enviar email
+
+

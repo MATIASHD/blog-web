@@ -1,6 +1,6 @@
 extends ../layouts/base.pug
 block content
-    header
+    header.py-5
         section.blog-section
             .container.mb-5
                 .row
@@ -20,9 +20,16 @@ block content
                     else
                         .col-12
                             p.text-secondary No hay publicaciones todavia.
+        
         section
             .container.py-5
-                .row 
-                    .col-lg-12 
-                        include ../components/formularioDeNewsletter.pug 
-                        +formularioDeNewsletter("Seguimo para saber mas ", "Suscribime")
+                .row
+                    .col-lg-12.mb-3 
+                        h1 Todos los posts
+                .row
+                    if posts && posts.length
+                    include ../components/generalCard.pug
+                    each post in posts 
+                        .col-md-4 
+                            +generalCard(post.titulo, post.descripcion, "2.jpg", post.link, post.fecha)
+        

@@ -1,15 +1,27 @@
 extends ../layouts/base.pug
 block content
   .container
-    .row.justify-content-center
-      .col-lg-8
-        .card.shadow-sm.rounded-4.border-0
-          .card-body.p-5.text-center
-            i.bi.bi-envelope-open.display-1.text-primary
-            h2.mt-3 Suscribete al Newsletter
-            p.text-secondary.mb-4 Recibe las ultimas novedades, articulos y tutoriales directamente en tu correo.
-            if mensaje
-              .alert.alert-success= mensaje
-            include ../components/formularioDeNewsletter.pug
-            +formularioDeNewsletter("tu@email.com", "Suscribirse")
-            p.text-muted.small.mt-3 No compartiremos tu correo con terceros.
+    .d-flex.flex-column.justify-content-center.align-items-center.resetNav
+      .col-lg-6
+        .card-body.text-center.figure-caption
+          .row
+            .col-12
+              small.text-uppercase.mb-2.d-flex.justify-content-center
+                span.mx-1 N
+                span.mx-1 e
+                span.mx-1 w
+                span.mx-1 s
+                span.mx-1 l
+                span.mx-1 e
+                span.mx-1 t
+                span.mx-1 t
+                span.mx-1 e
+          .row.justify-content-center
+            .col-lg-12
+              h1.fs-1.fw-bold.mt-3.bold Suscribete al Newsletter
+              p.text-secondary.mb-4 Un boletín asíncrono diseñado para ingenieros de software que aprecian el análisis riguroso por encima de los titulares llamativos. Una lectura pausada para dominar los procesos a nivel fábrica y el IoT.
+              if mensaje
+                .alert.alert-success= mensaje
+              include ../components/formularioDeNewsletter.pug
+              +formularioDeNewsletter("tu@email.com", "Suscribirse")
+              small.text-muted.small.mt-3 Honestidad radical: Una entrega por semana. Sin rastreadores de clics, publicidad cruzada, ni contenido de relleno. Cancelación con un solo clic.

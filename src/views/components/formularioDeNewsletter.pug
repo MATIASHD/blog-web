@@ -1,10 +1,8 @@
 mixin formularioDeNewsletter(placeholder, botonTexto)
-  .card.bg-secondary.py-5
     .row.justify-content-center
-      .col-md-7
-        .card-body
-          h2.text-white.mb-3 Suscribite al newsletter
+      .col-md-9
+        .card-body.mb-3
           form.newsletter-form(action="/newsletter" method="POST")
-            .input-group
-              input.form-control(type="email" name="email" placeholder=placeholder || "tu@email.com" required)
-              button.btn.btn-primary(type="submit")= botonTexto || "Suscribirse"
+            .input-group.border-bottom.border-black.border-3
+              input.form-control.border-0(type="email" name="email" placeholder=placeholder || "tu@email.com" required)
+              button.btn(type="submit")= botonTexto || "Suscribirse"

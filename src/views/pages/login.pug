@@ -2,17 +2,8 @@ extends ../layouts/base.pug
 
 block content
   .container
-    .row.justify-content-center
-      .col-md-6.col-lg-4
-        .card-body.p-4
-          h3 Iniciar sesion
-          if error
-            .alert.alert-danger= error
-          form(action="/login" method="post")
-            .mb-3
-              label.form-label(for="email") Email
-              input.form-control#email(type="email" name="email" required)
-            .mb-3
-              label.form-label(for="password") Password
-              input.form-control#password(type="password" name="password" required)
-            button.btn.btn-primary.w-100(type="submit") Iniciar sesion
+    .row
+      .col-md-12
+        .d-flex.justify-content-center.align-items-center.resetNav
+          include ../components/loginCard.pug
+          +loginCard(error)

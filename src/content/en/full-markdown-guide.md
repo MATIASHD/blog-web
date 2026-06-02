@@ -7,7 +7,7 @@ title: "Visual guide: every Markdown resource to test the blog"
 description: "Reference article with headings, lists, tables, code, quotes, multimedia, safe HTML, and more."
 author: "Matias Arevalo"
 date: "2026-05-26"
-image: "https://images.unsplash.com/photo-1517694712202-8dd79c70a870?w=1200&h=630&fit=crop"
+image: "1.png"
 category: "Web Development"
 tags:
   - markdown

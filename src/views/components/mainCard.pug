@@ -1,9 +1,7 @@
 mixin mainCard(img, imgAlt, link, tags, title, description)
     .featured-card.card.h-100.rounded-5 
-        img.card-img-top.rouded-5.object-fit-cover(src=img, alt=imgAlt, class='img-fluid rounded')
-        .card-body 
-            include ../components/badge.pug 
-            +badge(tags)
+        img.card-img-top.object-fit-cover.rounded-top-5(src=`/images/${img}`, alt=imgAlt, class='img-fluid')
+        .card-body
             h2.fs-3.card-title 
                 a.text-dark(href=`/blog/${link}`)= title
-            p.figure-caption.text-body-tertiary.card-text= description
+            p.figure-caption.text-body-tertiary.card-text.lh-sm= description
