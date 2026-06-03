@@ -1,9 +1,9 @@
 mixin generalCard(title, description, image, link, fecha)
     .card.border-0.figure-caption.mb-5.p-1
         if image
-            img.img-fluid.mb-3.rounded(src=`/images/${image}`, alt=title)
-        
+            include blockImagen.pug
+            +blockImagen(image, title, title)
         h3 
             a.text-dark(href=`/blog/${link}`)= title
         p.text-secondary.lh-sm.text-body-tertiary= description
-        small.text-muted= `Fecha de publicación: ${fecha}`
+        small= `Fecha de publicación: ${fecha}`

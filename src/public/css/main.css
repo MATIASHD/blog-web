@@ -20198,7 +20198,7 @@ textarea.form-control-lg {
 
 @font-face {
   font-family: "Source Serif 4";
-  src: url("../assets/fonts/static/SourceSerif4-Regular.ttf") format("truetype");
+  src: url("./fonts/static/SourceSerif4-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Inter";
@@ -20211,6 +20211,706 @@ textarea.form-control-lg {
 @font-face {
   font-family: "Inter-light";
   src: url("../assets/fonts/static/Inter_28pt-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter_18pt-Black";
+  src: url("../assets/fonts/Inter-18pt-Black.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-BlackItalic";
+  src: url("../assets/fonts/Inter-18pt-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-Bold";
+  src: url("../assets/fonts/Inter-18pt-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-BoldItalic";
+  src: url("../assets/fonts/Inter-18pt-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-ExtraBold";
+  src: url("../assets/fonts/Inter-18pt-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-ExtraBoldItalic";
+  src: url("../assets/fonts/Inter-18pt-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-ExtraLight";
+  src: url("../assets/fonts/Inter-18pt-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-ExtraLightItalic";
+  src: url("../assets/fonts/Inter-18pt-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-Italic";
+  src: url("../assets/fonts/Inter-18pt-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-Light";
+  src: url("../assets/fonts/Inter-18pt-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-LightItalic";
+  src: url("../assets/fonts/Inter-18pt-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-Medium";
+  src: url("../assets/fonts/Inter-18pt-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-MediumItalic";
+  src: url("../assets/fonts/Inter-18pt-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-Regular";
+  src: url("../assets/fonts/Inter-18pt-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-SemiBold";
+  src: url("../assets/fonts/Inter-18pt-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-SemiBoldItalic";
+  src: url("../assets/fonts/Inter-18pt-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-Thin";
+  src: url("../assets/fonts/Inter-18pt-Thin.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_18pt-ThinItalic";
+  src: url("../assets/fonts/Inter-18pt-ThinItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-Black";
+  src: url("../assets/fonts/Inter-24pt-Black.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-BlackItalic";
+  src: url("../assets/fonts/Inter-24pt-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-Bold";
+  src: url("../assets/fonts/Inter-24pt-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-BoldItalic";
+  src: url("../assets/fonts/Inter-24pt-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-ExtraBold";
+  src: url("../assets/fonts/Inter-24pt-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-ExtraBoldItalic";
+  src: url("../assets/fonts/Inter-24pt-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-ExtraLight";
+  src: url("../assets/fonts/Inter-24pt-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-ExtraLightItalic";
+  src: url("../assets/fonts/Inter-24pt-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-Italic";
+  src: url("../assets/fonts/Inter-24pt-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-Light";
+  src: url("../assets/fonts/Inter-24pt-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-LightItalic";
+  src: url("../assets/fonts/Inter-24pt-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-Medium";
+  src: url("../assets/fonts/Inter-24pt-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-MediumItalic";
+  src: url("../assets/fonts/Inter-24pt-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-Regular";
+  src: url("../assets/fonts/Inter-24pt-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-SemiBold";
+  src: url("../assets/fonts/Inter-24pt-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-SemiBoldItalic";
+  src: url("../assets/fonts/Inter-24pt-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-Thin";
+  src: url("../assets/fonts/Inter-24pt-Thin.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_24pt-ThinItalic";
+  src: url("../assets/fonts/Inter-24pt-ThinItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-Black";
+  src: url("../assets/fonts/Inter-28pt-Black.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-BlackItalic";
+  src: url("../assets/fonts/Inter-28pt-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-Bold";
+  src: url("../assets/fonts/Inter-28pt-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-BoldItalic";
+  src: url("../assets/fonts/Inter-28pt-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-ExtraBold";
+  src: url("../assets/fonts/Inter-28pt-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-ExtraBoldItalic";
+  src: url("../assets/fonts/Inter-28pt-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-ExtraLight";
+  src: url("../assets/fonts/Inter-28pt-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-ExtraLightItalic";
+  src: url("../assets/fonts/Inter-28pt-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-Italic";
+  src: url("../assets/fonts/Inter-28pt-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-Light";
+  src: url("../assets/fonts/Inter-28pt-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-LightItalic";
+  src: url("../assets/fonts/Inter-28pt-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-Medium";
+  src: url("../assets/fonts/Inter-28pt-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-MediumItalic";
+  src: url("../assets/fonts/Inter-28pt-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-Regular";
+  src: url("../assets/fonts/Inter-28pt-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-SemiBold";
+  src: url("../assets/fonts/Inter-28pt-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-SemiBoldItalic";
+  src: url("../assets/fonts/Inter-28pt-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-Thin";
+  src: url("../assets/fonts/Inter-28pt-Thin.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter_28pt-ThinItalic";
+  src: url("../assets/fonts/Inter-28pt-ThinItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-Bold";
+  src: url("../assets/fonts/JetBrainsMono-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-BoldItalic";
+  src: url("../assets/fonts/JetBrainsMono-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-ExtraBold";
+  src: url("../assets/fonts/JetBrainsMono-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-ExtraBoldItalic";
+  src: url("../assets/fonts/JetBrainsMono-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-ExtraLight";
+  src: url("../assets/fonts/JetBrainsMono-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-ExtraLightItalic";
+  src: url("../assets/fonts/JetBrainsMono-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-Italic";
+  src: url("../assets/fonts/JetBrainsMono-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-Light";
+  src: url("../assets/fonts/JetBrainsMono-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-LightItalic";
+  src: url("../assets/fonts/JetBrainsMono-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-Medium";
+  src: url("../assets/fonts/JetBrainsMono-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-MediumItalic";
+  src: url("../assets/fonts/JetBrainsMono-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-Regular";
+  src: url("../assets/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-SemiBold";
+  src: url("../assets/fonts/JetBrainsMono-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-SemiBoldItalic";
+  src: url("../assets/fonts/JetBrainsMono-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-Thin";
+  src: url("../assets/fonts/JetBrainsMono-Thin.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-ThinItalic";
+  src: url("../assets/fonts/JetBrainsMono-ThinItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-Black";
+  src: url("../assets/fonts/SourceSerif4-18pt-Black.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-BlackItalic";
+  src: url("../assets/fonts/SourceSerif4-18pt-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-Bold";
+  src: url("../assets/fonts/SourceSerif4-18pt-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-BoldItalic";
+  src: url("../assets/fonts/SourceSerif4-18pt-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-ExtraBold";
+  src: url("../assets/fonts/SourceSerif4-18pt-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-ExtraBoldItalic";
+  src: url("../assets/fonts/SourceSerif4-18pt-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-ExtraLight";
+  src: url("../assets/fonts/SourceSerif4-18pt-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-ExtraLightItalic";
+  src: url("../assets/fonts/SourceSerif4-18pt-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-Italic";
+  src: url("../assets/fonts/SourceSerif4-18pt-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-Light";
+  src: url("../assets/fonts/SourceSerif4-18pt-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-LightItalic";
+  src: url("../assets/fonts/SourceSerif4-18pt-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-Medium";
+  src: url("../assets/fonts/SourceSerif4-18pt-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-MediumItalic";
+  src: url("../assets/fonts/SourceSerif4-18pt-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-Regular";
+  src: url("../assets/fonts/SourceSerif4-18pt-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-SemiBold";
+  src: url("../assets/fonts/SourceSerif4-18pt-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_18pt-SemiBoldItalic";
+  src: url("../assets/fonts/SourceSerif4-18pt-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-Black";
+  src: url("../assets/fonts/SourceSerif4-36pt-Black.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-BlackItalic";
+  src: url("../assets/fonts/SourceSerif4-36pt-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-Bold";
+  src: url("../assets/fonts/SourceSerif4-36pt-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-BoldItalic";
+  src: url("../assets/fonts/SourceSerif4-36pt-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-ExtraBold";
+  src: url("../assets/fonts/SourceSerif4-36pt-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-ExtraBoldItalic";
+  src: url("../assets/fonts/SourceSerif4-36pt-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-ExtraLight";
+  src: url("../assets/fonts/SourceSerif4-36pt-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-ExtraLightItalic";
+  src: url("../assets/fonts/SourceSerif4-36pt-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-Italic";
+  src: url("../assets/fonts/SourceSerif4-36pt-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-Light";
+  src: url("../assets/fonts/SourceSerif4-36pt-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-LightItalic";
+  src: url("../assets/fonts/SourceSerif4-36pt-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-Medium";
+  src: url("../assets/fonts/SourceSerif4-36pt-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-MediumItalic";
+  src: url("../assets/fonts/SourceSerif4-36pt-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-Regular";
+  src: url("../assets/fonts/SourceSerif4-36pt-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-SemiBold";
+  src: url("../assets/fonts/SourceSerif4-36pt-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_36pt-SemiBoldItalic";
+  src: url("../assets/fonts/SourceSerif4-36pt-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-Black";
+  src: url("../assets/fonts/SourceSerif4-48pt-Black.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-BlackItalic";
+  src: url("../assets/fonts/SourceSerif4-48pt-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-Bold";
+  src: url("../assets/fonts/SourceSerif4-48pt-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-BoldItalic";
+  src: url("../assets/fonts/SourceSerif4-48pt-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-ExtraBold";
+  src: url("../assets/fonts/SourceSerif4-48pt-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-ExtraBoldItalic";
+  src: url("../assets/fonts/SourceSerif4-48pt-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-ExtraLight";
+  src: url("../assets/fonts/SourceSerif4-48pt-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-ExtraLightItalic";
+  src: url("../assets/fonts/SourceSerif4-48pt-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-Italic";
+  src: url("../assets/fonts/SourceSerif4-48pt-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-Light";
+  src: url("../assets/fonts/SourceSerif4-48pt-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-LightItalic";
+  src: url("../assets/fonts/SourceSerif4-48pt-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-Medium";
+  src: url("../assets/fonts/SourceSerif4-48pt-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-MediumItalic";
+  src: url("../assets/fonts/SourceSerif4-48pt-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-Regular";
+  src: url("../assets/fonts/SourceSerif4-48pt-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-SemiBold";
+  src: url("../assets/fonts/SourceSerif4-48pt-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4_48pt-SemiBoldItalic";
+  src: url("../assets/fonts/SourceSerif4-48pt-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-Black";
+  src: url("../assets/fonts/SourceSerif4-Black.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-BlackItalic";
+  src: url("../assets/fonts/SourceSerif4-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-Bold";
+  src: url("../assets/fonts/SourceSerif4-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-BoldItalic";
+  src: url("../assets/fonts/SourceSerif4-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-ExtraBold";
+  src: url("../assets/fonts/SourceSerif4-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-ExtraBoldItalic";
+  src: url("../assets/fonts/SourceSerif4-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-ExtraLight";
+  src: url("../assets/fonts/SourceSerif4-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-ExtraLightItalic";
+  src: url("../assets/fonts/SourceSerif4-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-Italic";
+  src: url("../assets/fonts/SourceSerif4-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-Light";
+  src: url("../assets/fonts/SourceSerif4-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-LightItalic";
+  src: url("../assets/fonts/SourceSerif4-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-Medium";
+  src: url("../assets/fonts/SourceSerif4-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-MediumItalic";
+  src: url("../assets/fonts/SourceSerif4-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-Regular";
+  src: url("../assets/fonts/SourceSerif4-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-SemiBold";
+  src: url("../assets/fonts/SourceSerif4-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-SemiBoldItalic";
+  src: url("../assets/fonts/SourceSerif4-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter-Italic-VariableFont_opsz,wght";
+  src: url("../assets/fonts/Inter-Italic-VariableFont-opsz,wght.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter-VariableFont_opsz,wght";
+  src: url("../assets/fonts/Inter-VariableFont-opsz,wght.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-Italic-VariableFont_wght";
+  src: url("../JetBrainsMono-Italic-VariableFont-wght.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono-VariableFont_wght";
+  src: url("../assets/fonts/JetBrainsMono-VariableFont-wght.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-Italic-VariableFont_opsz,wght";
+  src: url("../assets/fonts/SourceSerif4-Italic-VariableFont-opsz,wght.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SourceSerif4-VariableFont_opsz,wght";
+  src: url("../assets/fonts/SourceSerif4-VariableFont-opsz,wght.ttf") format("truetype");
+  font-display: swap;
 }
 * {
   margin: 0;
@@ -20282,6 +20982,566 @@ pre {
 
 .detail {
   font-size: 0.9rem;
+}
+
+.font-inter-18pt-black {
+  font-family: "Inter_18pt-Black", sans-serif;
+}
+
+.font-inter-18pt-blackitalic {
+  font-family: "Inter_18pt-BlackItalic", sans-serif;
+}
+
+.font-inter-18pt-bold {
+  font-family: "Inter_18pt-Bold", sans-serif;
+}
+
+.font-inter-18pt-bolditalic {
+  font-family: "Inter_18pt-BoldItalic", sans-serif;
+}
+
+.font-inter-18pt-extrabold {
+  font-family: "Inter_18pt-ExtraBold", sans-serif;
+}
+
+.font-inter-18pt-extrabolditalic {
+  font-family: "Inter_18pt-ExtraBoldItalic", sans-serif;
+}
+
+.font-inter-18pt-extralight {
+  font-family: "Inter_18pt-ExtraLight", sans-serif;
+}
+
+.font-inter-18pt-extralightitalic {
+  font-family: "Inter_18pt-ExtraLightItalic", sans-serif;
+}
+
+.font-inter-18pt-italic {
+  font-family: "Inter_18pt-Italic", sans-serif;
+}
+
+.font-inter-18pt-light {
+  font-family: "Inter_18pt-Light", sans-serif;
+}
+
+.font-inter-18pt-lightitalic {
+  font-family: "Inter_18pt-LightItalic", sans-serif;
+}
+
+.font-inter-18pt-medium {
+  font-family: "Inter_18pt-Medium", sans-serif;
+}
+
+.font-inter-18pt-mediumitalic {
+  font-family: "Inter_18pt-MediumItalic", sans-serif;
+}
+
+.font-inter-18pt-regular {
+  font-family: "Inter_18pt-Regular", sans-serif;
+}
+
+.font-inter-18pt-semibold {
+  font-family: "Inter_18pt-SemiBold", sans-serif;
+}
+
+.font-inter-18pt-semibolditalic {
+  font-family: "Inter_18pt-SemiBoldItalic", sans-serif;
+}
+
+.font-inter-18pt-thin {
+  font-family: "Inter_18pt-Thin", sans-serif;
+}
+
+.font-inter-18pt-thinitalic {
+  font-family: "Inter_18pt-ThinItalic", sans-serif;
+}
+
+.font-inter-24pt-black {
+  font-family: "Inter_24pt-Black", sans-serif;
+}
+
+.font-inter-24pt-blackitalic {
+  font-family: "Inter_24pt-BlackItalic", sans-serif;
+}
+
+.font-inter-24pt-bold {
+  font-family: "Inter_24pt-Bold", sans-serif;
+}
+
+.font-inter-24pt-bolditalic {
+  font-family: "Inter_24pt-BoldItalic", sans-serif;
+}
+
+.font-inter-24pt-extrabold {
+  font-family: "Inter_24pt-ExtraBold", sans-serif;
+}
+
+.font-inter-24pt-extrabolditalic {
+  font-family: "Inter_24pt-ExtraBoldItalic", sans-serif;
+}
+
+.font-inter-24pt-extralight {
+  font-family: "Inter_24pt-ExtraLight", sans-serif;
+}
+
+.font-inter-24pt-extralightitalic {
+  font-family: "Inter_24pt-ExtraLightItalic", sans-serif;
+}
+
+.font-inter-24pt-italic {
+  font-family: "Inter_24pt-Italic", sans-serif;
+}
+
+.font-inter-24pt-light {
+  font-family: "Inter_24pt-Light", sans-serif;
+}
+
+.font-inter-24pt-lightitalic {
+  font-family: "Inter_24pt-LightItalic", sans-serif;
+}
+
+.font-inter-24pt-medium {
+  font-family: "Inter_24pt-Medium", sans-serif;
+}
+
+.font-inter-24pt-mediumitalic {
+  font-family: "Inter_24pt-MediumItalic", sans-serif;
+}
+
+.font-inter-24pt-regular {
+  font-family: "Inter_24pt-Regular", sans-serif;
+}
+
+.font-inter-24pt-semibold {
+  font-family: "Inter_24pt-SemiBold", sans-serif;
+}
+
+.font-inter-24pt-semibolditalic {
+  font-family: "Inter_24pt-SemiBoldItalic", sans-serif;
+}
+
+.font-inter-24pt-thin {
+  font-family: "Inter_24pt-Thin", sans-serif;
+}
+
+.font-inter-24pt-thinitalic {
+  font-family: "Inter_24pt-ThinItalic", sans-serif;
+}
+
+.font-inter-28pt-black {
+  font-family: "Inter_28pt-Black", sans-serif;
+}
+
+.font-inter-28pt-blackitalic {
+  font-family: "Inter_28pt-BlackItalic", sans-serif;
+}
+
+.font-inter-28pt-bold {
+  font-family: "Inter_28pt-Bold", sans-serif;
+}
+
+.font-inter-28pt-bolditalic {
+  font-family: "Inter_28pt-BoldItalic", sans-serif;
+}
+
+.font-inter-28pt-extrabold {
+  font-family: "Inter_28pt-ExtraBold", sans-serif;
+}
+
+.font-inter-28pt-extrabolditalic {
+  font-family: "Inter_28pt-ExtraBoldItalic", sans-serif;
+}
+
+.font-inter-28pt-extralight {
+  font-family: "Inter_28pt-ExtraLight", sans-serif;
+}
+
+.font-inter-28pt-extralightitalic {
+  font-family: "Inter_28pt-ExtraLightItalic", sans-serif;
+}
+
+.font-inter-28pt-italic {
+  font-family: "Inter_28pt-Italic", sans-serif;
+}
+
+.font-inter-28pt-light {
+  font-family: "Inter_28pt-Light", sans-serif;
+}
+
+.font-inter-28pt-lightitalic {
+  font-family: "Inter_28pt-LightItalic", sans-serif;
+}
+
+.font-inter-28pt-medium {
+  font-family: "Inter_28pt-Medium", sans-serif;
+}
+
+.font-inter-28pt-mediumitalic {
+  font-family: "Inter_28pt-MediumItalic", sans-serif;
+}
+
+.font-inter-28pt-regular {
+  font-family: "Inter_28pt-Regular", sans-serif;
+}
+
+.font-inter-28pt-semibold {
+  font-family: "Inter_28pt-SemiBold", sans-serif;
+}
+
+.font-inter-28pt-semibolditalic {
+  font-family: "Inter_28pt-SemiBoldItalic", sans-serif;
+}
+
+.font-inter-28pt-thin {
+  font-family: "Inter_28pt-Thin", sans-serif;
+}
+
+.font-inter-28pt-thinitalic {
+  font-family: "Inter_28pt-ThinItalic", sans-serif;
+}
+
+.font-jetbrainsmono-bold {
+  font-family: "JetBrainsMono-Bold", sans-serif;
+}
+
+.font-jetbrainsmono-bolditalic {
+  font-family: "JetBrainsMono-BoldItalic", sans-serif;
+}
+
+.font-jetbrainsmono-extrabold {
+  font-family: "JetBrainsMono-ExtraBold", sans-serif;
+}
+
+.font-jetbrainsmono-extrabolditalic {
+  font-family: "JetBrainsMono-ExtraBoldItalic", sans-serif;
+}
+
+.font-jetbrainsmono-extralight {
+  font-family: "JetBrainsMono-ExtraLight", sans-serif;
+}
+
+.font-jetbrainsmono-extralightitalic {
+  font-family: "JetBrainsMono-ExtraLightItalic", sans-serif;
+}
+
+.font-jetbrainsmono-italic {
+  font-family: "JetBrainsMono-Italic", sans-serif;
+}
+
+.font-jetbrainsmono-light {
+  font-family: "JetBrainsMono-Light", sans-serif;
+}
+
+.font-jetbrainsmono-lightitalic {
+  font-family: "JetBrainsMono-LightItalic", sans-serif;
+}
+
+.font-jetbrainsmono-medium {
+  font-family: "JetBrainsMono-Medium", sans-serif;
+}
+
+.font-jetbrainsmono-mediumitalic {
+  font-family: "JetBrainsMono-MediumItalic", sans-serif;
+}
+
+.font-jetbrainsmono-regular {
+  font-family: "JetBrainsMono-Regular", sans-serif;
+}
+
+.font-jetbrainsmono-semibold {
+  font-family: "JetBrainsMono-SemiBold", sans-serif;
+}
+
+.font-jetbrainsmono-semibolditalic {
+  font-family: "JetBrainsMono-SemiBoldItalic", sans-serif;
+}
+
+.font-jetbrainsmono-thin {
+  font-family: "JetBrainsMono-Thin", sans-serif;
+}
+
+.font-jetbrainsmono-thinitalic {
+  font-family: "JetBrainsMono-ThinItalic", sans-serif;
+}
+
+.font-sourceserif4-18pt-black {
+  font-family: "SourceSerif4_18pt-Black", sans-serif;
+}
+
+.font-sourceserif4-18pt-blackitalic {
+  font-family: "SourceSerif4_18pt-BlackItalic", sans-serif;
+}
+
+.font-sourceserif4-18pt-bold {
+  font-family: "SourceSerif4_18pt-Bold", sans-serif;
+}
+
+.font-sourceserif4-18pt-bolditalic {
+  font-family: "SourceSerif4_18pt-BoldItalic", sans-serif;
+}
+
+.font-sourceserif4-18pt-extrabold {
+  font-family: "SourceSerif4_18pt-ExtraBold", sans-serif;
+}
+
+.font-sourceserif4-18pt-extrabolditalic {
+  font-family: "SourceSerif4_18pt-ExtraBoldItalic", sans-serif;
+}
+
+.font-sourceserif4-18pt-extralight {
+  font-family: "SourceSerif4_18pt-ExtraLight", sans-serif;
+}
+
+.font-sourceserif4-18pt-extralightitalic {
+  font-family: "SourceSerif4_18pt-ExtraLightItalic", sans-serif;
+}
+
+.font-sourceserif4-18pt-italic {
+  font-family: "SourceSerif4_18pt-Italic", sans-serif;
+}
+
+.font-sourceserif4-18pt-light {
+  font-family: "SourceSerif4_18pt-Light", sans-serif;
+}
+
+.font-sourceserif4-18pt-lightitalic {
+  font-family: "SourceSerif4_18pt-LightItalic", sans-serif;
+}
+
+.font-sourceserif4-18pt-medium {
+  font-family: "SourceSerif4_18pt-Medium", sans-serif;
+}
+
+.font-sourceserif4-18pt-mediumitalic {
+  font-family: "SourceSerif4_18pt-MediumItalic", sans-serif;
+}
+
+.font-sourceserif4-18pt-regular {
+  font-family: "SourceSerif4_18pt-Regular", sans-serif;
+}
+
+.font-sourceserif4-18pt-semibold {
+  font-family: "SourceSerif4_18pt-SemiBold", sans-serif;
+}
+
+.font-sourceserif4-18pt-semibolditalic {
+  font-family: "SourceSerif4_18pt-SemiBoldItalic", sans-serif;
+}
+
+.font-sourceserif4-36pt-black {
+  font-family: "SourceSerif4_36pt-Black", sans-serif;
+}
+
+.font-sourceserif4-36pt-blackitalic {
+  font-family: "SourceSerif4_36pt-BlackItalic", sans-serif;
+}
+
+.font-sourceserif4-36pt-bold {
+  font-family: "SourceSerif4_36pt-Bold", sans-serif;
+}
+
+.font-sourceserif4-36pt-bolditalic {
+  font-family: "SourceSerif4_36pt-BoldItalic", sans-serif;
+}
+
+.font-sourceserif4-36pt-extrabold {
+  font-family: "SourceSerif4_36pt-ExtraBold", sans-serif;
+}
+
+.font-sourceserif4-36pt-extrabolditalic {
+  font-family: "SourceSerif4_36pt-ExtraBoldItalic", sans-serif;
+}
+
+.font-sourceserif4-36pt-extralight {
+  font-family: "SourceSerif4_36pt-ExtraLight", sans-serif;
+}
+
+.font-sourceserif4-36pt-extralightitalic {
+  font-family: "SourceSerif4_36pt-ExtraLightItalic", sans-serif;
+}
+
+.font-sourceserif4-36pt-italic {
+  font-family: "SourceSerif4_36pt-Italic", sans-serif;
+}
+
+.font-sourceserif4-36pt-light {
+  font-family: "SourceSerif4_36pt-Light", sans-serif;
+}
+
+.font-sourceserif4-36pt-lightitalic {
+  font-family: "SourceSerif4_36pt-LightItalic", sans-serif;
+}
+
+.font-sourceserif4-36pt-medium {
+  font-family: "SourceSerif4_36pt-Medium", sans-serif;
+}
+
+.font-sourceserif4-36pt-mediumitalic {
+  font-family: "SourceSerif4_36pt-MediumItalic", sans-serif;
+}
+
+.font-sourceserif4-36pt-regular {
+  font-family: "SourceSerif4_36pt-Regular", sans-serif;
+}
+
+.font-sourceserif4-36pt-semibold {
+  font-family: "SourceSerif4_36pt-SemiBold", sans-serif;
+}
+
+.font-sourceserif4-36pt-semibolditalic {
+  font-family: "SourceSerif4_36pt-SemiBoldItalic", sans-serif;
+}
+
+.font-sourceserif4-48pt-black {
+  font-family: "SourceSerif4_48pt-Black", sans-serif;
+}
+
+.font-sourceserif4-48pt-blackitalic {
+  font-family: "SourceSerif4_48pt-BlackItalic", sans-serif;
+}
+
+.font-sourceserif4-48pt-bold {
+  font-family: "SourceSerif4_48pt-Bold", sans-serif;
+}
+
+.font-sourceserif4-48pt-bolditalic {
+  font-family: "SourceSerif4_48pt-BoldItalic", sans-serif;
+}
+
+.font-sourceserif4-48pt-extrabold {
+  font-family: "SourceSerif4_48pt-ExtraBold", sans-serif;
+}
+
+.font-sourceserif4-48pt-extrabolditalic {
+  font-family: "SourceSerif4_48pt-ExtraBoldItalic", sans-serif;
+}
+
+.font-sourceserif4-48pt-extralight {
+  font-family: "SourceSerif4_48pt-ExtraLight", sans-serif;
+}
+
+.font-sourceserif4-48pt-extralightitalic {
+  font-family: "SourceSerif4_48pt-ExtraLightItalic", sans-serif;
+}
+
+.font-sourceserif4-48pt-italic {
+  font-family: "SourceSerif4_48pt-Italic", sans-serif;
+}
+
+.font-sourceserif4-48pt-light {
+  font-family: "SourceSerif4_48pt-Light", sans-serif;
+}
+
+.font-sourceserif4-48pt-lightitalic {
+  font-family: "SourceSerif4_48pt-LightItalic", sans-serif;
+}
+
+.font-sourceserif4-48pt-medium {
+  font-family: "SourceSerif4_48pt-Medium", sans-serif;
+}
+
+.font-sourceserif4-48pt-mediumitalic {
+  font-family: "SourceSerif4_48pt-MediumItalic", sans-serif;
+}
+
+.font-sourceserif4-48pt-regular {
+  font-family: "SourceSerif4_48pt-Regular", sans-serif;
+}
+
+.font-sourceserif4-48pt-semibold {
+  font-family: "SourceSerif4_48pt-SemiBold", sans-serif;
+}
+
+.font-sourceserif4-48pt-semibolditalic {
+  font-family: "SourceSerif4_48pt-SemiBoldItalic", sans-serif;
+}
+
+.font-sourceserif4-black {
+  font-family: "SourceSerif4-Black", sans-serif;
+}
+
+.font-sourceserif4-blackitalic {
+  font-family: "SourceSerif4-BlackItalic", sans-serif;
+}
+
+.font-sourceserif4-bold {
+  font-family: "SourceSerif4-Bold", sans-serif;
+}
+
+.font-sourceserif4-bolditalic {
+  font-family: "SourceSerif4-BoldItalic", sans-serif;
+}
+
+.font-sourceserif4-extrabold {
+  font-family: "SourceSerif4-ExtraBold", sans-serif;
+}
+
+.font-sourceserif4-extrabolditalic {
+  font-family: "SourceSerif4-ExtraBoldItalic", sans-serif;
+}
+
+.font-sourceserif4-extralight {
+  font-family: "SourceSerif4-ExtraLight", sans-serif;
+}
+
+.font-sourceserif4-extralightitalic {
+  font-family: "SourceSerif4-ExtraLightItalic", sans-serif;
+}
+
+.font-sourceserif4-italic {
+  font-family: "SourceSerif4-Italic", sans-serif;
+}
+
+.font-sourceserif4-light {
+  font-family: "SourceSerif4-Light", sans-serif;
+}
+
+.font-sourceserif4-lightitalic {
+  font-family: "SourceSerif4-LightItalic", sans-serif;
+}
+
+.font-sourceserif4-medium {
+  font-family: "SourceSerif4-Medium", sans-serif;
+}
+
+.font-sourceserif4-mediumitalic {
+  font-family: "SourceSerif4-MediumItalic", sans-serif;
+}
+
+.font-sourceserif4-regular {
+  font-family: "SourceSerif4-Regular", sans-serif;
+}
+
+.font-sourceserif4-semibold {
+  font-family: "SourceSerif4-SemiBold", sans-serif;
+}
+
+.font-sourceserif4-semibolditalic {
+  font-family: "SourceSerif4-SemiBoldItalic", sans-serif;
+}
+
+.font-inter-italic-variablefont-opszwght {
+  font-family: "Inter-Italic-VariableFont_opsz,wght", sans-serif;
+}
+
+.font-inter-variablefont-opszwght {
+  font-family: "Inter-VariableFont_opsz,wght", sans-serif;
+}
+
+.font-jetbrainsmono-italic-variablefont-wght {
+  font-family: "JetBrainsMono-Italic-VariableFont_wght", sans-serif;
+}
+
+.font-jetbrainsmono-variablefont-wght {
+  font-family: "JetBrainsMono-VariableFont_wght", sans-serif;
+}
+
+.font-sourceserif4-italic-variablefont-opszwght {
+  font-family: "SourceSerif4-Italic-VariableFont_opsz,wght", sans-serif;
+}
+
+.font-sourceserif4-variablefont-opszwght {
+  font-family: "SourceSerif4-VariableFont_opsz,wght", sans-serif;
 }
 
 .hero {

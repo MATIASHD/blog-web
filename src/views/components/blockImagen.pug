@@ -1,0 +1,4 @@
+mixin blockImagen(img, alt, figcaption)
+    figure.figure 
+        img.figure-img.img-fluid.rounded(src=`/images/${img}` alt=`${alt}`)
+        figcaption.figure-caption.text-center.d-none= figcaption
