@@ -1,7 +1,8 @@
-mixin listaDeTags(tags, langPrefix)
+mixin listaDeTags(tags)
     .d-flex.flex-wrap.gap-2
         if tags && tags.length
             each tag in tags
-                a.badge.bg-secondary.text-decoration-none.px-3.py-2(href=`${langPrefix}/tags/${tag.slug}`)= tag.nombre
+                include ./badge.pug
+                +badge(tag)
         else
             span.text-secondary Sin tags

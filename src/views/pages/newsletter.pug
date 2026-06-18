@@ -19,9 +19,9 @@ block content
           .row.justify-content-center
             .col-lg-12
               h1.fs-1.fw-bold.mt-3.bold Suscribete al Newsletter
-              p.text-secondary.mb-4 Un boletín asíncrono diseñado para ingenieros de software que aprecian el análisis riguroso por encima de los titulares llamativos. Una lectura pausada para dominar los procesos a nivel fábrica y el IoT.
+              p.card-description.text-body-secondary.mb-4 Un boletín asíncrono diseñado para ingenieros de software que aprecian el análisis riguroso por encima de los titulares llamativos. Una lectura pausada para dominar los procesos a nivel fábrica y el IoT.
               if mensaje
                 .alert.alert-success= mensaje
               include ../components/formularioDeNewsletter.pug
               +formularioDeNewsletter("tu@email.com", "Suscribirse")
-              small.text-muted.small.mt-3 Honestidad radical: Una entrega por semana. Sin rastreadores de clics, publicidad cruzada, ni contenido de relleno. Cancelación con un solo clic.
+              small.lead.text-muted.font-size-obsevation Honestidad radical: Una entrega por semana. Sin rastreadores de clics, publicidad cruzada, ni contenido de relleno. Cancelación con un solo clic.

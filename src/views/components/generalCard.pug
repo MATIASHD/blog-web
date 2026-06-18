@@ -1,9 +1,9 @@
 mixin generalCard(title, description, image, link, fecha)
-    .card.border-0.figure-caption.mb-5.p-1
+    .card.border-0.figure-caption.mb-5.p-2
         if image
             include blockImagen.pug
             +blockImagen(image, title, title)
         h3 
             a.text-dark(href=`/blog/${link}`)= title
-        p.text-secondary.lh-sm.text-body-tertiary= description
-        small= `Fecha de publicación: ${fecha}`
+        p.lead.lh-sm.text-body-secondary.d-inline-block.card-description(style="max-width: 500px;")= description
+        small.detail.text-body-tertiary= `Fecha de publicación: ${fecha}`

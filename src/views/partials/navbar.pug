@@ -5,17 +5,17 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white.py-1
         button.navbar-toggler.py-1(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav")
             span.navbar-toggler-icon
         #navbarNav.collapse.navbar-collapse
-            ul.navbar-nav.ms-auto.align-items-lg-center
+            ul.navbar-nav.ms-auto.align-items-lg-center.lead
                 li.nav-item
-                    a.nav-link.py-1.px-2(href="/about")= (lang === 'en' ? 'About' : 'Acerca de')
+                    a.nav-link.text-dark.py-1.px-2(href="/about")= (lang === 'en' ? 'About' : 'Acerca de')
                 li.nav-item
-                    a.nav-link.py-1.px-2(href="/contacto")= (lang === 'en' ? 'Contact' : 'Contacto')
+                    a.nav-link.text-dark.py-1.px-2(href="/contacto")= (lang === 'en' ? 'Contact' : 'Contacto')
                 li.nav-item
-                    a.nav-link.py-1.px-2(href="/newsletter") Newsletter
+                    a.nav-link.text-dark.py-1.px-2(href="/newsletter") Newsletter
                 li.nav-item
-                    a.nav-link.py-1.px-2(href="/login") Login
+                    a.nav-link.text-dark.py-1.px-2(href="/login") Login
                 li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle.py-1.px-2(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")= (lang === 'en' ? 'Language' : 'Idioma')
+                    a.nav-link.dropdown-toggle.py-1.px-2.text-dark(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")= (lang === 'en' ? 'Language' : 'Idioma')
                     ul.dropdown-menu.dropdown-menu-end
                         li
                             a.dropdown-item(href=langPrefix class=(lang === 'es' ? 'active' : undefined)) Español

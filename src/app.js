@@ -4,6 +4,7 @@ const path = require('path');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const session = require('express-session');
+const bcrypt = require('bcrypt');
 
 app.use(helmet());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));

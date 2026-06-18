@@ -6,10 +6,13 @@ $text-muted: #9aa5b1;
 
 
 // Typography
-$font-family-base: 'Source Serif 4', serif;
-$font-family-headings: 'Inter', sans-serif;
-$font-mono: 'JetBrains Mono', monospace;
-$font-inter-light: 'Inter-light', sans-serif;
+$font-sans-serif: 'Inter', sans-serif;
+$font-serif: 'Source Serif 4', serif;
+$font-monospace: 'JetBrains Mono', monospace;
+$font-sans-serif-italic: 'Inter Italic', sans-serif;
+$font-serif-italic: 'Source Serif 4 Italic', serif;
+$font-monospace-italic: 'JetBrains Mono Italic', monospace;
+
 
 // Aliases for backward compatibility with existing code
 $primary-color: $text-primary;

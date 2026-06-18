@@ -1,24 +1,31 @@
 
+h1, h2, h3, h4, h5, h6, th, .figure-caption, .fs-card-title, .fs-card-content, .card-description {
+    font-family: $font-sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: $font-family-headings;
     line-height: $lh-heading;
     font-weight: 600;
     color: $text-primary;
 }
+
+p, li, tr, td {
+    font-family: $font-serif;
+    color: $text-secondary;
+}
+
 .fs-main-title {
     font-size: $fs-main-title;
     line-height: 1.2;
     font-weight: 700;
     color: $text-primary;
 }
-.figure-caption, .fs-card-title, .fs-card-content{
-    font-family: $font-inter-light;
-}
 
 .fs-card-title {
     font-size: $fs-h3;
     color: $text-primary;
 }
+
 .fs-card-content {
     font-size: $fs-code;
     line-height: $lh-body;
@@ -33,13 +40,16 @@ a{
 }
 
 p{
+    font-family: $font-serif;
     color: $text-secondary;
     margin-bottom: 1.3rem;
 }
+
 pre, code {
-    font-family: $font-mono;
+    font-family: $font-monospace;
     font-size: $fs-code;
 }
+
 pre {
     background: $code-bg;
     padding: 1rem;
@@ -51,143 +61,11 @@ pre {
 .detail{
     font-size: 0.9rem;
 }
-.font-inter-18pt-black { font-family: 'Inter_18pt-Black', sans-serif; }
-.font-inter-18pt-blackitalic { font-family: 'Inter_18pt-BlackItalic', sans-serif; }
-.font-inter-18pt-bold { font-family: 'Inter_18pt-Bold', sans-serif; }
-.font-inter-18pt-bolditalic { font-family: 'Inter_18pt-BoldItalic', sans-serif; }
-.font-inter-18pt-extrabold { font-family: 'Inter_18pt-ExtraBold', sans-serif; }
-.font-inter-18pt-extrabolditalic { font-family: 'Inter_18pt-ExtraBoldItalic', sans-serif; }
-.font-inter-18pt-extralight { font-family: 'Inter_18pt-ExtraLight', sans-serif; }
-.font-inter-18pt-extralightitalic { font-family: 'Inter_18pt-ExtraLightItalic', sans-serif; }
-.font-inter-18pt-italic { font-family: 'Inter_18pt-Italic', sans-serif; }
-.font-inter-18pt-light { font-family: 'Inter_18pt-Light', sans-serif; }
-.font-inter-18pt-lightitalic { font-family: 'Inter_18pt-LightItalic', sans-serif; }
-.font-inter-18pt-medium { font-family: 'Inter_18pt-Medium', sans-serif; }
-.font-inter-18pt-mediumitalic { font-family: 'Inter_18pt-MediumItalic', sans-serif; }
-.font-inter-18pt-regular { font-family: 'Inter_18pt-Regular', sans-serif; }
-.font-inter-18pt-semibold { font-family: 'Inter_18pt-SemiBold', sans-serif; }
-.font-inter-18pt-semibolditalic { font-family: 'Inter_18pt-SemiBoldItalic', sans-serif; }
-.font-inter-18pt-thin { font-family: 'Inter_18pt-Thin', sans-serif; }
-.font-inter-18pt-thinitalic { font-family: 'Inter_18pt-ThinItalic', sans-serif; }
-.font-inter-24pt-black { font-family: 'Inter_24pt-Black', sans-serif; }
-.font-inter-24pt-blackitalic { font-family: 'Inter_24pt-BlackItalic', sans-serif; }
-.font-inter-24pt-bold { font-family: 'Inter_24pt-Bold', sans-serif; }
-.font-inter-24pt-bolditalic { font-family: 'Inter_24pt-BoldItalic', sans-serif; }
-.font-inter-24pt-extrabold { font-family: 'Inter_24pt-ExtraBold', sans-serif; }
-.font-inter-24pt-extrabolditalic { font-family: 'Inter_24pt-ExtraBoldItalic', sans-serif; }
-.font-inter-24pt-extralight { font-family: 'Inter_24pt-ExtraLight', sans-serif; }
-.font-inter-24pt-extralightitalic { font-family: 'Inter_24pt-ExtraLightItalic', sans-serif; }
-.font-inter-24pt-italic { font-family: 'Inter_24pt-Italic', sans-serif; }
-.font-inter-24pt-light { font-family: 'Inter_24pt-Light', sans-serif; }
-.font-inter-24pt-lightitalic { font-family: 'Inter_24pt-LightItalic', sans-serif; }
-.font-inter-24pt-medium { font-family: 'Inter_24pt-Medium', sans-serif; }
-.font-inter-24pt-mediumitalic { font-family: 'Inter_24pt-MediumItalic', sans-serif; }
-.font-inter-24pt-regular { font-family: 'Inter_24pt-Regular', sans-serif; }
-.font-inter-24pt-semibold { font-family: 'Inter_24pt-SemiBold', sans-serif; }
-.font-inter-24pt-semibolditalic { font-family: 'Inter_24pt-SemiBoldItalic', sans-serif; }
-.font-inter-24pt-thin { font-family: 'Inter_24pt-Thin', sans-serif; }
-.font-inter-24pt-thinitalic { font-family: 'Inter_24pt-ThinItalic', sans-serif; }
-.font-inter-28pt-black { font-family: 'Inter_28pt-Black', sans-serif; }
-.font-inter-28pt-blackitalic { font-family: 'Inter_28pt-BlackItalic', sans-serif; }
-.font-inter-28pt-bold { font-family: 'Inter_28pt-Bold', sans-serif; }
-.font-inter-28pt-bolditalic { font-family: 'Inter_28pt-BoldItalic', sans-serif; }
-.font-inter-28pt-extrabold { font-family: 'Inter_28pt-ExtraBold', sans-serif; }
-.font-inter-28pt-extrabolditalic { font-family: 'Inter_28pt-ExtraBoldItalic', sans-serif; }
-.font-inter-28pt-extralight { font-family: 'Inter_28pt-ExtraLight', sans-serif; }
-.font-inter-28pt-extralightitalic { font-family: 'Inter_28pt-ExtraLightItalic', sans-serif; }
-.font-inter-28pt-italic { font-family: 'Inter_28pt-Italic', sans-serif; }
-.font-inter-28pt-light { font-family: 'Inter_28pt-Light', sans-serif; }
-.font-inter-28pt-lightitalic { font-family: 'Inter_28pt-LightItalic', sans-serif; }
-.font-inter-28pt-medium { font-family: 'Inter_28pt-Medium', sans-serif; }
-.font-inter-28pt-mediumitalic { font-family: 'Inter_28pt-MediumItalic', sans-serif; }
-.font-inter-28pt-regular { font-family: 'Inter_28pt-Regular', sans-serif; }
-.font-inter-28pt-semibold { font-family: 'Inter_28pt-SemiBold', sans-serif; }
-.font-inter-28pt-semibolditalic { font-family: 'Inter_28pt-SemiBoldItalic', sans-serif; }
-.font-inter-28pt-thin { font-family: 'Inter_28pt-Thin', sans-serif; }
-.font-inter-28pt-thinitalic { font-family: 'Inter_28pt-ThinItalic', sans-serif; }
-.font-jetbrainsmono-bold { font-family: 'JetBrainsMono-Bold', sans-serif; }
-.font-jetbrainsmono-bolditalic { font-family: 'JetBrainsMono-BoldItalic', sans-serif; }
-.font-jetbrainsmono-extrabold { font-family: 'JetBrainsMono-ExtraBold', sans-serif; }
-.font-jetbrainsmono-extrabolditalic { font-family: 'JetBrainsMono-ExtraBoldItalic', sans-serif; }
-.font-jetbrainsmono-extralight { font-family: 'JetBrainsMono-ExtraLight', sans-serif; }
-.font-jetbrainsmono-extralightitalic { font-family: 'JetBrainsMono-ExtraLightItalic', sans-serif; }
-.font-jetbrainsmono-italic { font-family: 'JetBrainsMono-Italic', sans-serif; }
-.font-jetbrainsmono-light { font-family: 'JetBrainsMono-Light', sans-serif; }
-.font-jetbrainsmono-lightitalic { font-family: 'JetBrainsMono-LightItalic', sans-serif; }
-.font-jetbrainsmono-medium { font-family: 'JetBrainsMono-Medium', sans-serif; }
-.font-jetbrainsmono-mediumitalic { font-family: 'JetBrainsMono-MediumItalic', sans-serif; }
-.font-jetbrainsmono-regular { font-family: 'JetBrainsMono-Regular', sans-serif; }
-.font-jetbrainsmono-semibold { font-family: 'JetBrainsMono-SemiBold', sans-serif; }
-.font-jetbrainsmono-semibolditalic { font-family: 'JetBrainsMono-SemiBoldItalic', sans-serif; }
-.font-jetbrainsmono-thin { font-family: 'JetBrainsMono-Thin', sans-serif; }
-.font-jetbrainsmono-thinitalic { font-family: 'JetBrainsMono-ThinItalic', sans-serif; }
-.font-sourceserif4-18pt-black { font-family: 'SourceSerif4_18pt-Black', sans-serif; }
-.font-sourceserif4-18pt-blackitalic { font-family: 'SourceSerif4_18pt-BlackItalic', sans-serif; }
-.font-sourceserif4-18pt-bold { font-family: 'SourceSerif4_18pt-Bold', sans-serif; }
-.font-sourceserif4-18pt-bolditalic { font-family: 'SourceSerif4_18pt-BoldItalic', sans-serif; }
-.font-sourceserif4-18pt-extrabold { font-family: 'SourceSerif4_18pt-ExtraBold', sans-serif; }
-.font-sourceserif4-18pt-extrabolditalic { font-family: 'SourceSerif4_18pt-ExtraBoldItalic', sans-serif; }
-.font-sourceserif4-18pt-extralight { font-family: 'SourceSerif4_18pt-ExtraLight', sans-serif; }
-.font-sourceserif4-18pt-extralightitalic { font-family: 'SourceSerif4_18pt-ExtraLightItalic', sans-serif; }
-.font-sourceserif4-18pt-italic { font-family: 'SourceSerif4_18pt-Italic', sans-serif; }
-.font-sourceserif4-18pt-light { font-family: 'SourceSerif4_18pt-Light', sans-serif; }
-.font-sourceserif4-18pt-lightitalic { font-family: 'SourceSerif4_18pt-LightItalic', sans-serif; }
-.font-sourceserif4-18pt-medium { font-family: 'SourceSerif4_18pt-Medium', sans-serif; }
-.font-sourceserif4-18pt-mediumitalic { font-family: 'SourceSerif4_18pt-MediumItalic', sans-serif; }
-.font-sourceserif4-18pt-regular { font-family: 'SourceSerif4_18pt-Regular', sans-serif; }
-.font-sourceserif4-18pt-semibold { font-family: 'SourceSerif4_18pt-SemiBold', sans-serif; }
-.font-sourceserif4-18pt-semibolditalic { font-family: 'SourceSerif4_18pt-SemiBoldItalic', sans-serif; }
-.font-sourceserif4-36pt-black { font-family: 'SourceSerif4_36pt-Black', sans-serif; }
-.font-sourceserif4-36pt-blackitalic { font-family: 'SourceSerif4_36pt-BlackItalic', sans-serif; }
-.font-sourceserif4-36pt-bold { font-family: 'SourceSerif4_36pt-Bold', sans-serif; }
-.font-sourceserif4-36pt-bolditalic { font-family: 'SourceSerif4_36pt-BoldItalic', sans-serif; }
-.font-sourceserif4-36pt-extrabold { font-family: 'SourceSerif4_36pt-ExtraBold', sans-serif; }
-.font-sourceserif4-36pt-extrabolditalic { font-family: 'SourceSerif4_36pt-ExtraBoldItalic', sans-serif; }
-.font-sourceserif4-36pt-extralight { font-family: 'SourceSerif4_36pt-ExtraLight', sans-serif; }
-.font-sourceserif4-36pt-extralightitalic { font-family: 'SourceSerif4_36pt-ExtraLightItalic', sans-serif; }
-.font-sourceserif4-36pt-italic { font-family: 'SourceSerif4_36pt-Italic', sans-serif; }
-.font-sourceserif4-36pt-light { font-family: 'SourceSerif4_36pt-Light', sans-serif; }
-.font-sourceserif4-36pt-lightitalic { font-family: 'SourceSerif4_36pt-LightItalic', sans-serif; }
-.font-sourceserif4-36pt-medium { font-family: 'SourceSerif4_36pt-Medium', sans-serif; }
-.font-sourceserif4-36pt-mediumitalic { font-family: 'SourceSerif4_36pt-MediumItalic', sans-serif; }
-.font-sourceserif4-36pt-regular { font-family: 'SourceSerif4_36pt-Regular', sans-serif; }
-.font-sourceserif4-36pt-semibold { font-family: 'SourceSerif4_36pt-SemiBold', sans-serif; }
-.font-sourceserif4-36pt-semibolditalic { font-family: 'SourceSerif4_36pt-SemiBoldItalic', sans-serif; }
-.font-sourceserif4-48pt-black { font-family: 'SourceSerif4_48pt-Black', sans-serif; }
-.font-sourceserif4-48pt-blackitalic { font-family: 'SourceSerif4_48pt-BlackItalic', sans-serif; }
-.font-sourceserif4-48pt-bold { font-family: 'SourceSerif4_48pt-Bold', sans-serif; }
-.font-sourceserif4-48pt-bolditalic { font-family: 'SourceSerif4_48pt-BoldItalic', sans-serif; }
-.font-sourceserif4-48pt-extrabold { font-family: 'SourceSerif4_48pt-ExtraBold', sans-serif; }
-.font-sourceserif4-48pt-extrabolditalic { font-family: 'SourceSerif4_48pt-ExtraBoldItalic', sans-serif; }
-.font-sourceserif4-48pt-extralight { font-family: 'SourceSerif4_48pt-ExtraLight', sans-serif; }
-.font-sourceserif4-48pt-extralightitalic { font-family: 'SourceSerif4_48pt-ExtraLightItalic', sans-serif; }
-.font-sourceserif4-48pt-italic { font-family: 'SourceSerif4_48pt-Italic', sans-serif; }
-.font-sourceserif4-48pt-light { font-family: 'SourceSerif4_48pt-Light', sans-serif; }
-.font-sourceserif4-48pt-lightitalic { font-family: 'SourceSerif4_48pt-LightItalic', sans-serif; }
-.font-sourceserif4-48pt-medium { font-family: 'SourceSerif4_48pt-Medium', sans-serif; }
-.font-sourceserif4-48pt-mediumitalic { font-family: 'SourceSerif4_48pt-MediumItalic', sans-serif; }
-.font-sourceserif4-48pt-regular { font-family: 'SourceSerif4_48pt-Regular', sans-serif; }
-.font-sourceserif4-48pt-semibold { font-family: 'SourceSerif4_48pt-SemiBold', sans-serif; }
-.font-sourceserif4-48pt-semibolditalic { font-family: 'SourceSerif4_48pt-SemiBoldItalic', sans-serif; }
-.font-sourceserif4-black { font-family: 'SourceSerif4-Black', sans-serif; }
-.font-sourceserif4-blackitalic { font-family: 'SourceSerif4-BlackItalic', sans-serif; }
-.font-sourceserif4-bold { font-family: 'SourceSerif4-Bold', sans-serif; }
-.font-sourceserif4-bolditalic { font-family: 'SourceSerif4-BoldItalic', sans-serif; }
-.font-sourceserif4-extrabold { font-family: 'SourceSerif4-ExtraBold', sans-serif; }
-.font-sourceserif4-extrabolditalic { font-family: 'SourceSerif4-ExtraBoldItalic', sans-serif; }
-.font-sourceserif4-extralight { font-family: 'SourceSerif4-ExtraLight', sans-serif; }
-.font-sourceserif4-extralightitalic { font-family: 'SourceSerif4-ExtraLightItalic', sans-serif; }
-.font-sourceserif4-italic { font-family: 'SourceSerif4-Italic', sans-serif; }
-.font-sourceserif4-light { font-family: 'SourceSerif4-Light', sans-serif; }
-.font-sourceserif4-lightitalic { font-family: 'SourceSerif4-LightItalic', sans-serif; }
-.font-sourceserif4-medium { font-family: 'SourceSerif4-Medium', sans-serif; }
-.font-sourceserif4-mediumitalic { font-family: 'SourceSerif4-MediumItalic', sans-serif; }
-.font-sourceserif4-regular { font-family: 'SourceSerif4-Regular', sans-serif; }
-.font-sourceserif4-semibold { font-family: 'SourceSerif4-SemiBold', sans-serif; }
-.font-sourceserif4-semibolditalic { font-family: 'SourceSerif4-SemiBoldItalic', sans-serif; }
-.font-inter-italic-variablefont-opszwght { font-family: 'Inter-Italic-VariableFont_opsz,wght', sans-serif; }
-.font-inter-variablefont-opszwght { font-family: 'Inter-VariableFont_opsz,wght', sans-serif; }
-.font-jetbrainsmono-italic-variablefont-wght { font-family: 'JetBrainsMono-Italic-VariableFont_wght', sans-serif; }
-.font-jetbrainsmono-variablefont-wght { font-family: 'JetBrainsMono-VariableFont_wght', sans-serif; }
-.font-sourceserif4-italic-variablefont-opszwght { font-family: 'SourceSerif4-Italic-VariableFont_opsz,wght', sans-serif; }
-.font-sourceserif4-variablefont-opszwght { font-family: 'SourceSerif4-VariableFont_opsz,wght', sans-serif; }
+.lead {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.font-size-obsevation {
+    font-size: 0.8rem;
+} 
