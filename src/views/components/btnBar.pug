@@ -1,0 +1,4 @@
+mixin btnBar(botones)
+    .btn-group(role="group" aria-label="Basic example")
+        each boton in botones
+            button.btn.btn-secondary(type="button")= boton

@@ -5,16 +5,12 @@ html(lang="es")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         link(rel="icon" href="icons/favicon.ico")
         title #{title || 'Dashboard'}
+
         link(rel="stylesheet" href="/css/main.css")
     body
-        .container-fluid 
-            .row 
-                include ../components/navbar-dashboard
-            .row 
-                .col-md-3
-                    include ../partials/sidebar 
-                .col-md-9.py-5 
-                    block content
-            include ../partials/footer.pug
-            script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js")
-            script(src="/js/main.js")
+        include ../partials/navbar-dashboard
+        main.container-fluid  
+            block content
+        include ../partials/footer.pug
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js")
+        script(src="/js/main.js")

@@ -1,0 +1,17 @@
+extends ../layouts/admin-layout
+block content
+    .container.py-5
+        .row
+            .col-md-12.mb-3
+                h1 Publicaciones
+        .row.mb-4
+            .col-md-12.mb-3
+                include ../components/btnBar.pug
+                +btnBar(["Nuevo", "Editar", "Eliminar"])
+        .row 
+            .col-md-12.mb-3
+                include ../components/table.pug
+                +table(['ID', 'Título', 'Autor', 'Fecha'], [
+                    [1, 'Mi primer post', 'Matias', '2024-06-01'],
+                    [2, 'Mi segundo post', 'Matias', '2024-06-02'],
+                    ])

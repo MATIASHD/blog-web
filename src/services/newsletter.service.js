@@ -3,74 +3,74 @@ const Logger = require('../utils/logger');
 const crypto = require('crypto');
 
 class NewsletterService {
-  getAllSubscribers() {
+  async getAllSubscribers() {
     try {
-      return newsletterRepository.getAll();
+      return await newsletterRepository.getAll();
     } catch (error) {
       Logger.error('Error getting subscribers', error);
       return [];
     }
   }
 
-  getSubscribedCount() {
+  async getSubscribedCount() {
     try {
-      return newsletterRepository.getSubscribed().length;
+      const subscribed = await newsletterRepository.getSubscribed();
+      return subscribed.length;
     } catch (error) {
       Logger.error('Error getting subscribed count', error);
       return 0;
     }
   }
 
-  subscribe(email, name = '') {
+  async subscribe(email, name = '') {
     try {
-      const existing = newsletterRepository.getByEmail(email);
+      const existing = await newsletterRepository.getByEmail(email);
       if (existing) {
-        if (existing.status === 'subscribed') {
+        if (existing.status === 'active') {
           throw new Error('Email already subscribed');
         }
-        existing.status = 'subscribed';
-        return newsletterRepository.save(existing);
+        existing.status = 'active';
+        return await newsletterRepository.save(existing);
       }
 
       const subscriber = {
         email,
-        name,
-        status: 'subscribed',
-        subscriptionDate: new Date().toISOString(),
-        unsubscribeToken: crypto.randomBytes(32).toString('hex')
+        status: 'active',
+        confirm_token: crypto.randomBytes(32).toString('hex'),
       };
 
-      return newsletterRepository.save(subscriber);
+      return await newsletterRepository.save(subscriber);
     } catch (error) {
       Logger.error('Error subscribing to newsletter', error);
       throw error;
     }
   }
 
-  unsubscribe(email) {
+  async unsubscribe(email) {
     try {
-      const subscriber = newsletterRepository.getByEmail(email);
+      const subscriber = await newsletterRepository.getByEmail(email);
       if (!subscriber) {
         throw new Error('Email not found');
       }
 
       subscriber.status = 'unsubscribed';
-      return newsletterRepository.save(subscriber);
+      subscriber.unsubscribed_at = new Date();
+      return await newsletterRepository.save(subscriber);
     } catch (error) {
       Logger.error('Error unsubscribing', error);
       throw error;
     }
   }
 
-  unsubscribeByToken(token) {
+  async unsubscribeByToken(token) {
     try {
-      const subscribers = newsletterRepository.getAll();
-      const subscriber = subscribers.find(s => s.unsubscribeToken === token);
+      const subscribers = await newsletterRepository.getAll();
+      const subscriber = subscribers.find(s => s.confirm_token === token);
       if (!subscriber) {
         throw new Error('Invalid unsubscribe token');
       }
 
-      return this.unsubscribe(subscriber.email);
+      return await this.unsubscribe(subscriber.email);
     } catch (error) {
       Logger.error('Error unsubscribing by token', error);
       throw error;

@@ -1,65 +1,44 @@
-const fs = require('fs');
-const path = require('path');
-const { DATA_PATH } = require('../utils/constants');
+const prisma = require('../lib/prisma');
 const Logger = require('../utils/logger');
 
-const dataPath = path.join(process.cwd(), DATA_PATH);
-const contactsFile = path.join(dataPath, 'contacts.json');
-
 class ContactRepository {
-  constructor() {
-    this.ensureDataDir();
-  }
-
-  ensureDataDir() {
-    if (!fs.existsSync(dataPath)) {
-      fs.mkdirSync(dataPath, { recursive: true });
-    }
-    if (!fs.existsSync(contactsFile)) {
-      fs.writeFileSync(contactsFile, JSON.stringify([], null, 2), 'utf-8');
-    }
-  }
-
-  getAll() {
+  async getAll() {
     try {
-      const data = fs.readFileSync(contactsFile, 'utf-8');
-      return JSON.parse(data);
+      return await prisma.contact.findMany({ orderBy: { created_at: 'desc' } });
     } catch (error) {
       Logger.error('Error reading contacts', error);
       return [];
     }
   }
 
-  getById(id) {
-    const contacts = this.getAll();
-    return contacts.find(c => c.id === id) || null;
+  async getById(id) {
+    try {
+      return await prisma.contact.findUnique({ where: { id } });
+    } catch (error) {
+      Logger.error('Error getting contact by id', error);
+      return null;
+    }
   }
 
-  save(contact) {
+  async save(contactData) {
     try {
-      const contacts = this.getAll();
-      contact.id = contact.id || Date.now().toString();
-      const index = contacts.findIndex(c => c.id === contact.id);
-
-      if (index > -1) {
-        contacts[index] = { ...contacts[index], ...contact };
+      if (contactData.id) {
+        return await prisma.contact.update({
+          where: { id: contactData.id },
+          data: contactData,
+        });
       } else {
-        contacts.push(contact);
+        return await prisma.contact.create({ data: contactData });
       }
-
-      fs.writeFileSync(contactsFile, JSON.stringify(contacts, null, 2), 'utf-8');
-      return contact;
     } catch (error) {
       Logger.error('Error saving contact', error);
       return null;
     }
   }
 
-  delete(id) {
+  async delete(id) {
     try {
-      const contacts = this.getAll();
-      const filtered = contacts.filter(c => c.id !== id);
-      fs.writeFileSync(contactsFile, JSON.stringify(filtered, null, 2), 'utf-8');
+      await prisma.contact.delete({ where: { id } });
       return true;
     } catch (error) {
       Logger.error('Error deleting contact', error);
@@ -67,11 +46,14 @@ class ContactRepository {
     }
   }
 
-  markAsRead(id) {
-    const contact = this.getById(id);
-    if (contact) {
-      contact.read = true;
-      this.save(contact);
+  async markAsRead(id) {
+    try {
+      const contact = await prisma.contact.findUnique({ where: { id } });
+      if (contact && contact.status === 'pending') {
+        await prisma.contact.update({ where: { id }, data: { status: 'read' } });
+      }
+    } catch (error) {
+      Logger.error('Error marking contact as read', error);
     }
   }
 }

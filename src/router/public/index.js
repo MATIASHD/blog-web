@@ -1,17 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const { homeController, postController } = require('../../controllers');
 
-router.use('/', require('./about.router'));
-router.use('/', require('./blog.router'));
-router.use('/', require('./category.router'));
-router.use('/', require('./contact.router'));
-router.use('/', require('./home.router'));
-router.use('/', require('./search.router'));
-router.use('/', require('./tag.router'));
-router.use('/', require('./blogList.router'));
-router.use('/', require('./blogPagination.router'));
-router.use('/', require('./error.router'));
-router.use('/', require('./newsletter.router'));
-router.use('/', require('./tags.router'));
+router.get('/', homeController.index);
+router.get('/about', homeController.about);
+router.get('/contact', homeController.contact);
+router.get('/newsletter', homeController.newsletter);
+router.get('/login', homeController.login);
+router.get('/passwordReset', homeController.passwordReset);
+router.get('/post/:slug', postController.post);
 
 module.exports = router;

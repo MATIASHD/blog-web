@@ -352,43 +352,43 @@ Estoy en modo planificación (read-only) y no puedo escribir archivos todavía. 
 
 ## Fase 0 — Fundación (Semana 1)
 
-- [ ] Crear repositorio en GitHub (privado o público)
-- [ ] `git remote add origin <url>` + `git push`
+- [x] Crear repositorio en GitHub (privado o público)
+- [x] `git remote add origin <url>` + `git push`
 - [ ] Contratar VPS Hostinger (Ubuntu 24.04, plan básico)
 - [ ] Conectarse por SSH e instalar:
   - Node.js 20 LTS
   - MySQL 8
   - Nginx
   - Git
-- [ ] Poner Cloudflare delante de `arevdev.com` (DNS apuntando a IP del VPS)
-- [ ] SSL: Cloudflare Full (strict)
-- [ ] Crear base de datos MySQL + usuario para la app
+- [x] Poner Cloudflare delante de `arevdev.com` (DNS apuntando a IP del VPS)
+- [x] SSL: Cloudflare Full (strict)
+- [x] Crear base de datos MySQL + usuario para la app
 
 ---
 
 ## Fase 1 — Seguridad + Código Crítico (Semana 1-2)
 
-- [ ] Reemplazar SHA256 por bcrypt en `src/services/auth.service.js`
+- [x] Reemplazar SHA256 por bcrypt en `src/services/auth.service.js`
   - `bcryptjs` ya está instalado como dependencia
-- [ ] Eliminar `const bcrypt = require('bcrypt')` de `src/app.js` (no se usa)
-- [ ] Generar `SESSION_SECRET` fuerte (`openssl rand -hex 32`) y ponerlo en `.env`
-- [ ] Generar `ADMIN_PASSWORD` fuerte y ponerlo en `.env`
-- [ ] Activar `compression` middleware en `app.js` (`app.use(compression())`)
-- [ ] Simplificar/eliminar locale middleware (se arranca solo en español)
+- [x] Eliminar `const bcrypt = require('bcrypt')` de `src/app.js` (no se usa)
+- [x] Generar `SESSION_SECRET` fuerte (`openssl rand -hex 32`) y ponerlo en `.env`
+- [x] Generar `ADMIN_PASSWORD` fuerte y ponerlo en `.env`
+- [x] Activar `compression` middleware en `app.js` (`app.use(compression())`)
+- [x] Simplificar/eliminar locale middleware (se arranca solo en español)
   - `locale.middleware.js` requiere `config/i18n.js` que no existe
-- [ ] Instalar `express-rate-limit` y aplicarlo en `/login` y `/contacto`
-- [ ] Revisar configuración de helmet
+- [x] Instalar `express-rate-limit` y aplicarlo en `/login` y `/contacto`
+- [x] Revisar configuración de helmet
 
 ---
 
 ## Fase 2 — MySQL + Prisma (Semana 2-3)
 
-- [ ] `npm install prisma @prisma/client`
-- [ ] `npx prisma init` — configurar conexión a MySQL
-- [ ] Definir schema: `User`, `Contact`, `Newsletter`
+- [x] `npm install prisma @prisma/client`
+- [x] `npx prisma init` — configurar conexión a MySQL
+- [x] Definir schema: `User`, `Contact`, `Newsletter`
   - `Post` se mantiene en Markdown (no migrar a DB)
-- [ ] `npx prisma db push` — crear tablas
-- [ ] Migrar datos existentes:
+- [x] `npx prisma db push` — crear tablas
+- [x] Migrar datos existentes:
   - `src/data/users.json` → MySQL (seed con admin)
   - `src/data/contacts.json` → MySQL
   - `src/data/newsletter.json` → MySQL

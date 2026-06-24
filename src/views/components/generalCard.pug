@@ -4,6 +4,6 @@ mixin generalCard(title, description, image, link, fecha)
             include blockImagen.pug
             +blockImagen(image, title, title)
         h3 
-            a.text-dark(href=`/blog/${link}`)= title
+            a.text-dark(href=`/post/${link}`)= title
         p.lead.lh-sm.text-body-secondary.d-inline-block.card-description(style="max-width: 500px;")= description
         small.detail.text-body-tertiary= `Fecha de publicación: ${fecha}`

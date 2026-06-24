@@ -3,5 +3,5 @@ mixin mainCard(img, imgAlt, link, tags, title, description)
         include blockImagen.pug
         +blockImagen(img, imgAlt, title)
         h2.fs-3.card-title 
-            a.text-dark(href=`/blog/${link}`)= title
+            a.text-dark(href=`/post/${link}`)= title
         p.lead.text-body-secondary.lh-sm.card-description= description

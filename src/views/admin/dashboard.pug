@@ -1,0 +1,41 @@
+extends ../layouts/admin-layout
+block content
+    .container-fluid.py-4
+        .row.g-4.mb-4 
+            .col-xl-3.col-md-6 
+                .card.p-3 
+                    h3= stats ? stats.totalPosts : 0
+                    p Posts
+            .col-xl-3.col-md-6 
+                .card.p-3 
+                    h3= stats ? stats.totalContacts : 0
+                    p Contactos
+            .col-xl-3.col-md-6 
+                .card.p-3 
+                    h3= stats ? stats.unreadContacts : 0
+                    p Sin leer
+            .col-xl-3.col-md-6 
+                .card.p-3 
+                    h3= stats ? stats.subscribers : 0
+                    p Suscriptores
+        .row.g-4 
+            .col-lg-8 
+                .chart-card 
+                    h4 Posts recientes
+                    if stats && stats.recentPosts && stats.recentPosts.length
+                        ul.list-group
+                            each post in stats.recentPosts
+                                li.list-group-item.d-flex.justify-content-between
+                                    span= post.title
+                                    a(href=`/blog/${post.slug}`) Ver
+                    else
+                        p.text-secondary No hay posts cargados.
+            .col-lg-4 
+                .popular-posts 
+                    h4 Contactos recientes
+                    if stats && stats.recentContacts && stats.recentContacts.length
+                        ul.list-group
+                            each contact in stats.recentContacts
+                                li.list-group-item= contact.email
+                    else
+                        p.text-secondary No hay mensajes.

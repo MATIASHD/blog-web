@@ -1,21 +1,45 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const session = require('express-session');
-const bcrypt = require('bcrypt');
+const compression = require('compression');
 
-app.use(helmet());
-app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
-app.set('views', path.join(__dirname, 'views'));
+app.use(compression());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'",
+         'https://cdn.jsdelivr.net',
+         'https://code.jquery.com'
+      ],
+      styleSrc: ["'self'",
+         'https://cdn.jsdelivr.net',
+         'https://fonts.googleapis.com'
+      ],
+      fontSrc: ["'self'",
+         'https://fonts.gstatic.com'
+      ],
+      imgSrc: ["'self'", 'data:'],
+      connectSrc: ["'self'"],
+    }
+  },
+  strictTransportSecurity: process.env.NODE_ENV === 'production'
+}));
+
 app.set('view engine', 'pug');
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(process.cwd(), 'src/public')));
+app.set('views', path.join(__dirname, 'views'));
 
-
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
+
 app.use(session({
   name: 'blog.sid',
   secret: process.env.SESSION_SECRET || 'change-this-secret-in-production',

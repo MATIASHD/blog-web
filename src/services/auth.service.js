@@ -1,22 +1,23 @@
+const bcrypt = require('bcryptjs');
 const userRepository = require('../repositories/user.repository');
 const Logger = require('../utils/logger');
 
 class AuthService {
-  login(email, password) {
+  async login(email, password) {
     try {
-      const user = userRepository.getByEmail(email);
+      const user = await userRepository.getByEmail(email);
       if (!user) {
         throw new Error('Invalid email or password');
       }
 
-      if (!userRepository.verifyPassword(user, password)) {
+      const valid = await userRepository.verifyPassword(user, password);
+      if (!valid) {
         throw new Error('Invalid email or password');
       }
 
-      user.lastLogin = new Date().toISOString();
-      userRepository.save(user);
+      await userRepository.save({ id: user.id, lastLogin: new Date().toISOString() });
 
-      const { password: _, ...userWithoutPassword } = user;
+      const { password_hash, ...userWithoutPassword } = user;
       return userWithoutPassword;
     } catch (error) {
       Logger.error('Login error', error);
@@ -24,25 +25,22 @@ class AuthService {
     }
   }
 
-  register(data) {
+  async register(data) {
     try {
-      const existingUser = userRepository.getByEmail(data.email);
+      const existingUser = await userRepository.getByEmail(data.email);
       if (existingUser) {
         throw new Error('Email already registered');
       }
 
-      const crypto = require('crypto');
       const newUser = {
-        id: Date.now().toString(),
         email: data.email,
-        password: crypto.createHash('sha256').update(data.password).digest('hex'),
+        password: data.password,
         name: data.name,
-        role: 'user',
-        status: 'active',
-        createdAt: new Date().toISOString()
+        role: 'reader',
+        is_active: true,
       };
 
-      const saved = userRepository.save(newUser);
+      const saved = await userRepository.save(newUser);
       return saved;
     } catch (error) {
       Logger.error('Registration error', error);
@@ -55,17 +53,15 @@ class AuthService {
     return true;
   }
 
-  resetPassword(email, newPassword) {
+  async resetPassword(email, newPassword) {
     try {
-      const user = userRepository.getByEmail(email);
+      const user = await userRepository.getByEmail(email);
       if (!user) {
         throw new Error('User not found');
       }
 
-      const crypto = require('crypto');
-      user.password = crypto.createHash('sha256').update(newPassword).digest('hex');
-      userRepository.save(user);
-
+      const password_hash = await bcrypt.hash(newPassword, 10);
+      await userRepository.save({ id: user.id, password_hash });
       return true;
     } catch (error) {
       Logger.error('Password reset error', error);
