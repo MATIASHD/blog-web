@@ -1,0 +1,17 @@
+extends ../layouts/admin-layout
+block content
+    .container.py-5
+        .row
+            .col-md-12.mb-3
+                h1 Usuarios
+        .row.mb-4
+            .col-md-12.mb-3
+                include ../components/btnBar.pug
+                +btnBar(["Nuevo", "Editar", "Eliminar"])
+        .row 
+            .col-md-12.mb-3
+                include ../components/table.pug
+                +table(['ID', 'Nombre', 'Email', 'Rol'], [
+                    [1, 'Matias', 'matias@example.com', 'Administrador'],
+                    [1, 'Matias', 'matias@example.com', 'Administrador'],
+                    ])

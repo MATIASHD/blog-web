@@ -1,0 +1,11 @@
+mixin table(headers, rows)
+  table.table
+    thead
+      tr
+        each header in headers
+          th(scope="col")= header
+    tbody.table-group-divider
+      each row in rows
+        tr
+          each cell in row
+            td= cell

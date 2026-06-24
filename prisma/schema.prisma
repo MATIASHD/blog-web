@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  admin
+  editor
+  reader
+  user
+}
+
+enum ContactStatus {
+  pending
+  read
+  replied
+}
+
+enum SubscriberStatus {
+  pending
+  active
+  unsubscribed
+}
+
+enum CommentStatus {
+  pending
+  approved
+  rejected
+}
+
+enum SubscriptionStatus {
+  active
+  cancelled
+  past_due
+}
+
+model User {
+  id                String   @id @default(uuid())
+  email             String   @unique
+  password_hash     String
+  name              String
+  role              UserRole @default(reader)
+  is_active         Boolean  @default(true)
+  email_verified_at DateTime?
+  created_at        DateTime @default(now())
+  updated_at        DateTime @default(now()) @updatedAt
+
+  sessions          UserSession[]
+  contacts_handled  Contact[]       @relation("HandledBy")
+  comments          Comment[]
+  subscriptions     Subscription[]
+
+  @@map("users")
+}
+
+model UserSession {
+  id         String   @id @default(uuid())
+  user_id    String
+  token      String   @unique
+  ip_address String?
+  user_agent String?
+  expires_at DateTime
+  created_at DateTime @default(now())
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("user_sessions")
+}
+
+model Contact {
+  id         String        @id @default(uuid())
+  name       String
+  email      String
+  subject    String?
+  message    String
+  status     ContactStatus @default(pending)
+  handled_by String?
+  created_at DateTime      @default(now())
+
+  handledBy User? @relation("HandledBy", fields: [handled_by], references: [id], onDelete: SetNull)
+
+  @@map("contacts")
+}
+
+model NewsletterSubscriber {
+  id              String           @id @default(uuid())
+  email           String           @unique
+  status          SubscriberStatus @default(pending)
+  confirm_token   String?
+  confirmed_at    DateTime?
+  unsubscribed_at DateTime?
+  created_at      DateTime         @default(now())
+
+  @@map("newsletter_subscribers")
+}
+
+model Comment {
+  id         String        @id @default(uuid())
+  user_id    String
+  post_slug  String
+  parent_id  String?
+  body       String
+  status     CommentStatus @default(pending)
+  created_at DateTime      @default(now())
+
+  user   User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  parent Comment?  @relation("CommentParent", fields: [parent_id], references: [id], onDelete: Cascade)
+  child  Comment[] @relation("CommentParent")
+
+  @@index([post_slug])
+  @@index([user_id])
+  @@map("comments")
+}
+
+model Subscription {
+  id                 String             @id @default(uuid())
+  user_id            String
+  plan               String
+  status             SubscriptionStatus
+  provider_id        String?
+  current_period_end DateTime?
+  created_at         DateTime           @default(now())
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("subscriptions")
+}
+
+model PageView {
+  id        String   @id @default(uuid())
+  post_slug String
+  ip_hash   String?
+  referrer  String?
+  country   String?
+  viewed_at DateTime @default(now())
+
+  @@index([post_slug])
+  @@index([viewed_at])
+  @@map("page_views")
+}

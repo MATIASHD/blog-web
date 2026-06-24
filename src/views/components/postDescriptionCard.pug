@@ -2,5 +2,5 @@ mixin postDescriptionCard(tags, title, postUrl, description)
     .card.rounded-3
         .card-body
             h3
-                a.text-dark(href=`/blog/${postUrl}`)= title
+                a.text-dark(href=`/post/${postUrl}`)= title
             p.lead.text-body-secondary.card-description.lh-sm= description

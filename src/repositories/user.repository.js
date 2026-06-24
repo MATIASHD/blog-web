@@ -1,108 +1,100 @@
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-const { DATA_PATH } = require('../utils/constants');
+const bcrypt = require('bcryptjs');
+const prisma = require('../lib/prisma');
 const Logger = require('../utils/logger');
 
-const dataPath = path.join(process.cwd(), DATA_PATH);
-const usersFile = path.join(dataPath, 'users.json');
-
-const hashPassword = (password) => {
-  return crypto.createHash('sha256').update(password).digest('hex');
-};
-
 class UserRepository {
-  constructor() {
-    this.ensureDataDir();
-    this.createDefaultAdmin();
-  }
-
-  ensureDataDir() {
-    if (!fs.existsSync(dataPath)) {
-      fs.mkdirSync(dataPath, { recursive: true });
-    }
-    if (!fs.existsSync(usersFile)) {
-      fs.writeFileSync(usersFile, JSON.stringify([], null, 2), 'utf-8');
-    }
-  }
-
-  createDefaultAdmin() {
+  async createDefaultAdmin() {
     try {
-      const users = this.getAll();
-      const adminExists = users.some(u => u.role === 'admin');
-      if (!adminExists) {
-        const adminEmail = process.env.ADMIN_EMAIL || 'admin@blog.com';
-        const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+      const adminExists = await prisma.user.findFirst({ where: { role: 'admin' } });
+      if (adminExists) return;
 
-        if (process.env.NODE_ENV === 'production' && !process.env.ADMIN_PASSWORD) {
-          Logger.info('Default admin was not created because ADMIN_PASSWORD is missing');
-          return;
-        }
+      const adminEmail = process.env.ADMIN_EMAIL || 'admin@blog.com';
+      const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
 
-        const defaultAdmin = {
-          id: '1',
+      if (process.env.NODE_ENV === 'production' && !process.env.ADMIN_PASSWORD) {
+        Logger.info('Default admin was not created because ADMIN_PASSWORD is missing');
+        return;
+      }
+
+      const password_hash = await bcrypt.hash(adminPassword, 10);
+      await prisma.user.create({
+        data: {
           email: adminEmail,
-          password: hashPassword(adminPassword),
+          password_hash,
           name: 'Admin',
           role: 'admin',
-          status: 'active',
-          createdAt: new Date().toISOString(),
-        };
-        fs.writeFileSync(usersFile, JSON.stringify([defaultAdmin], null, 2), 'utf-8');
-        Logger.info(`Default admin user created: ${adminEmail}`);
-      }
+          is_active: true,
+        },
+      });
+      Logger.info(`Default admin user created: ${adminEmail}`);
     } catch (error) {
       Logger.error('Error creating default admin', error);
     }
   }
 
-  getAll() {
+  async getAll() {
     try {
-      const data = fs.readFileSync(usersFile, 'utf-8');
-      return JSON.parse(data);
+      return await prisma.user.findMany({
+        select: { id: true, email: true, name: true, role: true, is_active: true, email_verified_at: true, created_at: true, updated_at: true },
+      });
     } catch (error) {
       Logger.error('Error reading users', error);
       return [];
     }
   }
 
-  getById(id) {
-    const users = this.getAll();
-    const user = users.find(u => u.id === id);
-    return user ? { ...user, password: undefined } : null;
-  }
-
-  getByEmail(email) {
-    const users = this.getAll();
-    return users.find(u => u.email === email) || null;
-  }
-
-  save(user) {
+  async getById(id) {
     try {
-      const users = this.getAll();
-      user.id = user.id || Date.now().toString();
-      const index = users.findIndex(u => u.id === user.id);
+      const user = await prisma.user.findUnique({ where: { id } });
+      if (!user) return null;
+      const { password_hash, ...userWithoutPassword } = user;
+      return userWithoutPassword;
+    } catch (error) {
+      Logger.error('Error getting user by id', error);
+      return null;
+    }
+  }
 
-      if (index > -1) {
-        users[index] = { ...users[index], ...user };
+  async getByEmail(email) {
+    try {
+      return await prisma.user.findUnique({ where: { email } });
+    } catch (error) {
+      Logger.error('Error getting user by email', error);
+      return null;
+    }
+  }
+
+  async save(userData) {
+    try {
+      if (userData.id) {
+        const { id, password, ...updateData } = userData;
+        const data = { ...updateData };
+        if (password) {
+          data.password_hash = await bcrypt.hash(password, 10);
+        }
+        if (data.password) delete data.password;
+        return await prisma.user.update({
+          where: { id },
+          data,
+          select: { id: true, email: true, name: true, role: true, is_active: true, email_verified_at: true, created_at: true, updated_at: true },
+        });
       } else {
-        users.push(user);
+        const { password, ...rest } = userData;
+        const password_hash = await bcrypt.hash(password || 'default123', 10);
+        return await prisma.user.create({
+          data: { ...rest, password_hash },
+          select: { id: true, email: true, name: true, role: true, is_active: true, email_verified_at: true, created_at: true, updated_at: true },
+        });
       }
-
-      fs.writeFileSync(usersFile, JSON.stringify(users, null, 2), 'utf-8');
-      const saved = { ...user, password: undefined };
-      return saved;
     } catch (error) {
       Logger.error('Error saving user', error);
       return null;
     }
   }
 
-  delete(id) {
+  async delete(id) {
     try {
-      const users = this.getAll();
-      const filtered = users.filter(u => u.id !== id);
-      fs.writeFileSync(usersFile, JSON.stringify(filtered, null, 2), 'utf-8');
+      await prisma.user.delete({ where: { id } });
       return true;
     } catch (error) {
       Logger.error('Error deleting user', error);
@@ -110,8 +102,8 @@ class UserRepository {
     }
   }
 
-  verifyPassword(user, password) {
-    return user.password === hashPassword(password);
+  async verifyPassword(user, password) {
+    return bcrypt.compare(password, user.password_hash);
   }
 }
 

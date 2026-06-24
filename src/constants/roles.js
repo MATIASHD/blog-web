@@ -1,20 +1,18 @@
-module.exports = {
+const ROLES = {
   ADMIN: 'admin',
+  EDITOR: 'editor',
+  READER: 'reader',
   USER: 'user',
-  GUEST: 'guest',
 };
 
 const rolePermissions = {
   admin: ['read', 'create', 'update', 'delete'],
+  editor: ['read', 'create', 'update'],
+  reader: ['read'],
   user: ['read'],
-  guest: ['read'],
 };
 
 module.exports = {
-  ROLES: {
-    ADMIN: 'admin',
-    USER: 'user',
-    GUEST: 'guest',
-  },
+  ROLES,
   PERMISSIONS: rolePermissions,
 };

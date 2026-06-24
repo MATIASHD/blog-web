@@ -1,64 +1,46 @@
-const fs = require('fs');
-const path = require('path');
-const { DATA_PATH } = require('../utils/constants');
+const prisma = require('../lib/prisma');
 const Logger = require('../utils/logger');
 
-const dataPath = path.join(process.cwd(), DATA_PATH);
-const newsletterFile = path.join(dataPath, 'newsletter.json');
-
 class NewsletterRepository {
-  constructor() {
-    this.ensureDataDir();
-  }
-
-  ensureDataDir() {
-    if (!fs.existsSync(dataPath)) {
-      fs.mkdirSync(dataPath, { recursive: true });
-    }
-    if (!fs.existsSync(newsletterFile)) {
-      fs.writeFileSync(newsletterFile, JSON.stringify([], null, 2), 'utf-8');
-    }
-  }
-
-  getAll() {
+  async getAll() {
     try {
-      const data = fs.readFileSync(newsletterFile, 'utf-8');
-      return JSON.parse(data);
+      return await prisma.newsletterSubscriber.findMany({ orderBy: { created_at: 'desc' } });
     } catch (error) {
-      Logger.error('Error reading newsletter', error);
+      Logger.error('Error reading subscribers', error);
       return [];
     }
   }
 
-  getByEmail(email) {
-    const subscribers = this.getAll();
-    return subscribers.find(s => s.email === email) || null;
+  async getByEmail(email) {
+    try {
+      return await prisma.newsletterSubscriber.findUnique({ where: { email } });
+    } catch (error) {
+      Logger.error('Error getting subscriber by email', error);
+      return null;
+    }
   }
 
-  save(subscriber) {
+  async save(subscriberData) {
     try {
-      const subscribers = this.getAll();
-      const index = subscribers.findIndex(s => s.email === subscriber.email);
-
-      if (index > -1) {
-        subscribers[index] = { ...subscribers[index], ...subscriber };
+      const { email } = subscriberData;
+      const existing = await this.getByEmail(email);
+      if (existing) {
+        return await prisma.newsletterSubscriber.update({
+          where: { email },
+          data: subscriberData,
+        });
       } else {
-        subscribers.push(subscriber);
+        return await prisma.newsletterSubscriber.create({ data: subscriberData });
       }
-
-      fs.writeFileSync(newsletterFile, JSON.stringify(subscribers, null, 2), 'utf-8');
-      return subscriber;
     } catch (error) {
       Logger.error('Error saving subscriber', error);
       return null;
     }
   }
 
-  delete(email) {
+  async delete(email) {
     try {
-      const subscribers = this.getAll();
-      const filtered = subscribers.filter(s => s.email !== email);
-      fs.writeFileSync(newsletterFile, JSON.stringify(filtered, null, 2), 'utf-8');
+      await prisma.newsletterSubscriber.delete({ where: { email } });
       return true;
     } catch (error) {
       Logger.error('Error deleting subscriber', error);
@@ -66,8 +48,13 @@ class NewsletterRepository {
     }
   }
 
-  getSubscribed() {
-    return this.getAll().filter(s => s.status === 'subscribed');
+  async getSubscribed() {
+    try {
+      return await prisma.newsletterSubscriber.findMany({ where: { status: 'active' } });
+    } catch (error) {
+      Logger.error('Error getting subscribed', error);
+      return [];
+    }
   }
 }
 
