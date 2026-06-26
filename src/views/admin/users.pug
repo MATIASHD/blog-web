@@ -7,11 +7,11 @@ block content
         .row.mb-4
             .col-md-12.mb-3
                 include ../components/btnBar.pug
-                +btnBar(["Nuevo", "Editar", "Eliminar"])
+                +btnBar([["Nuevo","users/new"]])
         .row 
             .col-md-12.mb-3
                 include ../components/table.pug
-                +table(['ID', 'Nombre', 'Email', 'Rol'], [
-                    [1, 'Matias', 'matias@example.com', 'Administrador'],
-                    [1, 'Matias', 'matias@example.com', 'Administrador'],
-                    ])
+                if users && users.length > 0
+                    +table(['Nombre', 'Email', 'Rol', 'Activo'], users.map(u => [u.name, u.email, u.role, u.is_active ? 'Sí' : 'No']))
+                else
+                    p No hay usuarios registrados.
