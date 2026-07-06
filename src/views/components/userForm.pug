@@ -1,28 +1,32 @@
-mixin userForm(errors)
-    form(action="/dashboard/users/new" method="post")
+mixin userForm(errors, user)
+    - const isEdit = user && user.id
+    form(action= isEdit ? `/dashboard/users/${user.id}/edit` : "/dashboard/users/new" method="post")
         .mb-3
             label.form-label(for="name") Nombre
             if errors && errors.name
                 .invalid-feedback.d-block= errors.name
-            input.form-control(type="text" id="name" name="name" placeholder="Ingrese su nombre" class=(errors && errors.name ? 'is-invalid' : ''))
+            input.form-control(type="text" id="name" name="name" placeholder="Ingrese su nombre" value=user ? user.name : '' class=(errors && errors.name ? 'is-invalid' : ''))
         .mb-3
             label.form-label(for="email") Email
             if errors && errors.email
                 .invalid-feedback.d-block= errors.email
-            input.form-control(type="email" id="email" name="email" placeholder="Ingrese su email" class=(errors && errors.email ? 'is-invalid' : ''))
+            input.form-control(type="email" id="email" name="email" placeholder="Ingrese su email" value=user ? user.email : '' class=(errors && errors.email ? 'is-invalid' : ''))
         .mb-3
-            label.form-label(for="password") Contraseña
+            label.form-label(for="password") Contraseña#{isEdit ? ' (dejar vacío para no cambiar)' : ''}
             if errors && errors.password
                 .invalid-feedback.d-block= errors.password
-            input.form-control(type="password" id="password" name="password" placeholder="Ingrese su contraseña" class=(errors && errors.password ? 'is-invalid' : ''))
+            input.form-control(type="password" id="password" name="password" placeholder= isEdit ? "Dejar vacío para no cambiar" : "Ingrese su contraseña" class=(errors && errors.password ? 'is-invalid' : ''))
         .mb-3
             label.form-label(for="role") Rol
             if errors && errors.role
                 .invalid-feedback.d-block= errors.role
             select.form-select(id="role" name="role" class=(errors && errors.role ? 'is-invalid' : ''))
-                option(value="" disabled selected) Seleccione un rol
-                option(value="admin") Administrador
-                option(value="editor") Editor
-                option(value="reader") Lector
+                option(value="" disabled selected= !user) Seleccione un rol
+                option(value="admin" selected= user && user.role === 'admin') Administrador
+                option(value="editor" selected= user && user.role === 'editor') Editor
+                option(value="reader" selected= user && user.role === 'reader') Lector
+        .mb-3.form-check
+            input.form-check-input(type="checkbox" id="is_active" name="is_active" checked= user ? user.is_active : true)
+            label.form-check-label(for="is_active") Activo
         .mb-3
-            button.btn.btn-primary(type="submit") Crear Usuario
+            button.btn.btn-primary(type="submit")= isEdit ? 'Actualizar Usuario' : 'Crear Usuario'

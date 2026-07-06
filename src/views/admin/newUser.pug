@@ -3,11 +3,10 @@ block content
     .container.py-5
         .row
             .col-md-12.mb-3
-                h1 Crear usuario
+                h1= title
         if errors && errors.general
             .alert.alert-danger= errors.general
         .row.mb-4
             .col-sm-12.col-md-8.mb-3
                 include ../components/userForm.pug
-                +userForm(errors)
-                
+                +userForm(errors, user)

@@ -1,11 +1,18 @@
-mixin table(headers, rows)
+mixin table(headers, rows, idField)
   table.table
     thead
       tr
+        th(scope="col")
+          .form-check
+            input.form-check-input(type="checkbox" id="selectAll")
         each header in headers
           th(scope="col")= header
     tbody.table-group-divider
       each row in rows
         tr
-          each cell in row
-            td= cell
+          td
+            .form-check
+              input.form-check-input.row-checkbox(type="checkbox" value=row[idField || row.length - 1])
+          each cell, index in row
+            if index !== (idField || row.length - 1)
+              td= cell

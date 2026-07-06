@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const compression = require('compression');
 
+
 app.use(compression());
 app.use(helmet({
   contentSecurityPolicy: {
@@ -34,7 +35,11 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json({
+  verify: (req, res, buf) => {
+    req.rawBody = buf;
+  },
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -58,7 +63,6 @@ const mainRouter = require('./router/index');
 const { errorHandler } = require('./middleware');
 
 app.use('/', mainRouter);
-
 app.use((req, res) => {
   res.status(404).render('pages/404', { title: 'Pagina no encontrada' });
 });

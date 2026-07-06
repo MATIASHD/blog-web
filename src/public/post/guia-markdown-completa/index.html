@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="icons/favicon.ico"><title>Guía visual: todos los recursos Markdown para probar el blog</title><meta name="description" content="Artículo de referencia con encabezados, listas, tablas, código, citas, multimedia, HTML seguro y más."><link rel="stylesheet" href="/css/main.css"></head><body><nav class="navbar navbar-expand-lg"><div class="container"><a class="navbar-brand" href="/"> <i class="fs-1 bi bi-file-binary-fill"></i></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link text-dark px-2" href="/about">Sobre mí</a></li><li class="nav-item"><a class="nav-link text-dark px-2" href="/contact">Contacto</a></li><li class="nav-item"><a class="nav-link text-dark px-2" href="/newsletter">Newsletter</a></li><li class="nav-item"><a class="nav-link text-dark px-2" href="/login">Login</a></li></ul></div></div></nav><main class="container-fluid"><div class="container my-5"><div class="row justify-content-md-center"><article class="col-lg-7 col-md-12 col-sm-12"><h1 class="fs-main-title">Guía visual: todos los recursos Markdown para probar el blog</h1><h2 class="lead fs-5 mb-4">Artículo de referencia con encabezados, listas, tablas, código, citas, multimedia, HTML seguro y más.</h2><p class="detail figure-caption text-body-tertiary">25 de mayo de 2026
+por 
+Matias Arevalo</p><div class="text-body-tertiary mb-4"><hr></div><p>Este artículo existe para <strong>probar la vista de lectura</strong> del blog. Cada sección muestra un recurso distinto de Markdown (y HTML permitido) para que puedas validar estilos, responsive y sanitización.</p>
+<hr />
+<h2>Tabla de contenidos</h2>
+<ol>
+<li><a href="#encabezados">Encabezados</a></li>
+<li><a href="#tipograf%C3%ADa">Tipografía</a></li>
+<li><a href="#listas">Listas</a></li>
+<li><a href="#citas-y-reglas">Citas y reglas</a></li>
+<li><a href="#c%C3%B3digo">Código</a></li>
+<li><a href="#tablas">Tablas</a></li>
+<li><a href="#enlaces-e-im%C3%A1genes">Enlaces e imágenes</a></li>
+<li><a href="#multimedia">Multimedia</a></li>
+<li><a href="#html-seguro">HTML seguro</a></li>
+<li><a href="#checklist-final">Checklist final</a></li>
+</ol>
+<hr />
+<h2>Encabezados</h2>
+<h1>Heading H1 (solo para prueba dentro del contenido)</h1>
+<h2>Heading H2</h2>
+<h3>Heading H3</h3>
+<h4>Heading H4</h4>
+<h5>Heading H5</h5>
+<h6>Heading H6</h6>
+<hr />
+<h2>Tipografía</h2>
+<p>Texto normal con <strong>negrita</strong>, <em>cursiva</em>, <em><strong>negrita y cursiva</strong></em>, <s>tachado</s> y <code>código inline</code>.</p>
+<p>También podés combinar <a href="#tipograf%C3%ADa">enlaces internos</a> con <a href="https://www.markdownguide.org/">enlaces externos</a> que abren en la misma pestaña.</p>
+<p>Subíndice H~2~O y superíndice E = mc^2^ (sintaxis extensiones; si no renderiza, el motor puede ignorarlo).</p>
+<hr />
+<h2>Listas</h2>
+<h3>Lista desordenada</h3>
+<ul>
+<li>Primer ítem</li>
+<li>Segundo ítem
+<ul>
+<li>Sub-ítem anidado</li>
+<li>Otro sub-ítem</li>
+</ul>
+</li>
+<li>Tercer ítem</li>
+</ul>
+<h3>Lista ordenada</h3>
+<ol>
+<li>Definir frontmatter</li>
+<li>Escribir cuerpo en Markdown</li>
+<li>Publicar con <code>draft: false</code></li>
+<li>Revisar en <code>/es/blog/guia-markdown-completa</code></li>
+</ol>
+<h3>Lista de tareas (GFM)</h3>
+<ul>
+<li>[x] Modelo de post unificado</li>
+<li>[x] Rutas bilingües <code>/es</code> y <code>/en</code></li>
+<li>[ ] Panel admin (próxima fase)</li>
+<li>[ ] RSS y sitemap automático</li>
+</ul>
+<hr />
+<h2>Citas y reglas</h2>
+<blockquote>
+<p>Bloque de cita simple.</p>
+<p>Puede tener <strong>varias líneas</strong> y enlaces como <a href="https://arevdev.com">ArevDev</a>.</p>
+</blockquote>
+<p>Cita anidada:</p>
+<blockquote>
+<p>Nivel 1</p>
+<blockquote>
+<p>Nivel 2 — útil para notas al margen.</p>
+</blockquote>
+</blockquote>
+<p>Separador horizontal:</p>
+<hr />
+<p>Otro separador con asteriscos:</p>
+<hr />
+<hr />
+<h2>Código</h2>
+<h3>JavaScript</h3>
+<pre><code class="language-javascript">const posts = await fetch('/api/posts?lang=es').then((r) =&gt; r.json());
+
+function excerpt(text, max = 120) {
+  return text.length &gt; max ? `${text.slice(0, max)}…` : text;
+}
+</code></pre>
+<h3>Bash</h3>
+<pre><code class="language-bash">npm run sass
+npm start
+curl -s http://localhost:3001/es/blog/guia-markdown-completa
+</code></pre>
+<h3>JSON (frontmatter mental model)</h3>
+<pre><code class="language-json">{
+  "id": "markdown-showcase",
+  "slug": "guia-markdown-completa",
+  "lang": "es",
+  "draft": false
+}
+</code></pre>
+<h3>Bloque sin lenguaje</h3>
+<pre><code>┌─────────────────────────────┐
+│  Vista previa del artículo  │
+└─────────────────────────────┘
+</code></pre>
+<hr />
+<h2>Tablas</h2>
+<table>
+<thead>
+<tr>
+<th>Sintaxis</th>
+<th>Renderizado</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>**bold**</code></td>
+<td><strong>bold</strong></td>
+<td>Énfasis fuerte</td>
+</tr>
+<tr>
+<td><code>*italic*</code></td>
+<td><em>italic</em></td>
+<td>Énfasis suave</td>
+</tr>
+<tr>
+<td><code>`code`</code></td>
+<td><code>code</code></td>
+<td>Monoespaciado</td>
+</tr>
+<tr>
+<td><code>[link](url)</code></td>
+<td>enlace</td>
+<td>Interno o externo</td>
+</tr>
+</tbody>
+</table>
+<p>Alineación (según soporte del motor):</p>
+<table>
+<thead>
+<tr>
+<th>Izquierda</th>
+<th>Centro</th>
+<th>Derecha</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>celda A</td>
+<td>celda B</td>
+<td>celda C</td>
+</tr>
+<tr>
+<td>dato 1</td>
+<td>dato 2</td>
+<td>dato 3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Enlaces e imágenes</h2>
+<p>Imagen remota con pie de foto (renderer del blog):</p>
+<p></p><figure class="figure">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&amp;h=600&amp;fit=crop" alt="Laptop con código en pantalla" title="Desarrollo web — Unsplash / Chris Ried" class="img-fluid mb-3 rounded" loading="lazy" />
+    <figcaption>Desarrollo web — Unsplash / Chris Ried</figcaption>
+  </figure><p></p>
+<p>Imagen de referencia local (si existe en <code>public</code>):</p>
+<p></p><figure class="figure">
+    <img src="/images/placeholder.svg" alt="Placeholder local" title="SVG de prueba local" class="img-fluid mb-3 rounded" loading="lazy" />
+    <figcaption>SVG de prueba local</figcaption>
+  </figure><p></p>
+<hr />
+<h2>Multimedia</h2>
+<h3>Video embebido (YouTube)</h3>
+<div>
+  
+</div>
+<p>Enlace directo por si el iframe no carga: <a href="https://www.youtube.com/watch?v=5i5A2vqSZ5M">ver en YouTube</a>.</p>
+<hr />
+<h2>HTML seguro</h2>
+<p>El pipeline permite HTML limitado tras sanitizar. Ejemplos útiles para testing:</p>
+<p><mark>Texto resaltado con mark</mark></p>
+<p>Texto eliminado y texto insertado</p>
+<p>Combinación: <kbd>Ctrl</kbd> + <kbd>S</kbd> para guardar (simulado).</p>
+<hr />
+<h2>Detalles y definiciones</h2>
+
+¿Qué valida este bloque?
+<p>Si tu motor no soporta <code>&lt;details&gt;</code>, verás HTML crudo o lo filtrará el sanitizador. Sirve para detectar límites del parser.</p>
+
+<hr />
+<h2>Checklist final</h2>
+<p>Usá esta lista mientras revisás la vista en móvil y desktop:</p>
+<ol>
+<li>¿Los encabezados tienen jerarquía visual clara?</li>
+<li>¿Las tablas hacen scroll horizontal sin romper el layout?</li>
+<li>¿El código tiene fondo y fuente monoespaciada?</li>
+<li>¿Las imágenes remotas cargan con <code>loading="lazy"</code>?</li>
+<li>¿El video respeta relación 16:9?</li>
+<li>¿Los enlaces del menú de idioma llevan a la traducción correcta?</li>
+</ol>
+<p><strong>Resultado esperado:</strong> si todo se ve legible y equilibrado (estilo Medium), el sistema Markdown está listo para contenido real.</p>
+<hr />
+<p><em>Artículo de prueba — ArevDev Blog. Imágenes: <a href="https://unsplash.com">Unsplash</a>.</em></p>
+<hr><h5 class="mb-3">Etiquetas: </h5><div class="d-flex flex-wrap gap-2"><span class="badge rounded-pill text-bg-secondary p-2">markdown</span><span class="badge rounded-pill text-bg-secondary p-2">testing</span><span class="badge rounded-pill text-bg-secondary p-2">documentacion</span><span class="badge rounded-pill text-bg-secondary p-2">accesibilidad</span></div></article></div></div></main><footer><nav class="navbar navbar-expand-lg navbar-light bg-light"> <div class="container-fluid"><div class="collapse navbar-collapse"><ul class="navbar-nav"><li class="nav-item"> <a class="nav-link" href="#"> <i class="bi bi-twitter-x"></i></a></li><li class="nav-item"> <a class="nav-link" href="#"> <i class="bi bi-instagram"></i></a></li><li class="nav-item"> <a class="nav-link" href="#"> <i class="bi bi-github"></i></a></li></ul><span class="navbar-text text-muted">Hecho con amor</span></div></div></nav></footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script><script src="/js/main.js"></script></body></html>

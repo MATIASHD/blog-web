@@ -1,8 +1,17 @@
 extends ../layouts/admin-layout
 
 block content
-  h1.mb-4 Nuevo post
-  if error
-    .alert.alert-danger= error
-  form(action="/admin/posts" method="POST")
-    include ../partials/post-form.pug
+  .container.py-5
+    .row
+      .col-md-12.mb-3
+        h1.mb-4 Nuevo Post
+    if error
+      .alert.alert-danger= error
+    .row
+      .col-md-8
+        form(action="/dashboard/posts/new" method="POST")
+          include ../partials/post-form.pug
+          .mb-3.form-check
+            input.form-check-input(type="checkbox" id="draft" name="draft")
+            label.form-check-label(for="draft") Guardar como borrador
+          button.btn.btn-primary(type="submit") Crear Post

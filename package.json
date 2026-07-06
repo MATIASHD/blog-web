@@ -6,7 +6,10 @@
   "scripts": {
     "sass": "sass src/sass/main.scss:src/public/css/main.css && cp \"node_modules/bootstrap-icons/font/fonts/*\" src/public/fonts/",
     "sass:watch": "sass --watch --quiet src/sass/main.scss:src/public/css/main.css",
-    "start": "concurrently \"npm run sass:watch\" \"nodemon\""
+    "build": "node build.js",
+    "build:css": "npm run sass && npm run build",
+    "start": "concurrently \"npm run sass:watch\" \"nodemon\"",
+    "start:prod": "npm run build && node server.js"
   },
   "author": "Matias Arevalo",
   "license": "ISC",
@@ -22,8 +25,10 @@
     "express-session": "^1.19.0",
     "gray-matter": "^2.0.1",
     "helmet": "^8.1.0",
+    "markdown-it": "^14.3.0",
     "marked": "^18.0.3",
     "morgan": "^1.10.1",
+    "multer": "^2.2.0",
     "pg": "^8.22.0",
     "pug": "^3.0.4",
     "sanitize-html": "^2.17.3",

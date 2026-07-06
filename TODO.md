@@ -392,7 +392,7 @@ Estoy en modo planificación (read-only) y no puedo escribir archivos todavía. 
   - `src/data/users.json` → MySQL (seed con admin)
   - `src/data/contacts.json` → MySQL
   - `src/data/newsletter.json` → MySQL
-- [ ] Refactorizar repositorios para usar Prisma:
+- [x] Refactorizar repositorios para usar Prisma:
   - `user.repository.js`
   - `contact.repository.js`
   - `newsletter.repository.js`

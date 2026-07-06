@@ -1,4 +1,18 @@
 extends ../layouts/admin-layout
-
 block content
-    h1.mb-4 Multimedia
+    .container.py-5
+        .row
+            .col-md-12.mb-3
+                h1.mb-4 Multimedia
+        .row.mb-4
+            .col-md-12
+                form#uploadForm(enctype="multipart/form-data")
+                    .input-group
+                        input.form-control(type="file" name="file" accept="image/*" required)
+                        button.btn.btn-primary(type="submit") Subir Imagen
+        .row
+            include ../components/galery.pug
+            +galery(images)
+        .row
+            include ../components/barraImagen.pug
+            +barraImagen()

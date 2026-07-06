@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://arevdev.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://arevdev.com/about</loc><priority>0.8</priority></url>
+  <url><loc>https://arevdev.com/contact</loc><priority>0.6</priority></url>
+  <url><loc>https://arevdev.com/post/ai-future-development/</loc><lastmod>2026-05-30</lastmod><priority>0.9</priority></url>
+  <url><loc>https://arevdev.com/post/full-markdown-guide/</loc><lastmod>2026-05-26</lastmod><priority>0.9</priority></url>
+  <url><loc>https://arevdev.com/post/guia-markdown-completa/</loc><lastmod>2026-05-26</lastmod><priority>0.9</priority></url>
+  <url><loc>https://arevdev.com/post/space-webb-telescope/</loc><lastmod>2026-05-25</lastmod><priority>0.9</priority></url>
+  <url><loc>https://arevdev.com/post/exploracion-espacio-webb/</loc><lastmod>2026-05-25</lastmod><priority>0.9</priority></url>
+  <url><loc>https://arevdev.com/post/bienvenida-blog/</loc><lastmod>2026-05-24</lastmod><priority>0.9</priority></url>
+</urlset>

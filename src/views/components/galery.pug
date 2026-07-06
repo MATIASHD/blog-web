@@ -1,0 +1,16 @@
+mixin galery(images)
+  .row#mediaGallery
+    if images && images.length
+      each image in images
+        .col-md-3.mb-3
+          a.gallery-item(href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            data-name=image.name
+            data-alt=image.alt
+            data-url=image.url
+            data-markdown=image.markdownPath
+          )
+            img.img-fluid.img-thumbnail(src=image.url, alt=image.alt || image.name)
+    else
+      p.text-secondary No hay imágenes subidas.

@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id                UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   email             VARCHAR(255) UNIQUE NOT NULL,
   password_hash     VARCHAR(255) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE users (
   updated_at        TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE user_sessions (
+CREATE TABLE IF NOT EXISTS user_sessions (
   id          UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id     UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   token       VARCHAR(255) UNIQUE NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE user_sessions (
   created_at  TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE contacts (
+CREATE TABLE IF NOT EXISTS contacts (
   id          UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name        VARCHAR(100) NOT NULL,
   email       VARCHAR(255) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE contacts (
   created_at  TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE newsletter_subscribers (
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
   id               UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   email            VARCHAR(255) UNIQUE NOT NULL,
   status           VARCHAR(20) NOT NULL DEFAULT 'pending'
@@ -46,7 +46,7 @@ CREATE TABLE newsletter_subscribers (
   created_at       TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE comments (
+CREATE TABLE IF NOT EXISTS comments (
   id         UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id    UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   post_slug  VARCHAR(255) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE comments (
   created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE subscriptions (
+CREATE TABLE IF NOT EXISTS subscriptions (
   id                  UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id             UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   plan                VARCHAR(50) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE subscriptions (
   created_at          TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE page_views (
+CREATE TABLE IF NOT EXISTS page_views (
   id         UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   post_slug  VARCHAR(255) NOT NULL,
   ip_hash    VARCHAR(64),
@@ -77,10 +77,28 @@ CREATE TABLE page_views (
   viewed_at  TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
+-- Ajusta esto a tu esquema normalizado real de 7 tablas si ya tenes
+-- una tabla de articulos con otro nombre/columnas (por ejemplo, si
+-- tags vive en una tabla aparte con relacion many-to-many).
+CREATE TABLE IF NOT EXISTS articles (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  slug TEXT UNIQUE NOT NULL,
+  title TEXT NOT NULL,
+  excerpt TEXT,
+  content_html TEXT NOT NULL,
+  published BOOLEAN NOT NULL DEFAULT true,
+  published_at TIMESTAMPTZ,
+  tags TEXT[],
+  cover_image TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
 -- Índices para las consultas más frecuentes
-CREATE INDEX idx_sessions_user    ON user_sessions(user_id);
-CREATE INDEX idx_sessions_token   ON user_sessions(token);
-CREATE INDEX idx_comments_slug    ON comments(post_slug);
-CREATE INDEX idx_comments_user    ON comments(user_id);
-CREATE INDEX idx_pageviews_slug   ON page_views(post_slug);
-CREATE INDEX idx_pageviews_date   ON page_views(viewed_at);
+CREATE INDEX IF NOT EXISTS idx_sessions_user    ON user_sessions(user_id);
+CREATE INDEX IF NOT EXISTS idx_sessions_token   ON user_sessions(token);
+CREATE INDEX IF NOT EXISTS idx_comments_slug    ON comments(post_slug);
+CREATE INDEX IF NOT EXISTS idx_comments_user    ON comments(user_id);
+CREATE INDEX IF NOT EXISTS idx_pageviews_slug   ON page_views(post_slug);
+CREATE INDEX IF NOT EXISTS idx_pageviews_date   ON page_views(viewed_at);
+CREATE INDEX IF NOT EXISTS idx_articles_published_at ON articles (published_at DESC);

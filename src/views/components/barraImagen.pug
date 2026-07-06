@@ -1,0 +1,24 @@
+mixin barraImagen()
+    .offcanvas.offcanvas-end(tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel")
+        .offcanvas-header
+            h5.offcanvas-title(id="offcanvasRightLabel") Detalle de Imagen
+            button.btn-close(type="button" data-bs-dismiss="offcanvas" aria-label="Close")
+        .offcanvas-body
+            img#mediaPreview.img-fluid.img-thumbnail.mb-3(src="", alt="")
+            h5#mediaName
+            p.text-muted
+                small
+                    | Ruta Markdown: 
+                    code#mediaMarkdownPath
+            hr
+            form#mediaEditForm
+                input(type="hidden" name="originalName" id="originalName")
+                .mb-3
+                    label.form-label(for="editName") Nombre del archivo
+                    input.form-control(type="text" name="newName" id="editName")
+                .mb-3
+                    label.form-label(for="editAlt") Texto alternativo (alt)
+                    input.form-control(type="text" name="alt" id="editAlt")
+                .d-grid.gap-2.d-md-block
+                    button.btn.btn-success(type="submit") Guardar Cambios
+                    button.btn.btn-danger(type="button" id="deleteMediaBtn") Eliminar

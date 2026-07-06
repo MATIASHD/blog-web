@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="icons/favicon.ico"><title>Visual guide: every Markdown resource to test the blog</title><meta name="description" content="Reference article with headings, lists, tables, code, quotes, multimedia, safe HTML, and more."><link rel="stylesheet" href="/css/main.css"></head><body><nav class="navbar navbar-expand-lg"><div class="container"><a class="navbar-brand" href="/"> <i class="fs-1 bi bi-file-binary-fill"></i></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link text-dark px-2" href="/about">Sobre mí</a></li><li class="nav-item"><a class="nav-link text-dark px-2" href="/contact">Contacto</a></li><li class="nav-item"><a class="nav-link text-dark px-2" href="/newsletter">Newsletter</a></li><li class="nav-item"><a class="nav-link text-dark px-2" href="/login">Login</a></li></ul></div></div></nav><main class="container-fluid"><div class="container my-5"><div class="row justify-content-md-center"><article class="col-lg-7 col-md-12 col-sm-12"><h1 class="fs-main-title">Visual guide: every Markdown resource to test the blog</h1><h2 class="lead fs-5 mb-4">Reference article with headings, lists, tables, code, quotes, multimedia, safe HTML, and more.</h2><p class="detail figure-caption text-body-tertiary">25 de mayo de 2026
+por 
+Matias Arevalo</p><div class="text-body-tertiary mb-4"><hr></div><p>This article exists to <strong>stress-test the reading view</strong> of the blog. Each section demonstrates a different Markdown feature (and allowed HTML) so you can validate styles, responsive layout, and sanitization.</p>
+<hr />
+<h2>Table of contents</h2>
+<ol>
+<li><a href="#headings">Headings</a></li>
+<li><a href="#typography">Typography</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#quotes-and-rules">Quotes and rules</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#links-and-images">Links and images</a></li>
+<li><a href="#multimedia">Multimedia</a></li>
+<li><a href="#safe-html">Safe HTML</a></li>
+<li><a href="#final-checklist">Final checklist</a></li>
+</ol>
+<hr />
+<h2>Headings</h2>
+<h1>Heading H1 (content-only test)</h1>
+<h2>Heading H2</h2>
+<h3>Heading H3</h3>
+<h4>Heading H4</h4>
+<h5>Heading H5</h5>
+<h6>Heading H6</h6>
+<hr />
+<h2>Typography</h2>
+<p>Normal text with <strong>bold</strong>, <em>italic</em>, <em><strong>bold italic</strong></em>, <s>strikethrough</s>, and <code>inline code</code>.</p>
+<p>You can mix <a href="#typography">internal links</a> with <a href="https://www.markdownguide.org/">external links</a>.</p>
+<p>Subscript H~2~O and superscript E = mc^2^ (extension syntax; may be ignored by the parser).</p>
+<hr />
+<h2>Lists</h2>
+<h3>Unordered list</h3>
+<ul>
+<li>First item</li>
+<li>Second item
+<ul>
+<li>Nested sub-item</li>
+<li>Another sub-item</li>
+</ul>
+</li>
+<li>Third item</li>
+</ul>
+<h3>Ordered list</h3>
+<ol>
+<li>Define frontmatter</li>
+<li>Write the body in Markdown</li>
+<li>Publish with <code>draft: false</code></li>
+<li>Review at <code>/en/blog/full-markdown-guide</code></li>
+</ol>
+<h3>Task list (GFM)</h3>
+<ul>
+<li>[x] Unified post model</li>
+<li>[x] Bilingual routes <code>/es</code> and <code>/en</code></li>
+<li>[ ] Admin panel (next phase)</li>
+<li>[ ] Automatic RSS and sitemap</li>
+</ul>
+<hr />
+<h2>Quotes and rules</h2>
+<blockquote>
+<p>Simple blockquote.</p>
+<p>It can span <strong>multiple lines</strong> and include links such as <a href="https://arevdev.com">ArevDev</a>.</p>
+</blockquote>
+<p>Nested quote:</p>
+<blockquote>
+<p>Level 1</p>
+<blockquote>
+<p>Level 2 — useful for margin notes.</p>
+</blockquote>
+</blockquote>
+<p>Horizontal rule:</p>
+<hr />
+<p>Alternative rule with asterisks:</p>
+<hr />
+<hr />
+<h2>Code</h2>
+<h3>JavaScript</h3>
+<pre><code class="language-javascript">const posts = await fetch('/api/posts?lang=en').then((r) =&gt; r.json());
+
+function excerpt(text, max = 120) {
+  return text.length &gt; max ? `${text.slice(0, max)}…` : text;
+}
+</code></pre>
+<h3>Bash</h3>
+<pre><code class="language-bash">npm run sass
+npm start
+curl -s http://localhost:3001/en/blog/full-markdown-guide
+</code></pre>
+<h3>JSON (mental frontmatter model)</h3>
+<pre><code class="language-json">{
+  "id": "markdown-showcase",
+  "slug": "full-markdown-guide",
+  "lang": "en",
+  "draft": false
+}
+</code></pre>
+<h3>Plain fence</h3>
+<pre><code>┌─────────────────────────────┐
+│  Article preview            │
+└─────────────────────────────┘
+</code></pre>
+<hr />
+<h2>Tables</h2>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Rendered</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>**bold**</code></td>
+<td><strong>bold</strong></td>
+<td>Strong emphasis</td>
+</tr>
+<tr>
+<td><code>*italic*</code></td>
+<td><em>italic</em></td>
+<td>Soft emphasis</td>
+</tr>
+<tr>
+<td><code>`code`</code></td>
+<td><code>code</code></td>
+<td>Monospace</td>
+</tr>
+<tr>
+<td><code>[link](url)</code></td>
+<td>link</td>
+<td>Internal/external</td>
+</tr>
+</tbody>
+</table>
+<p>Alignment sample:</p>
+<table>
+<thead>
+<tr>
+<th>Left</th>
+<th>Center</th>
+<th>Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cell A</td>
+<td>cell B</td>
+<td>cell C</td>
+</tr>
+<tr>
+<td>data 1</td>
+<td>data 2</td>
+<td>data 3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Links and images</h2>
+<p>Remote image with caption (blog renderer):</p>
+<p></p><figure class="figure">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&amp;h=600&amp;fit=crop" alt="Laptop showing code on screen" title="Web development — Unsplash / Chris Ried" class="img-fluid mb-3 rounded" loading="lazy" />
+    <figcaption>Web development — Unsplash / Chris Ried</figcaption>
+  </figure><p></p>
+<p>Local reference image (if present in <code>public</code>):</p>
+<p></p><figure class="figure">
+    <img src="/images/placeholder.svg" alt="Local placeholder" title="Local SVG test" class="img-fluid mb-3 rounded" loading="lazy" />
+    <figcaption>Local SVG test</figcaption>
+  </figure><p></p>
+<hr />
+<h2>Multimedia</h2>
+<h3>Embedded video (YouTube)</h3>
+<div>
+  
+</div>
+<p>Direct link if the iframe fails: <a href="https://www.youtube.com/watch?v=5i5A2vqSZ5M">watch on YouTube</a>.</p>
+<hr />
+<h2>Safe HTML</h2>
+<p>The pipeline allows limited HTML after sanitization. Useful test cases:</p>
+<p><mark>Highlighted text with mark</mark></p>
+<p>Deleted text and inserted text</p>
+<p>Combination: <kbd>Ctrl</kbd> + <kbd>S</kbd> to save (simulated).</p>
+<hr />
+<h2>Details block</h2>
+
+What does this block validate?
+<p>If your engine does not support <code>&lt;details&gt;</code>, you will see raw HTML or it will be stripped. Good for discovering parser limits.</p>
+
+<hr />
+<h2>Final checklist</h2>
+<p>Use this list while reviewing mobile and desktop views:</p>
+<ol>
+<li>Do headings show a clear visual hierarchy?</li>
+<li>Do tables scroll horizontally without breaking layout?</li>
+<li>Does code use a background and monospace font?</li>
+<li>Do remote images load with <code>loading="lazy"</code>?</li>
+<li>Does the video keep a 16:9 ratio?</li>
+<li>Do language menu links point to the correct translation?</li>
+</ol>
+<p><strong>Expected outcome:</strong> if everything feels readable and balanced (Medium-style), the Markdown system is ready for real content.</p>
+<hr />
+<p><em>Test article — ArevDev Blog. Images: <a href="https://unsplash.com">Unsplash</a>.</em></p>
+<hr><h5 class="mb-3">Etiquetas: </h5><div class="d-flex flex-wrap gap-2"><span class="badge rounded-pill text-bg-secondary p-2">markdown</span><span class="badge rounded-pill text-bg-secondary p-2">testing</span><span class="badge rounded-pill text-bg-secondary p-2">documentation</span><span class="badge rounded-pill text-bg-secondary p-2">accessibility</span></div></article></div></div></main><footer><nav class="navbar navbar-expand-lg navbar-light bg-light"> <div class="container-fluid"><div class="collapse navbar-collapse"><ul class="navbar-nav"><li class="nav-item"> <a class="nav-link" href="#"> <i class="bi bi-twitter-x"></i></a></li><li class="nav-item"> <a class="nav-link" href="#"> <i class="bi bi-instagram"></i></a></li><li class="nav-item"> <a class="nav-link" href="#"> <i class="bi bi-github"></i></a></li></ul><span class="navbar-text text-muted">Hecho con amor</span></div></div></nav></footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script><script src="/js/main.js"></script></body></html>

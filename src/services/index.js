@@ -8,4 +8,5 @@ module.exports = {
   categoryService: require('./category.service'),
   tagService: require('./tag.service'),
   markdownService: require('./markdown.service'),
+  githubService: require('./github.service'),
 };

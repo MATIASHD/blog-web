@@ -3,4 +3,5 @@ module.exports = {
   contactRepository: require('./contact.repository'),
   newsletterRepository: require('./newsletter.repository'),
   userRepository: require('./user.repository'),
+  githubPostRepository: require('./githubPost.repository'),
 };

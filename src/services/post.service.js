@@ -1,7 +1,13 @@
 const postRepository = require('../repositories/post.repository');
+const githubPostRepository = require('../repositories/githubPost.repository');
+const githubService = require('./github.service');
 const markdownService = require('./markdown.service');
 const { slugify } = require('../utils/slugify');
 const Logger = require('../utils/logger');
+
+function useGitHub() {
+  return githubService.enabled;
+}
 
 class PostService {
   normalizeTags(tags) {
@@ -26,6 +32,19 @@ class PostService {
     }
   }
 
+  async getAllPostsAsync() {
+    try {
+      if (useGitHub()) {
+        const posts = await githubPostRepository.getAll();
+        return posts.map(post => this.formatPost(post));
+      }
+      return this.getAllPosts();
+    } catch (error) {
+      Logger.error('Error getting all posts async', error);
+      return [];
+    }
+  }
+
   getPostBySlug(slug) {
     try {
       const post = postRepository.getBySlug(slug);
@@ -38,6 +57,18 @@ class PostService {
       };
     } catch (error) {
       Logger.error(`Error getting post: ${slug}`, error);
+      return null;
+    }
+  }
+
+  async getPostBySlugAsync(slug) {
+    try {
+      if (useGitHub()) {
+        return await githubPostRepository.getBySlug(slug);
+      }
+      return this.getPostBySlug(slug);
+    } catch (error) {
+      Logger.error(`Error getting post async: ${slug}`, error);
       return null;
     }
   }
@@ -115,6 +146,32 @@ class PostService {
     }
   }
 
+  async createPostAsync(postData) {
+    try {
+      if (useGitHub()) {
+        const slug = slugify(postData.slug || postData.title);
+        const post = {
+          title: postData.title,
+          author: postData.author || '',
+          description: postData.description || '',
+          image: postData.image || '',
+          date: postData.date || new Date().toISOString().split('T')[0],
+          tags: this.normalizeTags(postData.tags),
+          category: postData.category || '',
+          slug,
+          draft: postData.draft || false,
+          content: postData.content || ''
+        };
+        const result = await githubPostRepository.save(slug, post);
+        return { ...post, ...result };
+      }
+      return this.createPost(postData);
+    } catch (error) {
+      Logger.error('Error creating post async', error);
+      throw error;
+    }
+  }
+
   updatePost(slug, postData) {
     try {
       const post = postRepository.getBySlug(slug);
@@ -142,6 +199,32 @@ class PostService {
     }
   }
 
+  async updatePostAsync(slug, postData) {
+    try {
+      if (useGitHub()) {
+        const post = await githubPostRepository.getBySlug(slug);
+        if (!post) throw new Error('Post not found');
+
+        const updated = {
+          title: postData.title || post.title,
+          author: postData.author || post.author,
+          description: postData.description || post.description,
+          image: postData.image || post.image,
+          category: postData.category || post.category,
+          tags: postData.tags ? (Array.isArray(postData.tags) ? postData.tags : postData.tags.split(',').map(t => t.trim())) : post.tags,
+          date: postData.date || post.date,
+          draft: postData.draft !== undefined ? postData.draft : post.draft,
+          content: postData.content || post.content
+        };
+        return await githubPostRepository.save(slug, updated);
+      }
+      return this.updatePost(slug, postData);
+    } catch (error) {
+      Logger.error(`Error updating post async: ${slug}`, error);
+      throw error;
+    }
+  }
+
   deletePost(slug) {
     try {
       const deleted = postRepository.delete(slug);
@@ -151,6 +234,18 @@ class PostService {
       return true;
     } catch (error) {
       Logger.error(`Error deleting post: ${slug}`, error);
+      throw error;
+    }
+  }
+
+  async deletePostAsync(slug) {
+    try {
+      if (useGitHub()) {
+        return await githubPostRepository.delete(slug);
+      }
+      return this.deletePost(slug);
+    } catch (error) {
+      Logger.error(`Error deleting post async: ${slug}`, error);
       throw error;
     }
   }
@@ -173,6 +268,7 @@ class PostService {
       date,
       tags: post.tags || [],
       category: post.category || post.categoria || '',
+      draft: post.draft || false,
       titulo: title,
       descripcion: description,
       imagenes: image,
