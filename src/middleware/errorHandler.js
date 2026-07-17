@@ -4,6 +4,14 @@ const Logger = require('../utils/logger');
 const errorHandler = (err, req, res, next) => {
   Logger.error('Error occurred', err);
 
+  if (req.accepts('html')) {
+    const statusCode = err instanceof ApiError ? err.statusCode : 500;
+    return res.status(statusCode).render('pages/error', {
+      title: 'Error',
+      error: err.message || 'Error interno del servidor',
+    });
+  }
+
   if (err instanceof ApiError) {
     return res.status(err.statusCode).json({
       success: false,

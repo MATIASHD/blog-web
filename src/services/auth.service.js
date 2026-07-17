@@ -1,51 +1,54 @@
 const bcrypt = require('bcryptjs');
 const userRepository = require('../repositories/user.repository');
+const jwtService = require('./jwt.service');
 const Logger = require('../utils/logger');
 
 class AuthService {
-  async login(email, password) {
-    try {
-      const user = await userRepository.getByEmail(email);
-      if (!user) {
-        throw new Error('Invalid email or password');
-      }
-
-      const valid = await userRepository.verifyPassword(user, password);
-      if (!valid) {
-        throw new Error('Invalid email or password');
-      }
-
-      await userRepository.save({ id: user.id, lastLogin: new Date().toISOString() });
-
-      const { password_hash, ...userWithoutPassword } = user;
-      return userWithoutPassword;
-    } catch (error) {
-      Logger.error('Login error', error);
-      throw error;
+  async login(email, password, req) {
+    const user = await userRepository.getByEmail(email);
+    if (!user) {
+      throw new Error('Invalid email or password');
     }
+
+    const valid = await userRepository.verifyPassword(user, password);
+    if (!valid) {
+      throw new Error('Invalid email or password');
+    }
+
+    if (!user.is_active) {
+      throw new Error('Account is disabled');
+    }
+
+    await userRepository.save({ id: user.id, lastLogin: new Date().toISOString() });
+
+    const accessToken = jwtService.generateAccessToken(user);
+    const { token: refreshToken, jti } = jwtService.generateRefreshToken();
+
+    await jwtService.createSession(
+      user.id,
+      req.ip,
+      req.headers['user-agent'] || '',
+      jti
+    );
+
+    return { user, accessToken, refreshToken };
   }
 
   async register(data) {
-    try {
-      const existingUser = await userRepository.getByEmail(data.email);
-      if (existingUser) {
-        throw new Error('Email already registered');
-      }
-
-      const newUser = {
-        email: data.email,
-        password: data.password,
-        name: data.name,
-        role: 'reader',
-        is_active: true,
-      };
-
-      const saved = await userRepository.save(newUser);
-      return saved;
-    } catch (error) {
-      Logger.error('Registration error', error);
-      throw error;
+    const existingUser = await userRepository.getByEmail(data.email);
+    if (existingUser) {
+      throw new Error('Email already registered');
     }
+
+    const newUser = {
+      email: data.email,
+      password: data.password,
+      name: data.name,
+      role: 'reader',
+      is_active: true,
+    };
+
+    return userRepository.save(newUser);
   }
 
   logout(userId) {
@@ -54,20 +57,16 @@ class AuthService {
   }
 
   async resetPassword(email, newPassword) {
-    try {
-      const user = await userRepository.getByEmail(email);
-      if (!user) {
-        throw new Error('User not found');
-      }
-
-      const password_hash = await bcrypt.hash(newPassword, 10);
-      await userRepository.save({ id: user.id, password_hash });
-      return true;
-    } catch (error) {
-      Logger.error('Password reset error', error);
-      throw error;
+    const user = await userRepository.getByEmail(email);
+    if (!user) {
+      throw new Error('User not found');
     }
+
+    const password_hash = await bcrypt.hash(newPassword, 10);
+    await userRepository.save({ id: user.id, password_hash });
+    await jwtService.deleteAllUserSessions(user.id);
+    return true;
   }
 }
 
-module.exports = new AuthService();
+module.exports = { AuthService };

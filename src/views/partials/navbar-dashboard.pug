@@ -13,3 +13,6 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary
                     a.nav-link.figure-caption(href="/dashboard/media") Multimedia
                 li.nav-item
                     a.nav-link.figure-caption(href="/dashboard/settings") Configuración
+                li.nav-item
+                    form.d-inline(action="/api/auth/logout" method="post")
+                        button.nav-link.figure-caption.btn.btn-link(type="submit" style="border:none;background:none;") Cerrar sesión

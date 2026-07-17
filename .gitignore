@@ -4,7 +4,6 @@ src/data/
 .DS_Store
 *.log
 .env
-
 /src/generated/prisma
+.kilo
 
-/src/generated/prisma

@@ -2,10 +2,13 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const { adminController } = require('../../controllers');
-const { llegueMiddleware } = require('../../middleware');
+const { requireAuth, requireAdmin } = require('../../middleware');
 const postsRouter = require('./posts.router');
 
 const upload = multer({ storage: multer.memoryStorage() });
+
+router.use(requireAuth);
+router.use(requireAdmin);
 
 router.get('/', adminController.dashboard);
 router.get('/users', adminController.users);
@@ -15,7 +18,7 @@ router.get('/settings', adminController.dashboard);
 router.use('/posts', postsRouter);
 
 router.get('/users/new', adminController.newUser);
-router.post('/users/new', llegueMiddleware, adminController.createUser);
+router.post('/users/new', adminController.createUser);
 router.get('/users/:id/edit', adminController.editUser);
 router.post('/users/:id/edit', adminController.updateUser);
 router.post('/users/:id/delete', adminController.deleteUser);

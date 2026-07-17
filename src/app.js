@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const session = require('express-session');
 const compression = require('compression');
+const cookieParser = require('cookie-parser');
 
 
 app.use(compression());
@@ -34,6 +35,7 @@ app.use(helmet({
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({
   verify: (req, res, buf) => {
@@ -60,7 +62,9 @@ app.use(session({
 
 
 const mainRouter = require('./router/index');
-const { errorHandler } = require('./middleware');
+const { authenticate, errorHandler } = require('./middleware');
+
+app.use(authenticate);
 
 app.use('/', mainRouter);
 app.use((req, res) => {

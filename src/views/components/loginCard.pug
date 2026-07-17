@@ -3,7 +3,7 @@ mixin loginCard(error)
         .figure-caption
             if error
                 .alert.alert-danger= error
-            form(action="/login" method="post")
+            form(action="/api/auth/login" method="post")
                 .mb-3
                     h3.fs-1.text-center Iniciar sesion
                 .mb-3
