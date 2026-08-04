@@ -4,7 +4,7 @@ const adminController = require('./admin/adminController');
 
 
 module.exports = {
-    homeController,
-    postController,
-    adminController
+  homeController,
+  postController,
+  adminController
 }

@@ -1,0 +1,39 @@
+extends ../layouts/admin-layout
+block content
+  .container.py-5
+    .row.mb-4
+      .col-md-12
+        h1 Contactos
+    .row
+      .col-md-12
+        if contacts && contacts.length
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th(scope="col") Nombre
+                  th(scope="col") Email
+                  th(scope="col") Asunto
+                  th(scope="col") Estado
+                  th(scope="col") Fecha
+                  th(scope="col") Acciones
+              tbody.table-group-divider
+                each contact in contacts
+                  tr(class=contact.status === 'pending' ? 'table-warning' : '')
+                    td= contact.name
+                    td= contact.email
+                    td= contact.subject || '—'
+                    td
+                      if contact.status === 'pending'
+                        span.badge.bg-warning.text-dark Pendiente
+                      else if contact.status === 'read'
+                        span.badge.bg-info Leído
+                      else
+                        span.badge.bg-success Respondido
+                    td= contact.created_at ? new Date(contact.created_at).toLocaleDateString('es-ES') : '—'
+                    td
+                      a.btn.btn-sm.btn-outline-primary.me-1(href=`/dashboard/contacts/${contact.id}`) Ver
+                      form.d-inline(method="post" action=`/dashboard/contacts/${contact.id}/delete` onsubmit="return confirm('¿Eliminar este contacto?')")
+                        button.btn.btn-sm.btn-outline-danger(type="submit") Eliminar
+        else
+          p.text-secondary No hay mensajes de contacto.

@@ -22,7 +22,7 @@ renderer.image = ({ href, title, text }) => {
 
 marked.setOptions({ renderer });
 
-const sanitizeOptions = {
+/**const sanitizeOptions = {
   allowedTags: sanitizeHtml.defaults.allowedTags.concat([
     'img',
     'h1',
@@ -77,21 +77,21 @@ const sanitizeOptions = {
   },
   allowedIframeHostnames: ['www.youtube.com', 'www.youtube-nocookie.com'],
   allowedSchemes: ['http', 'https', 'mailto'],
-};
+};*/
 
 const parseMarkdown = (content) => {
-    return sanitizeHtml(marked.parse(content || ''), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'figure', 'figcaption']),
-        allowedAttributes: {
-            ...sanitizeHtml.defaults.allowedAttributes,
-            a: ['href', 'name', 'target', 'rel'],
-            img: ['src', 'alt', 'title', 'class', 'loading'],
-            figure: ['class'],
-            code: ['class']
-        }
-    });
+  return sanitizeHtml(marked.parse(content || ''), {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'figure', 'figcaption']),
+    allowedAttributes: {
+      ...sanitizeHtml.defaults.allowedAttributes,
+      a: ['href', 'name', 'target', 'rel'],
+      img: ['src', 'alt', 'title', 'class', 'loading'],
+      figure: ['class'],
+      code: ['class']
+    }
+  });
 };
 
 module.exports = {
-    parseMarkdown
+  parseMarkdown
 }

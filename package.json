@@ -4,18 +4,26 @@
   "description": "Blog de desarrollo",
   "main": "server.js",
   "scripts": {
-    "sass": "sass src/sass/main.scss:src/public/css/main.css && cp \"node_modules/bootstrap-icons/font/fonts/*\" src/public/fonts/",
+    "sass": "sass src/sass/main.scss:src/public/css/main.css && cp -r node_modules/bootstrap-icons/font/fonts src/public/",
+    "sass:prod": "sass --style=compressed src/sass/main.scss:src/public/css/main.css && cp -r node_modules/bootstrap-icons/font/fonts src/public/",
     "sass:watch": "sass --watch --quiet src/sass/main.scss:src/public/css/main.css",
     "build": "node build.js",
     "build:css": "npm run sass && npm run build",
+    "build:prod": "npm run sass:prod && npm run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "start": "concurrently \"npm run sass:watch\" \"nodemon\"",
-    "start:prod": "npm run build && node server.js"
+    "start:prod": "npm run build:prod && node server.js"
   },
   "author": "Matias Arevalo",
   "license": "ISC",
   "dependencies": {
+    "@google/genai": "^2.15.0",
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
+    "@sentry/node": "^10.69.0",
     "bcryptjs": "^3.0.3",
     "bootstrap-icons": "^1.13.1",
     "compression": "^1.8.1",
@@ -37,10 +45,16 @@
     "webpack": "^5.106.2"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@eslint/markdown": "^8.0.3",
     "bootstrap": "^5.3.8",
     "concurrently": "^9.2.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.7.0",
     "nodemon": "^3.1.14",
     "prisma": "^7.8.0",
-    "sass": "^1.99.0"
+    "sass": "^1.99.0",
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.10"
   }
 }

@@ -8,13 +8,13 @@ class UserRepository {
       const adminExists = await prisma.user.findFirst({ where: { role: 'admin' } });
       if (adminExists) return;
 
-      const adminEmail = process.env.ADMIN_EMAIL || 'admin@blog.com';
-      const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
-
-      if (process.env.NODE_ENV === 'production' && !process.env.ADMIN_PASSWORD) {
-        Logger.info('Default admin was not created because ADMIN_PASSWORD is missing');
+      if (!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD) {
+        Logger.info('Default admin was not created: ADMIN_EMAIL and ADMIN_PASSWORD must be set');
         return;
       }
+
+      const adminEmail = process.env.ADMIN_EMAIL;
+      const adminPassword = process.env.ADMIN_PASSWORD;
 
       const password_hash = await bcrypt.hash(adminPassword, 10);
       await prisma.user.create({
@@ -67,8 +67,9 @@ class UserRepository {
   async save(userData) {
     try {
       if (userData.id) {
-        const { id, password, ...updateData } = userData;
+        const { id, password, lastLogin, ...updateData } = userData;
         const data = { ...updateData };
+        if (lastLogin) data.last_login = new Date(lastLogin);
         if (password) {
           data.password_hash = await bcrypt.hash(password, 10);
         }

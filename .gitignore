@@ -3,6 +3,7 @@ dist/
 src/data/
 .DS_Store
 *.log
+logs/
 .env
 /src/generated/prisma
 .kilo

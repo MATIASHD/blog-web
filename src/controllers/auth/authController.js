@@ -91,6 +91,7 @@ const authController = {
         const decoded = jwtService.verifyRefreshToken(token);
         await jwtService.deleteSession(decoded.jti).catch(() => {});
       } catch {
+        console.log("error")
       }
     }
 
@@ -100,7 +101,7 @@ const authController = {
     req.session.destroy(() => {});
 
     if (req.accepts('html')) {
-      return res.redirect('/login');
+      return res.redirect('/');
     }
     res.json({ success: true });
   },

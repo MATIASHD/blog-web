@@ -1,7 +1,6 @@
 const githubService = require('../../services/github.service');
 const githubPostRepository = require('../../repositories/githubPost.repository');
 const postService = require('../../services/post.service');
-const markdownService = require('../../services/markdown.service');
 const { slugify } = require('../../utils/slugify');
 const Logger = require('../../utils/logger');
 

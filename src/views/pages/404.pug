@@ -1,9 +1,0 @@
-extends ../layouts/base.pug
-block content
-  .container.py-5
-    .row.justify-content-center.text-center
-      .col-lg-6
-        h1.display-1.text-primary.fw-bold 404
-        h2.mb-4= (lang === 'en' ? 'Page not found' : 'Página no encontrada')
-        p.text-secondary.mb-4= (lang === 'en' ? 'Sorry, the page you are looking for does not exist or has been moved.' : 'Lo sentimos, la página que buscás no existe o fue movida.')
-        a.btn.btn-primary.btn-lg.rounded-pill.px-5(href=langPrefix || '/es')= (lang === 'en' ? 'Back to home' : 'Volver al inicio')

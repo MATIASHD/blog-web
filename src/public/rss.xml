@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ArevDev Blog</title>
-    <link>https://arevdev.com</link>
-    <description>Blog de desarrollo</description>
-    <atom:link href="https://arevdev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <title>ArevDev</title>
+    <link>https://www.arevdev.com</link>
+    <description>Programación, tecnología y su impacto en la geopolítica y la economía.</description>
+    <atom:link href="https://www.arevdev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Sat, 01 Aug 2026 17:21:37 GMT</lastBuildDate>
     <language>es</language>
     <item>
       <title>How AI Is Transforming Software Development in 2026</title>
-      <link>https://arevdev.com/post/ai-future-development/</link>
-      <guid>https://arevdev.com/post/ai-future-development/</guid>
-      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+      <link>https://www.arevdev.com/post/ai-future-development/</link>
+      <guid isPermaLink="true">https://www.arevdev.com/post/ai-future-development/</guid>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
       <description>A practical look at how artificial intelligence is changing software engineering, productivity, testing, and application architecture.</description>
     </item>
     <item>
-      <title>Visual guide: every Markdown resource to test the blog</title>
-      <link>https://arevdev.com/post/full-markdown-guide/</link>
-      <guid>https://arevdev.com/post/full-markdown-guide/</guid>
-      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
-      <description>Reference article with headings, lists, tables, code, quotes, multimedia, safe HTML, and more.</description>
-    </item>
-    <item>
       <title>Guía visual: todos los recursos Markdown para probar el blog</title>
-      <link>https://arevdev.com/post/guia-markdown-completa/</link>
-      <guid>https://arevdev.com/post/guia-markdown-completa/</guid>
+      <link>https://www.arevdev.com/post/guia-markdown-completa/</link>
+      <guid isPermaLink="true">https://www.arevdev.com/post/guia-markdown-completa/</guid>
       <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
       <description>Artículo de referencia con encabezados, listas, tablas, código, citas, multimedia, HTML seguro y más.</description>
     </item>
     <item>
-      <title>Why the Webb telescope changed the way I look at the sky</title>
-      <link>https://arevdev.com/post/space-webb-telescope/</link>
-      <guid>https://arevdev.com/post/space-webb-telescope/</guid>
-      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
-      <description>A short tour of modern astronomy, with a real deep-space photo and an embedded video to understand what we are observing.</description>
+      <title>Visual guide: every Markdown resource to test the blog</title>
+      <link>https://www.arevdev.com/post/full-markdown-guide/</link>
+      <guid isPermaLink="true">https://www.arevdev.com/post/full-markdown-guide/</guid>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <description>Reference article with headings, lists, tables, code, quotes, multimedia, safe HTML, and more.</description>
     </item>
     <item>
       <title>Por qué el telescopio Webb cambió mi forma de mirar el cielo</title>
-      <link>https://arevdev.com/post/exploracion-espacio-webb/</link>
-      <guid>https://arevdev.com/post/exploracion-espacio-webb/</guid>
+      <link>https://www.arevdev.com/post/exploracion-espacio-webb/</link>
+      <guid isPermaLink="true">https://www.arevdev.com/post/exploracion-espacio-webb/</guid>
       <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
       <description>Un recorrido breve por la astronomía moderna, con imagen real del espacio profundo y un video para entender qué estamos observando.</description>
     </item>
     <item>
+      <title>Why the Webb telescope changed the way I look at the sky</title>
+      <link>https://www.arevdev.com/post/space-webb-telescope/</link>
+      <guid isPermaLink="true">https://www.arevdev.com/post/space-webb-telescope/</guid>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <description>A short tour of modern astronomy, with a real deep-space photo and an embedded video to understand what we are observing.</description>
+    </item>
+    <item>
       <title>Bienvenida al blog de ArevDev</title>
-      <link>https://arevdev.com/post/bienvenida-blog/</link>
-      <guid>https://arevdev.com/post/bienvenida-blog/</guid>
+      <link>https://www.arevdev.com/post/bienvenida-blog/</link>
+      <guid isPermaLink="true">https://www.arevdev.com/post/bienvenida-blog/</guid>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
       <description>Primer artículo en español con el modelo de datos unificado del blog.</description>
     </item>

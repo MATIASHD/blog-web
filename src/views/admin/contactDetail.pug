@@ -1,0 +1,13 @@
+extends ../layouts/admin-layout
+block content
+  .container.py-5
+    .row.mb-4
+      .col-md-12
+        if contact
+          div.border.rounded-4.p-3
+            span.detail.text-body-tertiary.figure-caption= contact.created_at ? new Date(contact.created_at).toLocaleString('es-ES') : '—'
+            h1.fs-main-title= contact.subject
+            p= contact.message 
+            p.figure-caption= contact.name 
+        else
+          p Contacto no encontrado.

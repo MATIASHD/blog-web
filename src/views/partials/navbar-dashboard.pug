@@ -1,4 +1,4 @@
-nav.navbar.navbar-expand-lg.bg-body-tertiary
+nav.navbar.navbar-expand-lg.bg-body-tertiary.font-base
     .container-fluid
         a.figure-caption.navbar-brand(href="/dashboard") Dashboard
         button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation") 
@@ -10,9 +10,12 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary
                 li.nav-item
                     a.nav-link.figure-caption(href="/dashboard/posts") Publicaciones
                 li.nav-item
-                    a.nav-link.figure-caption(href="/dashboard/media") Multimedia
+                    a.nav-link.figure-caption(href="/dashboard/contacts") Contactos
                 li.nav-item
-                    a.nav-link.figure-caption(href="/dashboard/settings") Configuración
+                    a.nav-link.figure-caption(href="/dashboard/subscribers") Suscriptores
+                li.nav-item
+                    a.nav-link.figure-caption(href="/dashboard/media") Multimedia
+            ul.navbar-nav.ms-auto
                 li.nav-item
                     form.d-inline(action="/api/auth/logout" method="post")
-                        button.nav-link.figure-caption.btn.btn-link(type="submit" style="border:none;background:none;") Cerrar sesión
+                        a.nav-link.figure-caption(type="submit" href="/") Cerrar sesión

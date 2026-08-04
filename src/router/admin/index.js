@@ -28,4 +28,13 @@ router.post('/media/upload', upload.single('file'), adminController.uploadMedia)
 router.post('/media/update', adminController.updateMedia);
 router.post('/media/delete', adminController.deleteMedia);
 
+router.get('/contacts', adminController.contacts);
+router.get('/contacts/:id', adminController.contactDetail);
+router.post('/contacts/:id/reply', adminController.contactReply);
+router.post('/contacts/:id/delete', adminController.contactDelete);
+
+router.get('/subscribers', adminController.subscribers);
+router.post('/subscribers/:email/delete', adminController.subscriberDelete);
+router.get('/subscribers/export', adminController.subscriberExport);
+
 module.exports = router;

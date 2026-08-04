@@ -22,6 +22,8 @@ block content
               p.card-description.text-body-secondary.mb-4 Un boletín asíncrono diseñado para ingenieros de software que aprecian el análisis riguroso por encima de los titulares llamativos. Una lectura pausada para dominar los procesos a nivel fábrica y el IoT.
               if mensaje
                 .alert.alert-success= mensaje
+              if error
+                .alert.alert-danger= error
               include ../components/formularioDeNewsletter.pug
               +formularioDeNewsletter("tu@email.com", "Suscribirse")
               small.lead.text-muted.font-size-obsevation Honestidad radical: Una entrega por semana. Sin rastreadores de clics, publicidad cruzada, ni contenido de relleno. Cancelación con un solo clic.

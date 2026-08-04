@@ -4,7 +4,7 @@ const matter = require('gray-matter');
 const { CONTENT_PATH } = require('../utils/constants');
 const Logger = require('../utils/logger');
 
-const contentPath = path.join(process.cwd(), CONTENT_PATH, 'en');
+const contentPath = path.join(process.cwd(), CONTENT_PATH, 'es');
 
 class PostRepository {
   getAll() {

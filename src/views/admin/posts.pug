@@ -7,34 +7,12 @@ block content
         .row.mb-4
             .col-md-12.mb-3
                 .btn-group
-                    a.btn.btn-primary(href="#", data-bs-toggle="modal", data-bs-target="#newPostModal") Nuevo
-        .row
-            .col-md-12
+                    a.btn.btn-primary(href="/admin/posts/new") Nuevo
+                    button.btn.btn-primary(id="editSelectedBtn" disabled) Editar
+                    button.btn.btn-primary(id="deleteSelectedBtn" disabled) Eliminar
+            .col-md-12.mb-3
                 if posts && posts.length > 0
-                    .table-responsive
-                        table.table.align-middle
-                            thead
-                                tr
-                                    th Título
-                                    th Categoría
-                                    th Fecha
-                                    th Estado
-                                    th
-                            tbody
-                                each post in posts
-                                    tr
-                                        td= post.title
-                                        td= post.category || '-'
-                                        td= post.date ? new Date(post.date).toLocaleDateString() : '-'
-                                        td
-                                            if post.draft
-                                                span.badge.bg-warning Borrador
-                                            else
-                                                span.badge.bg-success Publicado
-                                        td.text-end
-                                            a.btn.btn-sm.btn-outline-secondary.me-2(href=`/dashboard/posts/${post.slug}/edit`) Editar
-                                            form(method="POST" action=`/dashboard/posts/${post.slug}/delete` style="display:inline" onsubmit="return confirm('¿Eliminar este post?')")
-                                                button.btn.btn-sm.btn-outline-danger(type="submit") Eliminar
-                                            a.btn.btn-sm.btn-outline-primary.ms-2(href=`/post/${post.slug}` target="_blank") Ver
+                    include ../components/table.pug
+                    +table(['Titulo', 'Categoria', 'Fecha', 'Estado'], posts.map(post => [post.title, post.category || '-', post.date || '-', post.draft ? `Borrador` : `Publicado` ]), 4)
                 else
-                    p.text-secondary No hay publicaciones.
+                    p No hay publicaciones todavia.

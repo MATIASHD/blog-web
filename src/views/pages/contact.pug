@@ -1,5 +1,4 @@
 extends ../layouts/base.pug
-
 block content
   .container
     .row
@@ -9,5 +8,7 @@ block content
           p.text-body-secondary.card-description.mb-5 Si tienes alguna pregunta, sugerencia o simplemente quieres saludar, completa el formulario.
           if mensaje
             .alert.alert-success= mensaje
+          if error
+            .alert.alert-danger= error
           include ../components/contactForm.pug
           +contactForm()

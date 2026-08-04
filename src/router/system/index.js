@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Rutas de sistema
 router.get('/healthcheck', (req, res) => {
-    res.json({ status: 'ok' });
+  res.json({ status: 'ok' });
 });
 
 // TODO: Implementar routers de sistema

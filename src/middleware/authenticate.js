@@ -36,6 +36,7 @@ const authenticate = async (req, res, next) => {
       return next();
     }
   } catch {
+    console.log("VER LOS QUE DEBO PONER")
   }
 
   res.clearCookie(config.cookie.access.name, config.cookie.access);

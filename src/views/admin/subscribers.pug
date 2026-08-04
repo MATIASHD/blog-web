@@ -1,0 +1,34 @@
+extends ../layouts/admin-layout
+block content
+  .container.py-5
+    .row.mb-4
+      .col-md-12.d-flex.justify-content-between.align-items-center
+        h1.mb-0 Suscriptores Newsletter
+        a.btn.btn-success(href="/dashboard/subscribers/export") Exportar CSV
+    .row
+      .col-md-12
+        if subscribers && subscribers.length
+          table.table 
+            thead 
+              tr 
+                th(scope="col") Email
+                th(scope="col") Estado
+                th(scope="col") Fecha de suscripción
+                th(scope="col") Acciones
+            tbody.table-group-divider
+              each sub in subscribers
+                tr
+                  td(scope="row")= sub.email
+                  td
+                    if sub.status === 'active'
+                      span.badge.bg-success Activo
+                    else if sub.status === 'pending'
+                      span.badge.bg-warning.text-dark Pendiente
+                    else
+                      span.badge.bg-secondary Desuscrito
+                  td= sub.created_at ? new Date(sub.created_at).toLocaleDateString('es-ES') : '—'
+                  td
+                    form.d-inline(method="post" action=`/dashboard/subscribers/${sub.email}/delete` onsubmit="return confirm('¿Eliminar este suscriptor?')")
+                      button.btn.btn-sm.btn-outline-danger(type="submit") Eliminar
+        else
+          p.text-secondary No hay suscriptores.

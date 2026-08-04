@@ -10,6 +10,22 @@ class GithubService {
     this.publishedPath = process.env.GITHUB_PUBLISHED_PATH || 'publicaciones';
     this.draftsPath = process.env.GITHUB_DRAFTS_PATH || 'borradores';
     this._enabled = !!(this.token && this.owner && this.repo);
+    this._cache = new Map();
+    this._cacheTTL = 5 * 60 * 1000;
+  }
+
+  _getCached(key) {
+    const entry = this._cache.get(key);
+    if (!entry) return null;
+    if (Date.now() - entry.timestamp > this._cacheTTL) {
+      this._cache.delete(key);
+      return null;
+    }
+    return entry.data;
+  }
+
+  _setCache(key, data) {
+    this._cache.set(key, { data, timestamp: Date.now() });
   }
 
   get enabled() {
@@ -107,6 +123,7 @@ class GithubService {
       }
 
       const result = await this._apiRequest('PUT', filePath, body);
+      this._cache.delete('allPosts');
       return { success: true, path: filePath, sha: result && result.content ? result.content.sha : null };
     } catch (error) {
       Logger.error(`GitHub saveFile error: ${filePath}`, error);
@@ -128,6 +145,7 @@ class GithubService {
       };
 
       await this._apiRequest('DELETE', filePath, body);
+      this._cache.delete('allPosts');
       return true;
     } catch (error) {
       Logger.error(`GitHub deleteFile error: ${filePath}`, error);
@@ -138,33 +156,42 @@ class GithubService {
   async getAllPosts() {
     if (!this.enabled) return [];
 
-    const published = await this.listFiles(this.publishedPath);
-    const drafts = await this.listFiles(this.draftsPath);
+    const cached = this._getCached('allPosts');
+    if (cached) return cached;
+
+    const [published, drafts] = await Promise.all([
+      this.listFiles(this.publishedPath),
+      this.listFiles(this.draftsPath)
+    ]);
 
     const allFiles = [
       ...published.map(f => ({ ...f, draft: false, sourcePath: this.publishedPath })),
       ...drafts.map(f => ({ ...f, draft: true, sourcePath: this.draftsPath }))
     ];
 
-    const posts = [];
-    for (const file of allFiles) {
-      const data = await this.getFileContent(`${file.sourcePath}/${file.name}`);
-      if (data) {
-        const matter = this._parseFrontmatter(data.content);
-        if (matter) {
-          posts.push({
-            ...matter.data,
-            slug: file.name.replace('.md', ''),
-            content: matter.content,
-            draft: file.draft,
-            githubPath: `${file.sourcePath}/${file.name}`,
-            sha: data.sha
-          });
-        }
-      }
-    }
+    const results = await Promise.all(
+      allFiles.map(file =>
+        this.getFileContent(`${file.sourcePath}/${file.name}`)
+          .then(data => {
+            if (!data) return null;
+            const matter = this._parseFrontmatter(data.content);
+            if (!matter) return null;
+            return {
+              ...matter.data,
+              slug: file.name.replace('.md', ''),
+              content: matter.content,
+              draft: file.draft,
+              githubPath: `${file.sourcePath}/${file.name}`,
+              sha: data.sha
+            };
+          })
+      )
+    );
 
-    return posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+    const posts = results.filter(Boolean);
+    posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+    this._setCache('allPosts', posts);
+    return posts;
   }
 
   async getPostBySlug(slug) {

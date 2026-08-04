@@ -46,6 +46,7 @@ model User {
   role              UserRole @default(reader)
   is_active         Boolean  @default(true)
   email_verified_at DateTime?
+  last_login        DateTime?
   created_at        DateTime @default(now())
   updated_at        DateTime @default(now()) @updatedAt
 

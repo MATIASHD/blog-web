@@ -21,21 +21,17 @@ block content
         .row.g-4 
             .col-lg-8 
                 .chart-card 
-                    h4 Posts recientes
                     if stats && stats.recentPosts && stats.recentPosts.length
                         ul.list-group
-                            each post in stats.recentPosts
-                                li.list-group-item.d-flex.justify-content-between
-                                    span= post.title
-                                    a(href=`/blog/${post.slug}`) Ver
+                            include ../components/table.pug
+                            +table(['Posts recientes'], stats.recentPosts.map(post => [post.title]), 1)
                     else
                         p.text-secondary No hay posts cargados.
             .col-lg-4 
                 .popular-posts 
-                    h4 Contactos recientes
                     if stats && stats.recentContacts && stats.recentContacts.length
                         ul.list-group
-                            each contact in stats.recentContacts
-                                li.list-group-item= contact.email
+                            include ../components/table.pug
+                            +table(['Contactos recientes'], stats.recentContacts.map(contact => [contact.email]), 1)
                     else
                         p.text-secondary No hay mensajes.

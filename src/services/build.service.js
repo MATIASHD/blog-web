@@ -6,7 +6,7 @@ const MarkdownIt = require('markdown-it');
 const sanitizeHtml = require('sanitize-html');
 const pug = require('pug');
 const Logger = require('../utils/logger');
-const { generateSitemap, generateRssFeed } = require('./feedService');
+const { generateSitemap, generateRssFeed } = require('./feedservice');
 
 const ROOT = process.cwd();
 const CONTENT_DIR = path.join(ROOT, 'src', 'content');
@@ -243,73 +243,16 @@ function build() {
   } catch (err) {
     Logger.error('Build: Failed rendering index', err.message);
   }
+
+  try {
+    generateSitemap(posts, OUTPUT_DIR);
+    generateRssFeed(posts, OUTPUT_DIR);
+    Logger.info('Build: sitemap.xml and rss.xml generated');
+  } catch (err) {
+    Logger.error('Build: Failed generating sitemap/rss', err.message);
+  }
+
   Logger.info('=== Build completed ===');
-}
-
-async function runBuild(){
-  pullLatestContent();
-  const articles = parseAllArticles();
-  for (const article of articles) {
-    await upsertArticle(article);
-    renderStaticArticle(article);
-  }
-  renderStaticIndex(articles);
-
-  generateSitemap(articles, STATIC_OUTPUT_PATH);
-  generateRssFeed(articles, STATIC_OUTPUT_PATH);
-
-  console.log(`[Build] Listo. ${articles.length} artículos procesados.`);
-}
-
-function buildSitemap(posts) {
-  const baseUrl = process.env.SITE_URL || 'https://arevdev.com';
-  const lines = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    `  <url><loc>${baseUrl}/</loc><priority>1.0</priority></url>`,
-    `  <url><loc>${baseUrl}/about</loc><priority>0.8</priority></url>`,
-    `  <url><loc>${baseUrl}/contact</loc><priority>0.6</priority></url>`,
-  ];
-
-  for (const post of posts) {
-    const lastmod = post.date ? new Date(post.date).toISOString().split('T')[0] : '';
-    lines.push(`  <url><loc>${baseUrl}/post/${post.slug}/</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}<priority>0.9</priority></url>`);
-  }
-
-  lines.push('</urlset>');
-  fs.writeFileSync(path.join(OUTPUT_DIR, 'sitemap.xml'), lines.join('\n'), 'utf-8');
-  Logger.info('Build: sitemap.xml generated');
-}
-
-function buildRss(posts) {
-  const baseUrl = process.env.SITE_URL || 'https://arevdev.com';
-  const lines = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
-    '  <channel>',
-    '    <title>ArevDev Blog</title>',
-    '    <link>' + baseUrl + '</link>',
-    '    <description>Blog de desarrollo</description>',
-    '    <atom:link href="' + baseUrl + '/rss.xml" rel="self" type="application/rss+xml"/>',
-    '    <language>es</language>',
-  ];
-
-  for (const post of posts.slice(0, 20)) {
-    const pubDate = post.date ? new Date(post.date).toUTCString() : '';
-    const description = (post.description || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    lines.push('    <item>');
-    lines.push(`      <title>${(post.title || '').replace(/&/g, '&amp;')}</title>`);
-    lines.push(`      <link>${baseUrl}/post/${post.slug}/</link>`);
-    lines.push(`      <guid>${baseUrl}/post/${post.slug}/</guid>`);
-    if (pubDate) lines.push(`      <pubDate>${pubDate}</pubDate>`);
-    if (description) lines.push(`      <description>${description}</description>`);
-    lines.push('    </item>');
-  }
-
-  lines.push('  </channel>');
-  lines.push('</rss>');
-  fs.writeFileSync(path.join(OUTPUT_DIR, 'rss.xml'), lines.join('\n'), 'utf-8');
-  Logger.info('Build: rss.xml generated');
 }
 
 module.exports = { build };

@@ -1,14 +1,45 @@
+- var _siteUrl = siteUrl || 'https://arevdev.com'
+- var _currentUrl = _siteUrl + (req ? req.originalUrl : '/')
+- var _ogImage = (post && post.image ? post.image : '/images/default-og.png')
+- var _ogDesc = (post && post.seoDescription ? post.seoDescription : (description || 'Blog de tecnología y desarrollo'))
+- var _ogTitle = title || 'Blog'
+- var _isArticle = post ? true : false
+
 doctype html
 html(lang=lang || 'es')
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="description" content=_ogDesc)
         link(rel="icon" href="icons/favicon.ico")
-        title #{title || 'Mi blog'}
-        if post && post.seoDescription
-            meta(name="description" content=post.seoDescription)
-        else if description
-            meta(name="description" content=description)
+        link(rel="canonical" href=_currentUrl)
+        if analytics && analytics.id
+            if analytics.provider === 'google'
+                script(async src="https://www.googletagmanager.com/gtag/js?id=" + analytics.id)
+                script.
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '#{analytics.id}');
+            else if analytics.provider === 'plausible'
+                script(defer data-domain=analytics.id src=analytics.url || 'https://plausible.io/js/script.js')
+            else if analytics.provider === 'umami'
+                script(defer data-website-id=analytics.id src=analytics.url || 'https://analytics.umami.is/script.js')
+
+        meta(property="og:title" content=_ogTitle)
+        meta(property="og:description" content=_ogDesc)
+        meta(property="og:image" content=_ogImage)
+        meta(property="og:url" content=_currentUrl)
+        meta(property="og:type" content=_isArticle ? "article" : "website")
+        meta(property="og:site_name" content="Arevdev")
+
+        meta(name="twitter:card" content="summary_large_image")
+        meta(name="twitter:title" content=_ogTitle)
+        meta(name="twitter:description" content=_ogDesc)
+        meta(name="twitter:image" content=_ogImage)
+        meta(name="twitter:site" content="@arevdev")
+
+        title #{title || 'Blog'}
         link(rel="stylesheet" href="/css/main.css")
     body
         include ../partials/navbar.pug
